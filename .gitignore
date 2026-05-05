@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+node_modules/
+dist/
+release*/
+fixtures/lmu/**/*.duckdb
+fixtures/lmu/**/*.duckdb.wal
+!fixtures/lmu/corrupt/broken.duckdb
+!fixtures/lmu/**/README.md

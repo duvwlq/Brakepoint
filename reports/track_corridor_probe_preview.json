@@ -1,0 +1,1356 @@
+{
+  "generatedAt": "2026-05-04T13:34:03.224542+00:00",
+  "sessionsScanned": 5,
+  "lapsScanned": 30,
+  "sessions": [
+    {
+      "sessionId": "lmu-877d18c4cdf06bcd",
+      "fileName": "Sebring International Raceway_R_2026-05-03T14_09_58Z.duckdb",
+      "trackName": "Sebring International Raceway",
+      "trackLayout": "Sebring School Circuit",
+      "carName": "Heart of Racing Team 2025 #27:LM",
+      "sessionType": "race",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "lapTimeMs": 74736,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 748,
+            "maxDistanceM": 3080.968994140625,
+            "bboxWidth": 1131.5046548037262,
+            "bboxHeight": 566.3117218017578,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 748,
+            "min": -10.807212829589844,
+            "max": 9.718742370605469,
+            "mean": -1.8963901375440313,
+            "variance": 16.65329143068715,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 748,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -2.7179531942714346,
+            "variance": 65.39053812465559,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "lapTimeMs": 67054,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 670,
+            "maxDistanceM": 3077.68994140625,
+            "bboxWidth": 1133.8636689424607,
+            "bboxHeight": 565.0466918945312,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 670,
+            "min": -10.08508586883545,
+            "max": 7.655311107635498,
+            "mean": -0.44592223107369977,
+            "variance": 16.05696555953558,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 670,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.3778074720012608,
+            "variance": 70.46340795618714,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "lapTimeMs": 67436,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 675,
+            "maxDistanceM": 3081.555419921875,
+            "bboxWidth": 1129.6031326887803,
+            "bboxHeight": 564.6250152587891,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 675,
+            "min": -8.446173667907715,
+            "max": 8.586116790771484,
+            "mean": -0.3115423493804755,
+            "variance": 18.13920879852907,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 675,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.09420888724150481,
+            "variance": 71.88768807449426,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-4",
+          "lapNumber": 4,
+          "lapTimeMs": 66351,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 663,
+            "maxDistanceM": 3078.510498046875,
+            "bboxWidth": 1130.052057569363,
+            "bboxHeight": 565.4683685302734,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 663,
+            "min": -10.257838249206543,
+            "max": 8.694009780883789,
+            "mean": -0.6343210099621776,
+            "variance": 20.037862450204162,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 663,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.4611327328113769,
+            "variance": 72.2369578299954,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-5",
+          "lapNumber": 5,
+          "lapTimeMs": 66024,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 660,
+            "maxDistanceM": 3077.06005859375,
+            "bboxWidth": 1131.7038390488706,
+            "bboxHeight": 565.0466918945312,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -10.151568412780762,
+            "max": 9.634456634521484,
+            "mean": -0.7448236387561668,
+            "variance": 19.526081617616693,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.7394484881198767,
+            "variance": 71.2425440667404,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-6",
+          "lapNumber": 6,
+          "lapTimeMs": 66013,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 660,
+            "maxDistanceM": 3076.28076171875,
+            "bboxWidth": 1130.4469826277725,
+            "bboxHeight": 565.0466918945312,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -9.129814147949219,
+            "max": 8.276777267456055,
+            "mean": -0.560621859020356,
+            "variance": 18.264791588371438,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.6535606131409154,
+            "variance": 70.64457551916949,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-7",
+          "lapNumber": 7,
+          "lapTimeMs": 65345,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 654,
+            "maxDistanceM": 3079.55810546875,
+            "bboxWidth": 1133.0087280946689,
+            "bboxHeight": 565.0466918945312,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 654,
+            "min": -10.252126693725586,
+            "max": 8.089594841003418,
+            "mean": -0.6817110087608617,
+            "variance": 17.671525180266595,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 654,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.5887645297094223,
+            "variance": 71.46415628946818,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-85d424bc6cb40098",
+      "fileName": "Circuit de Spa-Francorchamps_R_2026-05-01T11_47_33Z.duckdb",
+      "trackName": "Circuit de Spa-Francorchamps",
+      "trackLayout": "Circuit de Spa-Francorchamps",
+      "carName": "The Bend Team WRT 2025 #31:LM",
+      "sessionType": "race",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "lapTimeMs": 158481,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1585,
+            "maxDistanceM": 6978.0927734375,
+            "bboxWidth": 1266.65580740254,
+            "bboxHeight": 2015.6143188476562,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1585,
+            "min": -7.052708148956299,
+            "max": 8.598259925842285,
+            "mean": 0.20054055825580933,
+            "variance": 9.628758479874731,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1585,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": 0.5276365844233178,
+            "variance": 33.431987893587404,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "lapTimeMs": 149567,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1495,
+            "maxDistanceM": 6974.6044921875,
+            "bboxWidth": 1266.120145413217,
+            "bboxHeight": 2018.1443786621094,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1495,
+            "min": -8.065521240234375,
+            "max": 6.796990394592285,
+            "mean": -0.05915028220634397,
+            "variance": 10.92115997844142,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1495,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.16055920195818746,
+            "variance": 31.576965760196597,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "lapTimeMs": 149825,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1499,
+            "maxDistanceM": 6978.5263671875,
+            "bboxWidth": 1266.4351007342107,
+            "bboxHeight": 2018.5660552978516,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1499,
+            "min": -8.735306739807129,
+            "max": 7.190164566040039,
+            "mean": -0.13794071472599714,
+            "variance": 11.032719742169954,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1499,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.34226017335480735,
+            "variance": 31.1903538042793,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-4",
+          "lapNumber": 4,
+          "lapTimeMs": 149928,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1499,
+            "maxDistanceM": 6977.09814453125,
+            "bboxWidth": 1264.560486631186,
+            "bboxHeight": 2018.5660552978516,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1499,
+            "min": -8.676106452941895,
+            "max": 8.38748836517334,
+            "mean": -0.003179710186903599,
+            "variance": 11.618611251902799,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1499,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.08347832114796705,
+            "variance": 31.24352750523822,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-5",
+          "lapNumber": 5,
+          "lapTimeMs": 151693,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1517,
+            "maxDistanceM": 6977.46240234375,
+            "bboxWidth": 1265.707383821436,
+            "bboxHeight": 2018.5660552978516,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1517,
+            "min": -8.833022117614746,
+            "max": 8.601346969604492,
+            "mean": -0.15136611547588752,
+            "variance": 11.552763468625015,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1517,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.3276796364517061,
+            "variance": 30.92995038695673,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-6",
+          "lapNumber": 6,
+          "lapTimeMs": 156284,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1563,
+            "maxDistanceM": 6978.2783203125,
+            "bboxWidth": 1265.7165739670327,
+            "bboxHeight": 2019.8310852050781,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1563,
+            "min": -11.549420356750488,
+            "max": 8.515175819396973,
+            "mean": 0.03970185984986681,
+            "variance": 11.632562575629699,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1563,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": 0.05758220571321474,
+            "variance": 30.85298338187188,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-7",
+          "lapNumber": 7,
+          "lapTimeMs": 155042,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1550,
+            "maxDistanceM": 6976.107421875,
+            "bboxWidth": 1267.3161491658143,
+            "bboxHeight": 2016.8793487548828,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1550,
+            "min": -8.24846076965332,
+            "max": 8.734869003295898,
+            "mean": -0.4057110941986884,
+            "variance": 10.73877820266191,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1550,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.706561294371082,
+            "variance": 30.177429041955453,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-8",
+          "lapNumber": 8,
+          "lapTimeMs": 180835,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1808,
+            "maxDistanceM": 6974.48291015625,
+            "bboxWidth": 1266.2183394828357,
+            "bboxHeight": 2016.0359954833984,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1808,
+            "min": -10.432019233703613,
+            "max": 9.020598411560059,
+            "mean": 0.11067611787600064,
+            "variance": 13.523028225948304,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1808,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": 0.29486005733498427,
+            "variance": 31.078303910970103,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-97ebeed4bb6121e1",
+      "fileName": "Fuji Speedway_R_2026-05-03T07_10_32Z.duckdb",
+      "trackName": "Fuji Speedway",
+      "trackLayout": "Fuji Speedway",
+      "carName": "The Bend Team WRT 2025 #31:LM",
+      "sessionType": "race",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "lapTimeMs": 138449,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1385,
+            "maxDistanceM": 4530.43408203125,
+            "bboxWidth": 1292.2003150783817,
+            "bboxHeight": 1266.294937133789,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1385,
+            "min": -33.64109420776367,
+            "max": 8.726333618164062,
+            "mean": -3.2906359819110333,
+            "variance": 91.53021911426517,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1385,
+            "min": -11.315000534057617,
+            "max": 9.75,
+            "mean": -0.28128880800322936,
+            "variance": 63.74934139003819,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "lapTimeMs": 109494,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1095,
+            "maxDistanceM": 4530.81787109375,
+            "bboxWidth": 1273.0802588995261,
+            "bboxHeight": 1255.3313446044922,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1095,
+            "min": -8.809597969055176,
+            "max": 12.352148056030273,
+            "mean": -0.47795827022698373,
+            "variance": 17.856503957252855,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1095,
+            "min": -11.315000534057617,
+            "max": 9.47499942779541,
+            "mean": -1.2692748827477025,
+            "variance": 55.84824075119559,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "lapTimeMs": 112816,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1128,
+            "maxDistanceM": 4529.7841796875,
+            "bboxWidth": 1271.2628252645688,
+            "bboxHeight": 1255.3313446044922,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1128,
+            "min": -7.952823638916016,
+            "max": 7.467754364013672,
+            "mean": -0.4474786879281771,
+            "variance": 16.509390960581587,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1128,
+            "min": -11.315000534057617,
+            "max": 9.47499942779541,
+            "mean": -1.155095748444821,
+            "variance": 54.42759151975294,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-4",
+          "lapNumber": 4,
+          "lapTimeMs": 109049,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1091,
+            "maxDistanceM": 4533.0283203125,
+            "bboxWidth": 1280.7850463235004,
+            "bboxHeight": 1265.4515838623047,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1091,
+            "min": -12.795954704284668,
+            "max": 6.9152069091796875,
+            "mean": -1.7328435116328853,
+            "variance": 20.43256669640052,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1091,
+            "min": -11.315000534057617,
+            "max": 9.875,
+            "mean": -2.7455352814671756,
+            "variance": 52.71700134852641,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-5",
+          "lapNumber": 5,
+          "lapTimeMs": 106441,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1064,
+            "maxDistanceM": 4530.39208984375,
+            "bboxWidth": 1271.0094210297839,
+            "bboxHeight": 1256.1746978759766,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1064,
+            "min": -9.185486793518066,
+            "max": 8.214924812316895,
+            "mean": -0.6173993354257112,
+            "variance": 17.62313092701894,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1064,
+            "min": -11.315000534057617,
+            "max": 9.875,
+            "mean": -1.4497095808050686,
+            "variance": 54.53105833528728,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-6",
+          "lapNumber": 6,
+          "lapTimeMs": 108341,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1083,
+            "maxDistanceM": 4527.7578125,
+            "bboxWidth": 1271.6185754593935,
+            "bboxHeight": 1258.2830810546875,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1083,
+            "min": -10.018901824951172,
+            "max": 7.636399269104004,
+            "mean": -0.9291304154072166,
+            "variance": 16.177154685231145,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1083,
+            "min": -11.315000534057617,
+            "max": 9.875,
+            "mean": -1.6054487514583908,
+            "variance": 54.11831529822669,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-7",
+          "lapNumber": 7,
+          "lapTimeMs": 106296,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1063,
+            "maxDistanceM": 4528.00634765625,
+            "bboxWidth": 1273.8273413665622,
+            "bboxHeight": 1255.3313446044922,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1063,
+            "min": -8.678187370300293,
+            "max": 7.611983299255371,
+            "mean": -0.7082848011753465,
+            "variance": 16.82221580715584,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1063,
+            "min": -11.315000534057617,
+            "max": 9.47499942779541,
+            "mean": -1.4199501330966895,
+            "variance": 54.39273097106091,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-8",
+          "lapNumber": 8,
+          "lapTimeMs": 107026,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1071,
+            "maxDistanceM": 4532.81005859375,
+            "bboxWidth": 1272.4714147531595,
+            "bboxHeight": 1255.7530212402344,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1071,
+            "min": -11.176800727844238,
+            "max": 6.543057918548584,
+            "mean": -0.5337566917224759,
+            "variance": 15.784735301241648,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1071,
+            "min": -11.315000534057617,
+            "max": 9.899999618530273,
+            "mean": -1.114716146061289,
+            "variance": 54.579776256312535,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-9",
+          "lapNumber": 9,
+          "lapTimeMs": 106680,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1066,
+            "maxDistanceM": 4527.59130859375,
+            "bboxWidth": 1272.9497383830217,
+            "bboxHeight": 1254.90966796875,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1066,
+            "min": -9.683694839477539,
+            "max": 8.553446769714355,
+            "mean": -0.649196224475863,
+            "variance": 17.732988090086717,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1066,
+            "min": -11.315000534057617,
+            "max": 9.75,
+            "mean": -1.359589115092723,
+            "variance": 55.07178474830761,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-10",
+          "lapNumber": 10,
+          "lapTimeMs": 115998,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1160,
+            "maxDistanceM": 4527.77294921875,
+            "bboxWidth": 1271.3878435556076,
+            "bboxHeight": 1250.6929016113281,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1160,
+            "min": -17.412508010864258,
+            "max": 11.106400489807129,
+            "mean": -1.0489037848880578,
+            "variance": 20.672744517147954,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1160,
+            "min": -11.315000534057617,
+            "max": 9.899999618530273,
+            "mean": -1.7463172501531141,
+            "variance": 56.970275541573734,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-11",
+          "lapNumber": 11,
+          "lapTimeMs": 107422,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1075,
+            "maxDistanceM": 4532.76904296875,
+            "bboxWidth": 1278.1687239181028,
+            "bboxHeight": 1258.7047576904297,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1075,
+            "min": -10.716193199157715,
+            "max": 7.194847106933594,
+            "mean": -0.7381910448850587,
+            "variance": 16.294029762326108,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1075,
+            "min": -11.315000534057617,
+            "max": 9.47499942779541,
+            "mean": -2.0538976687054302,
+            "variance": 54.95596543110725,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-12",
+          "lapNumber": 12,
+          "lapTimeMs": 107593,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1076,
+            "maxDistanceM": 4533.2099609375,
+            "bboxWidth": 1271.751301716623,
+            "bboxHeight": 1255.7530212402344,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1076,
+            "min": -8.073034286499023,
+            "max": 7.27294921875,
+            "mean": -0.5134118383985746,
+            "variance": 15.42691602649724,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1076,
+            "min": -11.315000534057617,
+            "max": 9.75,
+            "mean": -1.1895529700920928,
+            "variance": 54.67092302956654,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-74aa74709f6a71b1",
+      "fileName": "Autodromo Nazionale Monza_R_2026-05-01T13_00_15Z.duckdb",
+      "trackName": "Autodromo Nazionale Monza",
+      "trackLayout": "Autodromo Nazionale Monza",
+      "carName": "The Bend Team WRT 2025 #31:LM",
+      "sessionType": "race",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "lapTimeMs": 124582,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1246,
+            "maxDistanceM": 5776.12060546875,
+            "bboxWidth": 1256.1214603135802,
+            "bboxHeight": 2153.9242553710938,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1246,
+            "min": -5.342837810516357,
+            "max": 7.397542953491211,
+            "mean": 0.18457547801862176,
+            "variance": 8.222536263392655,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1246,
+            "min": -7.325000286102295,
+            "max": 7.650000095367432,
+            "mean": 0.2670409201044906,
+            "variance": 27.12370725806116,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "lapTimeMs": 116592,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1166,
+            "maxDistanceM": 5776.63916015625,
+            "bboxWidth": 1258.2599132532057,
+            "bboxHeight": 2155.1892852783203,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1166,
+            "min": -5.41580867767334,
+            "max": 7.809534072875977,
+            "mean": 0.06693176951221036,
+            "variance": 8.76847177889594,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1166,
+            "min": -7.325000286102295,
+            "max": 7.650000095367432,
+            "mean": -0.03590566891135319,
+            "variance": 26.666696517395458,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "lapTimeMs": 115480,
+          "isValid": true,
+          "racingLine": {
+            "pointCount": 1155,
+            "maxDistanceM": 5777.88037109375,
+            "bboxWidth": 1258.2870132905932,
+            "bboxHeight": 2155.6109619140625,
+            "coordinateSource": "gps-lat-lon",
+            "coordinateUnit": "projected-meter"
+          },
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1155,
+            "min": -5.928870677947998,
+            "max": 6.5233988761901855,
+            "mean": -0.07264815548604185,
+            "variance": 8.964834805567149,
+            "distanceAligned": true,
+            "confidence": "medium",
+            "reason": "Path Lateral crosses both negative and positive values, which suggests lateral offset semantics."
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1155,
+            "min": -7.325000286102295,
+            "max": 7.650000095367432,
+            "mean": -0.18250304094124667,
+            "variance": 26.848750276599656,
+            "distanceAligned": true,
+            "confidence": "low",
+            "reason": "Track Edge exists, but value range does not yet support a stable physical interpretation."
+          },
+          "corridorFeasibility": {
+            "verdict": "estimated-only",
+            "canInferLeftRightEdges": false,
+            "canInferTrackWidth": false,
+            "canPlaceCarWithinTrackWidth": true,
+            "reason": "Path Lateral appears usable as an estimated in-track placement signal, but actual track width or left/right edges remain unverified."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-37182ed7b1213649",
+      "fileName": "Autodromo Nazionale Monza_R_2026-04-29T08_27_45Z.duckdb",
+      "trackName": "Autodromo Nazionale Monza",
+      "trackLayout": "Monza Curva Grande Circuit",
+      "carName": "Porsche Penske Motorsport 2025 #4:LM",
+      "sessionType": "race",
+      "laps": []
+    }
+  ],
+  "globalVerdict": {
+    "verdict": "estimated-only",
+    "reason": "Multiple track/layout samples show corridor-related telemetry that may support an Estimated Telemetry Corridor, but not an Actual Track Boundary."
+  },
+  "blockers": [],
+  "nextQuestions": [
+    "Does Track Edge represent one edge distance, total width, or another normalized offset?",
+    "Is Path Lateral sign direction stable across cars and tracks?",
+    "Can left/right edge inference be validated against visual replay or known circuit geometry?"
+  ]
+}

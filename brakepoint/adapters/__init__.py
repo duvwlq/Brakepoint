@@ -1,0 +1,2 @@
+"""Game adapter implementations."""
+

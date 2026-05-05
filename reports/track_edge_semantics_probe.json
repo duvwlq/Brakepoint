@@ -1,0 +1,3481 @@
+{
+  "generatedAt": "2026-05-04T13:33:58.776517+00:00",
+  "sessionsScanned": 10,
+  "lapsScanned": 53,
+  "globalVerdict": {
+    "verdict": "estimated-corridor-only",
+    "reason": "Path Lateral remains useful for estimated placement, but Track Edge semantics are still not strong enough for actual boundary claims."
+  },
+  "globalStats": {
+    "pathLateralMin": -33.64109420776367,
+    "pathLateralMax": 15.401782989501953,
+    "pathLateralMean": -0.6638810044699708,
+    "pathLateralVariance": 19.887023305156276,
+    "trackEdgeMin": -13.586000442504883,
+    "trackEdgeMax": 21.43400001525879,
+    "trackEdgeMean": -0.6985503449146657,
+    "trackEdgeVariance": 54.096193331144114,
+    "correlation": 0.8256408156057726,
+    "absCorrelation": 0.3365046983121943,
+    "trackEdgePositiveRatio": 0.4386604510319547,
+    "trackEdgeNegativeRatio": 0.5613395489680453,
+    "trackEdgeNearZeroRatio": 0.0012351581799346562,
+    "pathLateralPositiveRatio": 0.4386604510319547,
+    "pathLateralNegativeRatio": 0.5613395489680453,
+    "pathLateralNearZeroRatio": 0.6206271416049087
+  },
+  "sessions": [
+    {
+      "sessionId": "lmu-877d18c4cdf06bcd",
+      "fileName": "Sebring International Raceway_R_2026-05-03T14_09_58Z.duckdb",
+      "trackName": "Sebring International Raceway",
+      "trackLayout": "Sebring School Circuit",
+      "carName": "Heart of Racing Team 2025 #27:LM",
+      "carClass": "GT3",
+      "sessionType": "race",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "maxDistanceM": 3080.968994140625,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 748,
+            "min": -10.807212829589844,
+            "max": 9.718742370605469,
+            "mean": -1.8963901375440313,
+            "variance": 16.65329143068715,
+            "positiveRatio": 0.2713903743315508,
+            "negativeRatio": 0.7286096256684492,
+            "nearZeroRatio": 0.196524064171123
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 748,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -2.7179531942714346,
+            "variance": 65.39053812465559,
+            "positiveRatio": 0.2713903743315508,
+            "negativeRatio": 0.7286096256684492,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8701151240789797,
+            "absPearson": 0.511209351507798,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 147,
+              "pathLateralMin": -1.6214452981948853,
+              "pathLateralMax": 1.5080550909042358,
+              "trackEdgeMin": -12.468999862670898,
+              "trackEdgeMax": 14.100000381469727,
+              "trackEdgeMean": 0.16576191195014384
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 43,
+              "pathLateralMin": -10.807212829589844,
+              "pathLateralMax": -7.773226261138916,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -10.067000389099121,
+              "trackEdgeMean": -12.246930277624795
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 39,
+              "pathLateralMin": 6.643519401550293,
+              "pathLateralMax": 9.718742370605469,
+              "trackEdgeMin": 9.618999481201172,
+              "trackEdgeMax": 19.26799964904785,
+              "trackEdgeMean": 14.372487190442207
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "maxDistanceM": 3077.68994140625,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 670,
+            "min": -10.08508586883545,
+            "max": 7.655311107635498,
+            "mean": -0.44592223107369977,
+            "variance": 16.05696555953558,
+            "positiveRatio": 0.4208955223880597,
+            "negativeRatio": 0.5791044776119403,
+            "nearZeroRatio": 0.15970149253731344
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 670,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.3778074720012608,
+            "variance": 70.46340795618714,
+            "positiveRatio": 0.4208955223880597,
+            "negativeRatio": 0.5791044776119403,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8851572537430294,
+            "absPearson": 0.43005350516662055,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 107,
+              "pathLateralMin": -1.4086432456970215,
+              "pathLateralMax": 1.3778371810913086,
+              "trackEdgeMin": -11.616999626159668,
+              "trackEdgeMax": 13.38599967956543,
+              "trackEdgeMean": -1.6367383270620186
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 26,
+              "pathLateralMin": -10.08508586883545,
+              "pathLateralMax": -7.536556720733643,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -10.013999938964844,
+              "trackEdgeMean": -11.824192303877611
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 79,
+              "pathLateralMin": 5.020132064819336,
+              "pathLateralMax": 7.655311107635498,
+              "trackEdgeMin": 5.088000297546387,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 9.317911365364171
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "maxDistanceM": 3081.555419921875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 675,
+            "min": -8.446173667907715,
+            "max": 8.586116790771484,
+            "mean": -0.3115423493804755,
+            "variance": 18.13920879852907,
+            "positiveRatio": 0.4325925925925926,
+            "negativeRatio": 0.5674074074074074,
+            "nearZeroRatio": 0.12296296296296297
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 675,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.09420888724150481,
+            "variance": 71.88768807449426,
+            "positiveRatio": 0.4325925925925926,
+            "negativeRatio": 0.5674074074074074,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9033844717829114,
+            "absPearson": 0.47869459467674746,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 83,
+              "pathLateralMin": -1.3604485988616943,
+              "pathLateralMax": 1.3587353229522705,
+              "trackEdgeMin": -12.800000190734863,
+              "trackEdgeMax": 15.111000061035156,
+              "trackEdgeMean": -0.8053855407668884
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 48,
+              "pathLateralMin": -8.446173667907715,
+              "pathLateralMax": -5.895096778869629,
+              "trackEdgeMin": -13.345999717712402,
+              "trackEdgeMax": -5.783999919891357,
+              "trackEdgeMean": -9.685041745503744
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 50,
+              "pathLateralMin": 6.058256149291992,
+              "pathLateralMax": 8.586116790771484,
+              "trackEdgeMin": 8.107000350952148,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 12.154359893798828
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-4",
+          "lapNumber": 4,
+          "maxDistanceM": 3078.510498046875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 663,
+            "min": -10.257838249206543,
+            "max": 8.694009780883789,
+            "mean": -0.6343210099621776,
+            "variance": 20.037862450204162,
+            "positiveRatio": 0.4132730015082956,
+            "negativeRatio": 0.5867269984917044,
+            "nearZeroRatio": 0.1794871794871795
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 663,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.4611327328113769,
+            "variance": 72.2369578299954,
+            "positiveRatio": 0.4132730015082956,
+            "negativeRatio": 0.5867269984917044,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8992441972831567,
+            "absPearson": 0.5335213940801969,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 119,
+              "pathLateralMin": -1.5147556066513062,
+              "pathLateralMax": 1.5066349506378174,
+              "trackEdgeMin": -10.192999839782715,
+              "trackEdgeMax": 14.541999816894531,
+              "trackEdgeMean": 0.7997143048198283
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 35,
+              "pathLateralMin": -10.257838249206543,
+              "pathLateralMax": -7.434144973754883,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -5.783999919891357,
+              "trackEdgeMean": -11.294399997166225
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 73,
+              "pathLateralMin": 5.884135723114014,
+              "pathLateralMax": 8.694009780883789,
+              "trackEdgeMin": 5.392000198364258,
+              "trackEdgeMax": 19.385000228881836,
+              "trackEdgeMean": 11.997205414184153
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-5",
+          "lapNumber": 5,
+          "maxDistanceM": 3077.06005859375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -10.151568412780762,
+            "max": 9.634456634521484,
+            "mean": -0.7448236387561668,
+            "variance": 19.526081617616693,
+            "positiveRatio": 0.38636363636363635,
+            "negativeRatio": 0.6136363636363636,
+            "nearZeroRatio": 0.14242424242424243
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.7394484881198767,
+            "variance": 71.2425440667404,
+            "positiveRatio": 0.38636363636363635,
+            "negativeRatio": 0.6136363636363636,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8993648203227396,
+            "absPearson": 0.47757529143165134,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 94,
+              "pathLateralMin": -1.5730282068252563,
+              "pathLateralMax": 1.5498310327529907,
+              "trackEdgeMin": -12.14900016784668,
+              "trackEdgeMax": 14.541999816894531,
+              "trackEdgeMean": -0.5936595581947489
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 32,
+              "pathLateralMin": -10.151568412780762,
+              "pathLateralMax": -7.190298080444336,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -5.763000011444092,
+              "trackEdgeMean": -10.04446865618229
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 28,
+              "pathLateralMin": 6.682933807373047,
+              "pathLateralMax": 9.634456634521484,
+              "trackEdgeMin": 8.193999290466309,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 13.15110697065081
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-6",
+          "lapNumber": 6,
+          "maxDistanceM": 3076.28076171875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -9.129814147949219,
+            "max": 8.276777267456055,
+            "mean": -0.560621859020356,
+            "variance": 18.264791588371438,
+            "positiveRatio": 0.396969696969697,
+            "negativeRatio": 0.603030303030303,
+            "nearZeroRatio": 0.11666666666666667
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.6535606131409154,
+            "variance": 70.64457551916949,
+            "positiveRatio": 0.396969696969697,
+            "negativeRatio": 0.603030303030303,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9093923732844226,
+            "absPearson": 0.5155569261514943,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 77,
+              "pathLateralMin": -1.3557660579681396,
+              "pathLateralMax": 1.351203441619873,
+              "trackEdgeMin": -11.130000114440918,
+              "trackEdgeMax": 14.541999816894531,
+              "trackEdgeMean": -0.3641818096111347
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 35,
+              "pathLateralMin": -9.129814147949219,
+              "pathLateralMax": -6.524237632751465,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -7.8379998207092285,
+              "trackEdgeMean": -11.595457199641636
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 64,
+              "pathLateralMin": 5.683786392211914,
+              "pathLateralMax": 8.276777267456055,
+              "trackEdgeMin": 8.107000350952148,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 11.480859324336052
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-7",
+          "lapNumber": 7,
+          "maxDistanceM": 3079.55810546875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 654,
+            "min": -10.252126693725586,
+            "max": 8.089594841003418,
+            "mean": -0.6817110087608617,
+            "variance": 17.671525180266595,
+            "positiveRatio": 0.40061162079510704,
+            "negativeRatio": 0.599388379204893,
+            "nearZeroRatio": 0.12385321100917432
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 654,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.5887645297094223,
+            "variance": 71.46415628946818,
+            "positiveRatio": 0.40061162079510704,
+            "negativeRatio": 0.599388379204893,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9003149037546965,
+            "absPearson": 0.44999508603500427,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 81,
+              "pathLateralMin": -1.4648640155792236,
+              "pathLateralMax": 1.4606319665908813,
+              "trackEdgeMin": -11.616999626159668,
+              "trackEdgeMax": 14.541999816894531,
+              "trackEdgeMean": 0.01638275311316973
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 23,
+              "pathLateralMin": -10.252126693725586,
+              "pathLateralMax": -7.605389595031738,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -10.016000747680664,
+              "trackEdgeMean": -11.930869517119035
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 48,
+              "pathLateralMin": 5.379751205444336,
+              "pathLateralMax": 8.089594841003418,
+              "trackEdgeMin": 5.3420000076293945,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 10.126458207766214
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-85d424bc6cb40098",
+      "fileName": "Circuit de Spa-Francorchamps_R_2026-05-01T11_47_33Z.duckdb",
+      "trackName": "Circuit de Spa-Francorchamps",
+      "trackLayout": "Circuit de Spa-Francorchamps",
+      "carName": "The Bend Team WRT 2025 #31:LM",
+      "carClass": "GT3",
+      "sessionType": "race",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "maxDistanceM": 6978.0927734375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1585,
+            "min": -7.052708148956299,
+            "max": 8.598259925842285,
+            "mean": 0.20054055825580933,
+            "variance": 9.628758479874731,
+            "positiveRatio": 0.5507886435331231,
+            "negativeRatio": 0.449211356466877,
+            "nearZeroRatio": 0.2277602523659306
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1585,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": 0.5276365844233178,
+            "variance": 33.431987893587404,
+            "positiveRatio": 0.5507886435331231,
+            "negativeRatio": 0.449211356466877,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8626778037520162,
+            "absPearson": 0.3217028327327676,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 361,
+              "pathLateralMin": -1.2411671876907349,
+              "pathLateralMax": 1.252026081085205,
+              "trackEdgeMin": -9.300000190734863,
+              "trackEdgeMax": 10.13700008392334,
+              "trackEdgeMean": -0.22412742736266922
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 72,
+              "pathLateralMin": -7.052708148956299,
+              "pathLateralMax": -4.73888635635376,
+              "trackEdgeMin": -9.178000450134277,
+              "trackEdgeMax": -4.349999904632568,
+              "trackEdgeMean": -6.206361181206173
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 45,
+              "pathLateralMin": 6.36042594909668,
+              "pathLateralMax": 8.598259925842285,
+              "trackEdgeMin": 4.875,
+              "trackEdgeMax": 10.324999809265137,
+              "trackEdgeMean": 7.891866577996148
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "maxDistanceM": 6974.6044921875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1495,
+            "min": -8.065521240234375,
+            "max": 6.796990394592285,
+            "mean": -0.05915028220634397,
+            "variance": 10.92115997844142,
+            "positiveRatio": 0.5150501672240803,
+            "negativeRatio": 0.48494983277591974,
+            "nearZeroRatio": 0.14581939799331103
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1495,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.16055920195818746,
+            "variance": 31.576965760196597,
+            "positiveRatio": 0.5150501672240803,
+            "negativeRatio": 0.48494983277591974,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8924525538910885,
+            "absPearson": 0.3563477534803139,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 218,
+              "pathLateralMin": -1.1849098205566406,
+              "pathLateralMax": 1.1855685710906982,
+              "trackEdgeMin": -9.050000190734863,
+              "trackEdgeMax": 9.770999908447266,
+              "trackEdgeMean": -0.12142200754323138
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 45,
+              "pathLateralMin": -8.065521240234375,
+              "pathLateralMax": -5.841777801513672,
+              "trackEdgeMin": -9.300000190734863,
+              "trackEdgeMax": -4.349999904632568,
+              "trackEdgeMean": -7.8458888795640735
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 102,
+              "pathLateralMin": 4.578034400939941,
+              "pathLateralMax": 6.796990394592285,
+              "trackEdgeMin": 4.5,
+              "trackEdgeMax": 10.324999809265137,
+              "trackEdgeMean": 6.4430392022226375
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "maxDistanceM": 6978.5263671875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1499,
+            "min": -8.735306739807129,
+            "max": 7.190164566040039,
+            "mean": -0.13794071472599714,
+            "variance": 11.032719742169954,
+            "positiveRatio": 0.49766511007338227,
+            "negativeRatio": 0.5023348899266178,
+            "nearZeroRatio": 0.21280853902601735
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1499,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.34226017335480735,
+            "variance": 31.1903538042793,
+            "positiveRatio": 0.49766511007338227,
+            "negativeRatio": 0.5023348899266178,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8798844861154445,
+            "absPearson": 0.3980997664067714,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 319,
+              "pathLateralMin": -1.2645525932312012,
+              "pathLateralMax": 1.2683292627334595,
+              "trackEdgeMin": -9.050000190734863,
+              "trackEdgeMax": 10.149999618530273,
+              "trackEdgeMean": 0.3034263344767699
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 25,
+              "pathLateralMin": -8.735306739807129,
+              "pathLateralMax": -6.350228309631348,
+              "trackEdgeMin": -9.300000190734863,
+              "trackEdgeMax": -9.125,
+              "trackEdgeMean": -9.20799991607666
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 97,
+              "pathLateralMin": 4.804348945617676,
+              "pathLateralMax": 7.190164566040039,
+              "trackEdgeMin": 4.5,
+              "trackEdgeMax": 10.324999809265137,
+              "trackEdgeMean": 6.560298963920357
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-4",
+          "lapNumber": 4,
+          "maxDistanceM": 6977.09814453125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1499,
+            "min": -8.676106452941895,
+            "max": 8.38748836517334,
+            "mean": -0.003179710186903599,
+            "variance": 11.618611251902799,
+            "positiveRatio": 0.5216811207471648,
+            "negativeRatio": 0.4783188792528352,
+            "nearZeroRatio": 0.20146764509673115
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1499,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.08347832114796705,
+            "variance": 31.24352750523822,
+            "positiveRatio": 0.5216811207471648,
+            "negativeRatio": 0.4783188792528352,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8806050092526453,
+            "absPearson": 0.36803078683139695,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 302,
+              "pathLateralMin": -1.364159345626831,
+              "pathLateralMax": 1.3602368831634521,
+              "trackEdgeMin": -9.050000190734863,
+              "trackEdgeMax": 10.149999618530273,
+              "trackEdgeMean": 0.47768211443692643
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 31,
+              "pathLateralMin": -8.676106452941895,
+              "pathLateralMax": -6.135150909423828,
+              "trackEdgeMin": -9.300000190734863,
+              "trackEdgeMax": -4.625,
+              "trackEdgeMean": -8.358064451525289
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 41,
+              "pathLateralMin": 5.8408522605896,
+              "pathLateralMax": 8.38748836517334,
+              "trackEdgeMin": 5.25,
+              "trackEdgeMax": 10.324999809265137,
+              "trackEdgeMean": 7.922707255293683
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-5",
+          "lapNumber": 5,
+          "maxDistanceM": 6977.46240234375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1517,
+            "min": -8.833022117614746,
+            "max": 8.601346969604492,
+            "mean": -0.15136611547588752,
+            "variance": 11.552763468625015,
+            "positiveRatio": 0.4990112063282795,
+            "negativeRatio": 0.5009887936717206,
+            "nearZeroRatio": 0.2102834541858932
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1517,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.3276796364517061,
+            "variance": 30.92995038695673,
+            "positiveRatio": 0.4990112063282795,
+            "negativeRatio": 0.5009887936717206,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8886372050359422,
+            "absPearson": 0.4393170989324966,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 319,
+              "pathLateralMin": -1.392595887184143,
+              "pathLateralMax": 1.390289545059204,
+              "trackEdgeMin": -9.050000190734863,
+              "trackEdgeMax": 9.770999908447266,
+              "trackEdgeMean": 0.2251410753375684
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 26,
+              "pathLateralMin": -8.833022117614746,
+              "pathLateralMax": -6.303081512451172,
+              "trackEdgeMin": -9.300000190734863,
+              "trackEdgeMax": -9.125,
+              "trackEdgeMean": -9.206730732550987
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 39,
+              "pathLateralMin": 6.154720306396484,
+              "pathLateralMax": 8.601346969604492,
+              "trackEdgeMin": 7.02400016784668,
+              "trackEdgeMax": 10.324999809265137,
+              "trackEdgeMean": 8.030128124432686
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-6",
+          "lapNumber": 6,
+          "maxDistanceM": 6978.2783203125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1563,
+            "min": -11.549420356750488,
+            "max": 8.515175819396973,
+            "mean": 0.03970185984986681,
+            "variance": 11.632562575629699,
+            "positiveRatio": 0.5323096609085093,
+            "negativeRatio": 0.4676903390914907,
+            "nearZeroRatio": 0.3077415227127319
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1563,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": 0.05758220571321474,
+            "variance": 30.85298338187188,
+            "positiveRatio": 0.5323096609085093,
+            "negativeRatio": 0.4676903390914907,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8336018152974294,
+            "absPearson": 0.32582239539352126,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 481,
+              "pathLateralMin": -1.6035269498825073,
+              "pathLateralMax": 1.6026057004928589,
+              "trackEdgeMin": -9.050000190734863,
+              "trackEdgeMax": 9.770999908447266,
+              "trackEdgeMean": 0.1628627905974517
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 12,
+              "pathLateralMin": -11.549420356750488,
+              "pathLateralMax": -8.586156845092773,
+              "trackEdgeMin": -5.524999618530273,
+              "trackEdgeMax": -3.136000156402588,
+              "trackEdgeMean": -4.287916541099548
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 74,
+              "pathLateralMin": 5.558253765106201,
+              "pathLateralMax": 8.515175819396973,
+              "trackEdgeMin": 4.875,
+              "trackEdgeMax": 10.324999809265137,
+              "trackEdgeMean": 6.8089864576185075
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-7",
+          "lapNumber": 7,
+          "maxDistanceM": 6976.107421875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1550,
+            "min": -8.24846076965332,
+            "max": 8.734869003295898,
+            "mean": -0.4057110941986884,
+            "variance": 10.73877820266191,
+            "positiveRatio": 0.4587096774193548,
+            "negativeRatio": 0.5412903225806451,
+            "nearZeroRatio": 0.20258064516129032
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1550,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": -0.706561294371082,
+            "variance": 30.177429041955453,
+            "positiveRatio": 0.4587096774193548,
+            "negativeRatio": 0.5412903225806451,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8841638691368102,
+            "absPearson": 0.39638361497515756,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 314,
+              "pathLateralMin": -1.353851556777954,
+              "pathLateralMax": 1.3504037857055664,
+              "trackEdgeMin": -9.300000190734863,
+              "trackEdgeMax": 9.770999908447266,
+              "trackEdgeMean": -0.21521655845034654
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 45,
+              "pathLateralMin": -8.24846076965332,
+              "pathLateralMax": -5.790017127990723,
+              "trackEdgeMin": -9.300000190734863,
+              "trackEdgeMax": -4.475000381469727,
+              "trackEdgeMean": -7.894911098480224
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 30,
+              "pathLateralMin": 6.285542011260986,
+              "pathLateralMax": 8.734869003295898,
+              "trackEdgeMin": 7.0289998054504395,
+              "trackEdgeMax": 10.324999809265137,
+              "trackEdgeMean": 8.40533324877421
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-8",
+          "lapNumber": 8,
+          "maxDistanceM": 6974.48291015625,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1808,
+            "min": -10.432019233703613,
+            "max": 9.020598411560059,
+            "mean": 0.11067611787600064,
+            "variance": 13.523028225948304,
+            "positiveRatio": 0.5547566371681416,
+            "negativeRatio": 0.4452433628318584,
+            "nearZeroRatio": 0.27323008849557523
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1808,
+            "min": -9.300000190734863,
+            "max": 10.324999809265137,
+            "mean": 0.29486005733498427,
+            "variance": 31.078303910970103,
+            "positiveRatio": 0.5547566371681416,
+            "negativeRatio": 0.4452433628318584,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8339111716745756,
+            "absPearson": 0.229078183983146,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 494,
+              "pathLateralMin": -1.5429468154907227,
+              "pathLateralMax": 1.5494868755340576,
+              "trackEdgeMin": -9.300000190734863,
+              "trackEdgeMax": 9.770999908447266,
+              "trackEdgeMean": 1.1304170115273973
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 44,
+              "pathLateralMin": -10.432019233703613,
+              "pathLateralMax": -7.571810722351074,
+              "trackEdgeMin": -9.22499942779541,
+              "trackEdgeMax": -4.349999904632568,
+              "trackEdgeMean": -6.14470450444655
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 98,
+              "pathLateralMin": 6.108602523803711,
+              "pathLateralMax": 9.020598411560059,
+              "trackEdgeMin": 4.550000190734863,
+              "trackEdgeMax": 10.324999809265137,
+              "trackEdgeMean": 6.055459153895476
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-97ebeed4bb6121e1",
+      "fileName": "Fuji Speedway_R_2026-05-03T07_10_32Z.duckdb",
+      "trackName": "Fuji Speedway",
+      "trackLayout": "Fuji Speedway",
+      "carName": "The Bend Team WRT 2025 #31:LM",
+      "carClass": "GT3",
+      "sessionType": "race",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "maxDistanceM": 4530.43408203125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1385,
+            "min": -33.64109420776367,
+            "max": 8.726333618164062,
+            "mean": -3.2906359819110333,
+            "variance": 91.53021911426517,
+            "positiveRatio": 0.5104693140794224,
+            "negativeRatio": 0.48953068592057764,
+            "nearZeroRatio": 0.4584837545126354
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1385,
+            "min": -11.315000534057617,
+            "max": 9.75,
+            "mean": -0.28128880800322936,
+            "variance": 63.74934139003819,
+            "positiveRatio": 0.5104693140794224,
+            "negativeRatio": 0.48953068592057764,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.7252137091756055,
+            "absPearson": 0.4217673578349095,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 635,
+              "pathLateralMin": -3.3810043334960938,
+              "pathLateralMax": 3.3855490684509277,
+              "trackEdgeMin": -10.524999618530273,
+              "trackEdgeMax": 9.75,
+              "trackEdgeMean": 2.659026773708073
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 37,
+              "pathLateralMin": -33.64109420776367,
+              "pathLateralMax": -27.357236862182617,
+              "trackEdgeMin": -9.074999809265137,
+              "trackEdgeMax": -7.625,
+              "trackEdgeMean": -8.431756663966823
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 490,
+              "pathLateralMin": 2.371952533721924,
+              "pathLateralMax": 8.726333618164062,
+              "trackEdgeMin": 4.956999778747559,
+              "trackEdgeMax": 9.08899974822998,
+              "trackEdgeMean": 7.4768407996819946
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "maxDistanceM": 4530.81787109375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1095,
+            "min": -8.809597969055176,
+            "max": 12.352148056030273,
+            "mean": -0.47795827022698373,
+            "variance": 17.856503957252855,
+            "positiveRatio": 0.4374429223744292,
+            "negativeRatio": 0.5625570776255707,
+            "nearZeroRatio": 0.20730593607305936
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1095,
+            "min": -11.315000534057617,
+            "max": 9.47499942779541,
+            "mean": -1.2692748827477025,
+            "variance": 55.84824075119559,
+            "positiveRatio": 0.4374429223744292,
+            "negativeRatio": 0.5625570776255707,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8638402924726152,
+            "absPearson": 0.19172484894693106,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 227,
+              "pathLateralMin": -1.6513862609863281,
+              "pathLateralMax": 1.6389355659484863,
+              "trackEdgeMin": -10.424999237060547,
+              "trackEdgeMax": 9.47499942779541,
+              "trackEdgeMean": -0.015629976331399925
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 86,
+              "pathLateralMin": -8.809597969055176,
+              "pathLateralMax": -5.638086795806885,
+              "trackEdgeMin": -11.315000534057617,
+              "trackEdgeMax": -5.758999824523926,
+              "trackEdgeMean": -8.679104638654133
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 21,
+              "pathLateralMin": 9.29360580444336,
+              "pathLateralMax": 12.352148056030273,
+              "trackEdgeMin": 7.545000076293945,
+              "trackEdgeMax": 8.434999465942383,
+              "trackEdgeMean": 8.164095106579008
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "maxDistanceM": 4529.7841796875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1128,
+            "min": -7.952823638916016,
+            "max": 7.467754364013672,
+            "mean": -0.4474786879281771,
+            "variance": 16.509390960581587,
+            "positiveRatio": 0.44769503546099293,
+            "negativeRatio": 0.5523049645390071,
+            "nearZeroRatio": 0.1125886524822695
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1128,
+            "min": -11.315000534057617,
+            "max": 9.47499942779541,
+            "mean": -1.155095748444821,
+            "variance": 54.42759151975294,
+            "positiveRatio": 0.44769503546099293,
+            "negativeRatio": 0.5523049645390071,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8968707997970299,
+            "absPearson": 0.18897885253570745,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 127,
+              "pathLateralMin": -1.2150909900665283,
+              "pathLateralMax": 1.2335187196731567,
+              "trackEdgeMin": -10.424999237060547,
+              "trackEdgeMax": 9.47499942779541,
+              "trackEdgeMean": -0.3178582792207012
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 71,
+              "pathLateralMin": -7.952823638916016,
+              "pathLateralMax": -5.663000106811523,
+              "trackEdgeMin": -11.315000534057617,
+              "trackEdgeMax": -6.709000110626221,
+              "trackEdgeMean": -8.660971816156952
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 124,
+              "pathLateralMin": 5.155381202697754,
+              "pathLateralMax": 7.467754364013672,
+              "trackEdgeMin": 5.175000190734863,
+              "trackEdgeMax": 8.735000610351562,
+              "trackEdgeMean": 7.435120917135669
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-4",
+          "lapNumber": 4,
+          "maxDistanceM": 4533.0283203125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1091,
+            "min": -12.795954704284668,
+            "max": 6.9152069091796875,
+            "mean": -1.7328435116328853,
+            "variance": 20.43256669640052,
+            "positiveRatio": 0.34188817598533455,
+            "negativeRatio": 0.6581118240146654,
+            "nearZeroRatio": 0.10265811182401467
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1091,
+            "min": -11.315000534057617,
+            "max": 9.875,
+            "mean": -2.7455352814671756,
+            "variance": 52.71700134852641,
+            "positiveRatio": 0.34188817598533455,
+            "negativeRatio": 0.6581118240146654,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8734671069678176,
+            "absPearson": 0.3719293497387408,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 112,
+              "pathLateralMin": -1.5343116521835327,
+              "pathLateralMax": 1.5601367950439453,
+              "trackEdgeMin": -9.956999778747559,
+              "trackEdgeMax": 9.875,
+              "trackEdgeMean": -0.4614821331841605
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 42,
+              "pathLateralMin": -12.795954704284668,
+              "pathLateralMax": -9.845389366149902,
+              "trackEdgeMin": -10.588000297546387,
+              "trackEdgeMax": -7.444000244140625,
+              "trackEdgeMean": -9.26233350662958
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 157,
+              "pathLateralMin": 3.97585129737854,
+              "pathLateralMax": 6.9152069091796875,
+              "trackEdgeMin": 5.081999778747559,
+              "trackEdgeMax": 8.996999740600586,
+              "trackEdgeMean": 7.449898057682499
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-5",
+          "lapNumber": 5,
+          "maxDistanceM": 4530.39208984375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1064,
+            "min": -9.185486793518066,
+            "max": 8.214924812316895,
+            "mean": -0.6173993354257112,
+            "variance": 17.62313092701894,
+            "positiveRatio": 0.42293233082706766,
+            "negativeRatio": 0.5770676691729323,
+            "nearZeroRatio": 0.12969924812030076
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1064,
+            "min": -11.315000534057617,
+            "max": 9.875,
+            "mean": -1.4497095808050686,
+            "variance": 54.53105833528728,
+            "positiveRatio": 0.42293233082706766,
+            "negativeRatio": 0.5770676691729323,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8936537945600596,
+            "absPearson": 0.11084017087788955,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 138,
+              "pathLateralMin": -1.3674256801605225,
+              "pathLateralMax": 1.390261173248291,
+              "trackEdgeMin": -10.47499942779541,
+              "trackEdgeMax": 9.875,
+              "trackEdgeMean": -0.004188392473303754
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 32,
+              "pathLateralMin": -9.185486793518066,
+              "pathLateralMax": -6.606600284576416,
+              "trackEdgeMin": -10.697999954223633,
+              "trackEdgeMax": -7.030999660491943,
+              "trackEdgeMean": -8.810999929904938
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 91,
+              "pathLateralMin": 5.6104230880737305,
+              "pathLateralMax": 8.214924812316895,
+              "trackEdgeMin": 5.175000190734863,
+              "trackEdgeMax": 8.735000610351562,
+              "trackEdgeMean": 7.690263653849508
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-6",
+          "lapNumber": 6,
+          "maxDistanceM": 4527.7578125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1083,
+            "min": -10.018901824951172,
+            "max": 7.636399269104004,
+            "mean": -0.9291304154072166,
+            "variance": 16.177154685231145,
+            "positiveRatio": 0.41274238227146814,
+            "negativeRatio": 0.5872576177285319,
+            "nearZeroRatio": 0.1440443213296399
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1083,
+            "min": -11.315000534057617,
+            "max": 9.875,
+            "mean": -1.6054487514583908,
+            "variance": 54.11831529822669,
+            "positiveRatio": 0.41274238227146814,
+            "negativeRatio": 0.5872576177285319,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8903629719125333,
+            "absPearson": 0.2505353721896092,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 156,
+              "pathLateralMin": -1.407909631729126,
+              "pathLateralMax": 1.3831896781921387,
+              "trackEdgeMin": -9.956999778747559,
+              "trackEdgeMax": 9.875,
+              "trackEdgeMean": 1.4136602603472197
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 31,
+              "pathLateralMin": -10.018901824951172,
+              "pathLateralMax": -7.400261878967285,
+              "trackEdgeMin": -11.061999320983887,
+              "trackEdgeMax": -7.61299991607666,
+              "trackEdgeMean": -9.069322555295882
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 106,
+              "pathLateralMin": 4.993386268615723,
+              "pathLateralMax": 7.636399269104004,
+              "trackEdgeMin": 5.578000068664551,
+              "trackEdgeMax": 8.996999740600586,
+              "trackEdgeMean": 7.675990523032422
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-7",
+          "lapNumber": 7,
+          "maxDistanceM": 4528.00634765625,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1063,
+            "min": -8.678187370300293,
+            "max": 7.611983299255371,
+            "mean": -0.7082848011753465,
+            "variance": 16.82221580715584,
+            "positiveRatio": 0.4261523988711195,
+            "negativeRatio": 0.5738476011288806,
+            "nearZeroRatio": 0.11006585136406397
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1063,
+            "min": -11.315000534057617,
+            "max": 9.47499942779541,
+            "mean": -1.4199501330966895,
+            "variance": 54.39273097106091,
+            "positiveRatio": 0.4261523988711195,
+            "negativeRatio": 0.5738476011288806,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9009628906146306,
+            "absPearson": 0.18077186279090515,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 117,
+              "pathLateralMin": -1.2946560382843018,
+              "pathLateralMax": 1.266425609588623,
+              "trackEdgeMin": -10.424999237060547,
+              "trackEdgeMax": 9.47499942779541,
+              "trackEdgeMean": -0.6071965755560459
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 61,
+              "pathLateralMin": -8.678187370300293,
+              "pathLateralMax": -6.258150100708008,
+              "trackEdgeMin": -11.061999320983887,
+              "trackEdgeMax": -7.030999660491943,
+              "trackEdgeMean": -8.77827865569318
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 100,
+              "pathLateralMin": 5.198354721069336,
+              "pathLateralMax": 7.611983299255371,
+              "trackEdgeMin": 5.918000221252441,
+              "trackEdgeMax": 8.735000610351562,
+              "trackEdgeMean": 7.65116997718811
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-8",
+          "lapNumber": 8,
+          "maxDistanceM": 4532.81005859375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1071,
+            "min": -11.176800727844238,
+            "max": 6.543057918548584,
+            "mean": -0.5337566917224759,
+            "variance": 15.784735301241648,
+            "positiveRatio": 0.4425770308123249,
+            "negativeRatio": 0.5574229691876751,
+            "nearZeroRatio": 0.12324929971988796
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1071,
+            "min": -11.315000534057617,
+            "max": 9.899999618530273,
+            "mean": -1.114716146061289,
+            "variance": 54.579776256312535,
+            "positiveRatio": 0.4425770308123249,
+            "negativeRatio": 0.5574229691876751,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8979361928337105,
+            "absPearson": 0.10708789238814509,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 132,
+              "pathLateralMin": -1.4036540985107422,
+              "pathLateralMax": 1.3609883785247803,
+              "trackEdgeMin": -10.524999618530273,
+              "trackEdgeMax": 9.899999618530273,
+              "trackEdgeMean": -0.026560606378497498
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 9,
+              "pathLateralMin": -11.176800727844238,
+              "pathLateralMax": -8.699080467224121,
+              "trackEdgeMin": -10.197999954223633,
+              "trackEdgeMax": -9.347999572753906,
+              "trackEdgeMean": -9.732222027248806
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 221,
+              "pathLateralMin": 3.886549949645996,
+              "pathLateralMax": 6.543057918548584,
+              "trackEdgeMin": 5.081999778747559,
+              "trackEdgeMax": 9.0,
+              "trackEdgeMean": 7.1099682976217835
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-9",
+          "lapNumber": 9,
+          "maxDistanceM": 4527.59130859375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1066,
+            "min": -9.683694839477539,
+            "max": 8.553446769714355,
+            "mean": -0.649196224475863,
+            "variance": 17.732988090086717,
+            "positiveRatio": 0.42964352720450283,
+            "negativeRatio": 0.5703564727954972,
+            "nearZeroRatio": 0.15384615384615385
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1066,
+            "min": -11.315000534057617,
+            "max": 9.75,
+            "mean": -1.359589115092723,
+            "variance": 55.07178474830761,
+            "positiveRatio": 0.42964352720450283,
+            "negativeRatio": 0.5703564727954972,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8856046801908692,
+            "absPearson": 0.191446149671629,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 164,
+              "pathLateralMin": -1.4552807807922363,
+              "pathLateralMax": 1.4401191473007202,
+              "trackEdgeMin": -10.424999237060547,
+              "trackEdgeMax": 9.75,
+              "trackEdgeMean": 0.08537194787002192
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 40,
+              "pathLateralMin": -9.683694839477539,
+              "pathLateralMax": -6.964980125427246,
+              "trackEdgeMin": -11.061999320983887,
+              "trackEdgeMax": -7.030999660491943,
+              "trackEdgeMean": -9.051250004768372
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 68,
+              "pathLateralMin": 5.9170451164245605,
+              "pathLateralMax": 8.553446769714355,
+              "trackEdgeMin": 5.918000221252441,
+              "trackEdgeMax": 8.735000610351562,
+              "trackEdgeMean": 7.78023520637961
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-10",
+          "lapNumber": 10,
+          "maxDistanceM": 4527.77294921875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1160,
+            "min": -17.412508010864258,
+            "max": 11.106400489807129,
+            "mean": -1.0489037848880578,
+            "variance": 20.672744517147954,
+            "positiveRatio": 0.4,
+            "negativeRatio": 0.6,
+            "nearZeroRatio": 0.2620689655172414
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1160,
+            "min": -11.315000534057617,
+            "max": 9.899999618530273,
+            "mean": -1.7463172501531141,
+            "variance": 56.970275541573734,
+            "positiveRatio": 0.4,
+            "negativeRatio": 0.6,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.822984421080144,
+            "absPearson": 0.23151436189237848,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 304,
+              "pathLateralMin": -2.2160096168518066,
+              "pathLateralMax": 2.273469924926758,
+              "trackEdgeMin": -10.524999618530273,
+              "trackEdgeMax": 9.899999618530273,
+              "trackEdgeMean": -0.13732893686545522
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 20,
+              "pathLateralMin": -17.412508010864258,
+              "pathLateralMax": -13.376678466796875,
+              "trackEdgeMin": -9.75,
+              "trackEdgeMax": -9.008999824523926,
+              "trackEdgeMean": -9.595500040054322
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 33,
+              "pathLateralMin": 6.8352227210998535,
+              "pathLateralMax": 11.106400489807129,
+              "trackEdgeMin": 6.490000247955322,
+              "trackEdgeMax": 8.309999465942383,
+              "trackEdgeMean": 8.104029987797592
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-11",
+          "lapNumber": 11,
+          "maxDistanceM": 4532.76904296875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1075,
+            "min": -10.716193199157715,
+            "max": 7.194847106933594,
+            "mean": -0.7381910448850587,
+            "variance": 16.294029762326108,
+            "positiveRatio": 0.386046511627907,
+            "negativeRatio": 0.6139534883720931,
+            "nearZeroRatio": 0.13674418604651162
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1075,
+            "min": -11.315000534057617,
+            "max": 9.47499942779541,
+            "mean": -2.0538976687054302,
+            "variance": 54.95596543110725,
+            "positiveRatio": 0.386046511627907,
+            "negativeRatio": 0.6139534883720931,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8710191830810109,
+            "absPearson": 0.04802410967524782,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 147,
+              "pathLateralMin": -1.4301025867462158,
+              "pathLateralMax": 1.4071544408798218,
+              "trackEdgeMin": -10.588000297546387,
+              "trackEdgeMax": 9.47499942779541,
+              "trackEdgeMean": -2.6049999736604237
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 26,
+              "pathLateralMin": -10.716193199157715,
+              "pathLateralMax": -8.185664176940918,
+              "trackEdgeMin": -10.697999954223633,
+              "trackEdgeMax": -7.99500036239624,
+              "trackEdgeMean": -8.90873069029588
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 147,
+              "pathLateralMin": 4.519820690155029,
+              "pathLateralMax": 7.194847106933594,
+              "trackEdgeMin": 5.175000190734863,
+              "trackEdgeMax": 8.735000610351562,
+              "trackEdgeMean": 7.430850317689027
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-12",
+          "lapNumber": 12,
+          "maxDistanceM": 4533.2099609375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1076,
+            "min": -8.073034286499023,
+            "max": 7.27294921875,
+            "mean": -0.5134118383985746,
+            "variance": 15.42691602649724,
+            "positiveRatio": 0.4395910780669145,
+            "negativeRatio": 0.5604089219330854,
+            "nearZeroRatio": 0.120817843866171
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1076,
+            "min": -11.315000534057617,
+            "max": 9.75,
+            "mean": -1.1895529700920928,
+            "variance": 54.67092302956654,
+            "positiveRatio": 0.4395910780669145,
+            "negativeRatio": 0.5604089219330854,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8877565283510516,
+            "absPearson": 0.12729147374384686,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 130,
+              "pathLateralMin": -1.1945375204086304,
+              "pathLateralMax": 1.220558524131775,
+              "trackEdgeMin": -10.424999237060547,
+              "trackEdgeMax": 9.75,
+              "trackEdgeMean": 0.5129538022554838
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 69,
+              "pathLateralMin": -8.073034286499023,
+              "pathLateralMax": -5.804490566253662,
+              "trackEdgeMin": -10.697999954223633,
+              "trackEdgeMax": -7.030999660491943,
+              "trackEdgeMean": -8.649028923200524
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 119,
+              "pathLateralMin": 4.988507270812988,
+              "pathLateralMax": 7.27294921875,
+              "trackEdgeMin": 5.081999778747559,
+              "trackEdgeMax": 8.735000610351562,
+              "trackEdgeMean": 7.365125960662585
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-74aa74709f6a71b1",
+      "fileName": "Autodromo Nazionale Monza_R_2026-05-01T13_00_15Z.duckdb",
+      "trackName": "Autodromo Nazionale Monza",
+      "trackLayout": "Autodromo Nazionale Monza",
+      "carName": "The Bend Team WRT 2025 #31:LM",
+      "carClass": "GT3",
+      "sessionType": "race",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "maxDistanceM": 5776.12060546875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1246,
+            "min": -5.342837810516357,
+            "max": 7.397542953491211,
+            "mean": 0.18457547801862176,
+            "variance": 8.222536263392655,
+            "positiveRatio": 0.5200642054574639,
+            "negativeRatio": 0.4799357945425361,
+            "nearZeroRatio": 0.15730337078651685
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1246,
+            "min": -7.325000286102295,
+            "max": 7.650000095367432,
+            "mean": 0.2670409201044906,
+            "variance": 27.12370725806116,
+            "positiveRatio": 0.5200642054574639,
+            "negativeRatio": 0.4799357945425361,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.878922607159888,
+            "absPearson": 0.2718758361357912,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 196,
+              "pathLateralMin": -1.0161268711090088,
+              "pathLateralMax": 1.0107121467590332,
+              "trackEdgeMin": -6.324999809265137,
+              "trackEdgeMax": 7.013999938964844,
+              "trackEdgeMean": 0.6246122316438325
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 117,
+              "pathLateralMin": -5.342837810516357,
+              "pathLateralMax": -3.4430129528045654,
+              "trackEdgeMin": -7.325000286102295,
+              "trackEdgeMax": -4.14900016784668,
+              "trackEdgeMean": -5.676461541754568
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 38,
+              "pathLateralMin": 5.504684925079346,
+              "pathLateralMax": 7.397542953491211,
+              "trackEdgeMin": 5.275000095367432,
+              "trackEdgeMax": 6.650000095367432,
+              "trackEdgeMean": 5.928736874931737
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "maxDistanceM": 5776.63916015625,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1166,
+            "min": -5.41580867767334,
+            "max": 7.809534072875977,
+            "mean": 0.06693176951221036,
+            "variance": 8.76847177889594,
+            "positiveRatio": 0.49056603773584906,
+            "negativeRatio": 0.5094339622641509,
+            "nearZeroRatio": 0.15780445969125215
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1166,
+            "min": -7.325000286102295,
+            "max": 7.650000095367432,
+            "mean": -0.03590566891135319,
+            "variance": 26.666696517395458,
+            "positiveRatio": 0.49056603773584906,
+            "negativeRatio": 0.5094339622641509,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8844891677427028,
+            "absPearson": 0.3039643873816803,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 184,
+              "pathLateralMin": -1.0557347536087036,
+              "pathLateralMax": 1.057715892791748,
+              "trackEdgeMin": -6.349999904632568,
+              "trackEdgeMax": 7.013999938964844,
+              "trackEdgeMean": 0.349239108355149
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 121,
+              "pathLateralMin": -5.41580867767334,
+              "pathLateralMax": -3.434224843978882,
+              "trackEdgeMin": -7.325000286102295,
+              "trackEdgeMax": -4.14900016784668,
+              "trackEdgeMean": -5.643272750633807
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 24,
+              "pathLateralMin": 5.942089080810547,
+              "pathLateralMax": 7.809534072875977,
+              "trackEdgeMin": 5.338000297546387,
+              "trackEdgeMax": 6.52500057220459,
+              "trackEdgeMean": 5.840958336989085
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "maxDistanceM": 5777.88037109375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 1155,
+            "min": -5.928870677947998,
+            "max": 6.5233988761901855,
+            "mean": -0.07264815548604185,
+            "variance": 8.964834805567149,
+            "positiveRatio": 0.47705627705627707,
+            "negativeRatio": 0.5229437229437229,
+            "nearZeroRatio": 0.14025974025974025
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 1155,
+            "min": -7.325000286102295,
+            "max": 7.650000095367432,
+            "mean": -0.18250304094124667,
+            "variance": 26.848750276599656,
+            "positiveRatio": 0.47705627705627707,
+            "negativeRatio": 0.5229437229437229,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8876420877596736,
+            "absPearson": 0.3175068332978225,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 162,
+              "pathLateralMin": -0.9597673416137695,
+              "pathLateralMax": 0.9919158220291138,
+              "trackEdgeMin": -6.324999809265137,
+              "trackEdgeMax": 7.038000106811523,
+              "trackEdgeMean": 0.24696294908170346
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 101,
+              "pathLateralMin": -5.928870677947998,
+              "pathLateralMax": -4.064743995666504,
+              "trackEdgeMin": -7.325000286102295,
+              "trackEdgeMax": -4.324999809265137,
+              "trackEdgeMean": -5.848881202168984
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 68,
+              "pathLateralMin": 4.656364917755127,
+              "pathLateralMax": 6.5233988761901855,
+              "trackEdgeMin": 4.792999744415283,
+              "trackEdgeMax": 6.849999904632568,
+              "trackEdgeMean": 5.86326472899493
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-37182ed7b1213649",
+      "fileName": "Autodromo Nazionale Monza_R_2026-04-29T08_27_45Z.duckdb",
+      "trackName": "Autodromo Nazionale Monza",
+      "trackLayout": "Monza Curva Grande Circuit",
+      "carName": "Porsche Penske Motorsport 2025 #4:LM",
+      "carClass": "Hyper",
+      "sessionType": "race",
+      "laps": []
+    },
+    {
+      "sessionId": "lmu-09fddefe1dea7412",
+      "fileName": "Sebring International Raceway_R_2026-05-03T14_09_44Z.duckdb",
+      "trackName": "Sebring International Raceway",
+      "trackLayout": "Sebring School Circuit",
+      "carName": "Heart of Racing Team 2025 #27:LM",
+      "carClass": "GT3",
+      "sessionType": "race",
+      "laps": []
+    },
+    {
+      "sessionId": "lmu-9d1bbcb792982164",
+      "fileName": "Sebring International Raceway_Q_2026-05-03T14_03_11Z.duckdb",
+      "trackName": "Sebring International Raceway",
+      "trackLayout": "Sebring School Circuit",
+      "carName": "Heart of Racing Team 2025 #27:LM",
+      "carClass": "GT3",
+      "sessionType": "qualifying",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "maxDistanceM": 3081.86767578125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 672,
+            "min": -9.230128288269043,
+            "max": 9.102100372314453,
+            "mean": -0.6553726374570813,
+            "variance": 20.891045699107753,
+            "positiveRatio": 0.40625,
+            "negativeRatio": 0.59375,
+            "nearZeroRatio": 0.12797619047619047
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 672,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.5193839325081735,
+            "variance": 72.05018423391846,
+            "positiveRatio": 0.40625,
+            "negativeRatio": 0.59375,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9072417293100318,
+            "absPearson": 0.5121222889347493,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 86,
+              "pathLateralMin": -1.4569156169891357,
+              "pathLateralMax": 1.465831995010376,
+              "trackEdgeMin": -10.914999961853027,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": -0.26555810695470766
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 54,
+              "pathLateralMin": -9.230128288269043,
+              "pathLateralMax": -6.490604400634766,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -5.73799991607666,
+              "trackEdgeMean": -10.373833329589278
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 50,
+              "pathLateralMin": 6.354832172393799,
+              "pathLateralMax": 9.102100372314453,
+              "trackEdgeMin": 8.193999290466309,
+              "trackEdgeMax": 19.26799964904785,
+              "trackEdgeMean": 13.307739887237549
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "maxDistanceM": 3080.5107421875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 664,
+            "min": -10.444504737854004,
+            "max": 8.314014434814453,
+            "mean": -0.7258836287915348,
+            "variance": 20.37719002198867,
+            "positiveRatio": 0.40963855421686746,
+            "negativeRatio": 0.5903614457831325,
+            "nearZeroRatio": 0.1280120481927711
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 664,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.5191566348075867,
+            "variance": 72.02928768312218,
+            "positiveRatio": 0.40963855421686746,
+            "negativeRatio": 0.5903614457831325,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8971519210075534,
+            "absPearson": 0.4471170948515854,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 85,
+              "pathLateralMin": -1.4370083808898926,
+              "pathLateralMax": 1.4195404052734375,
+              "trackEdgeMin": -11.312999725341797,
+              "trackEdgeMax": 14.541999816894531,
+              "trackEdgeMean": 0.2468353215385886
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 36,
+              "pathLateralMin": -10.444504737854004,
+              "pathLateralMax": -7.637461185455322,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -7.651000022888184,
+              "trackEdgeMean": -11.657194468710157
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 82,
+              "pathLateralMin": 5.501943588256836,
+              "pathLateralMax": 8.314014434814453,
+              "trackEdgeMin": 5.3420000076293945,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 10.109048721266955
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "maxDistanceM": 3079.409423828125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 655,
+            "min": -10.139080047607422,
+            "max": 9.412259101867676,
+            "mean": -0.8182831293753995,
+            "variance": 20.975221847271396,
+            "positiveRatio": 0.4,
+            "negativeRatio": 0.6,
+            "nearZeroRatio": 0.12366412213740458
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 655,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.5693984715993168,
+            "variance": 71.89195833444087,
+            "positiveRatio": 0.4,
+            "negativeRatio": 0.6,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9009905412737,
+            "absPearson": 0.43594179034574787,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 81,
+              "pathLateralMin": -1.5548275709152222,
+              "pathLateralMax": 1.5479207038879395,
+              "trackEdgeMin": -11.616999626159668,
+              "trackEdgeMax": 14.541999816894531,
+              "trackEdgeMean": 0.09148152669270833
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 39,
+              "pathLateralMin": -10.139080047607422,
+              "pathLateralMax": -7.258861064910889,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -7.230999946594238,
+              "trackEdgeMean": -10.558666632725643
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 29,
+              "pathLateralMin": 6.498816013336182,
+              "pathLateralMax": 9.412259101867676,
+              "trackEdgeMin": 8.214999198913574,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 13.295965424899396
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-8f906ecb3dcfd6dc",
+      "fileName": "Sebring International Raceway_R_2026-05-03T13_29_38Z.duckdb",
+      "trackName": "Sebring International Raceway",
+      "trackLayout": "Sebring School Circuit",
+      "carName": "Heart of Racing Team 2025 #27:LM",
+      "carClass": "GT3",
+      "sessionType": "race",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "maxDistanceM": 3079.87158203125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 755,
+            "min": -10.08456039428711,
+            "max": 5.959305763244629,
+            "mean": -1.766884342832676,
+            "variance": 12.95014777822675,
+            "positiveRatio": 0.31788079470198677,
+            "negativeRatio": 0.6821192052980133,
+            "nearZeroRatio": 0.09536423841059603
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 755,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -1.8315324524380514,
+            "variance": 69.32984177817328,
+            "positiveRatio": 0.31788079470198677,
+            "negativeRatio": 0.6821192052980133,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9116506263906946,
+            "absPearson": 0.4364913916612178,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 72,
+              "pathLateralMin": -1.2635526657104492,
+              "pathLateralMax": 1.2762725353240967,
+              "trackEdgeMin": -10.914999961853027,
+              "trackEdgeMax": 13.633999824523926,
+              "trackEdgeMean": 0.676138871245914
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 27,
+              "pathLateralMin": -10.08456039428711,
+              "pathLateralMax": -7.766031265258789,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -11.977999687194824,
+              "trackEdgeMean": -12.78137023360641
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 59,
+              "pathLateralMin": 3.7148263454437256,
+              "pathLateralMax": 5.959305763244629,
+              "trackEdgeMin": 5.115000247955322,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 14.071389812534138
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "maxDistanceM": 3078.65673828125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 672,
+            "min": -9.569976806640625,
+            "max": 6.3113884925842285,
+            "mean": -0.9831139078319427,
+            "variance": 15.28788532112161,
+            "positiveRatio": 0.38244047619047616,
+            "negativeRatio": 0.6175595238095238,
+            "nearZeroRatio": 0.12946428571428573
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 672,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.8644345239514396,
+            "variance": 69.93673141456395,
+            "positiveRatio": 0.38244047619047616,
+            "negativeRatio": 0.6175595238095238,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.87529265223585,
+            "absPearson": 0.3143632912914571,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 87,
+              "pathLateralMin": -1.2379944324493408,
+              "pathLateralMax": 1.267012357711792,
+              "trackEdgeMin": -11.73900032043457,
+              "trackEdgeMax": 14.350000381469727,
+              "trackEdgeMean": 0.6324252863039915
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 24,
+              "pathLateralMin": -9.569976806640625,
+              "pathLateralMax": -7.2089433670043945,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -7.230999946594238,
+              "trackEdgeMean": -10.923541565736135
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 113,
+              "pathLateralMin": 3.929656982421875,
+              "pathLateralMax": 6.3113884925842285,
+              "trackEdgeMin": 5.088000297546387,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 10.653513271196754
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "maxDistanceM": 3079.43310546875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 665,
+            "min": -10.371896743774414,
+            "max": 9.597068786621094,
+            "mean": -0.4618430897985634,
+            "variance": 21.330868260012966,
+            "positiveRatio": 0.4270676691729323,
+            "negativeRatio": 0.5729323308270676,
+            "nearZeroRatio": 0.14285714285714285
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 665,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.3164631685816256,
+            "variance": 71.2060234804652,
+            "positiveRatio": 0.4270676691729323,
+            "negativeRatio": 0.5729323308270676,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9090103482172682,
+            "absPearson": 0.5232479597713027,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 95,
+              "pathLateralMin": -1.5818190574645996,
+              "pathLateralMax": 1.5399425029754639,
+              "trackEdgeMin": -12.108000755310059,
+              "trackEdgeMax": 14.350000381469727,
+              "trackEdgeMean": -0.18054732272499485
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 31,
+              "pathLateralMin": -10.371896743774414,
+              "pathLateralMax": -7.417510986328125,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -10.013999938964844,
+              "trackEdgeMean": -11.757580757141113
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 31,
+              "pathLateralMin": 6.61335563659668,
+              "pathLateralMax": 9.597068786621094,
+              "trackEdgeMin": 9.618999481201172,
+              "trackEdgeMax": 19.385000228881836,
+              "trackEdgeMean": 14.19761291626961
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-4",
+          "lapNumber": 4,
+          "maxDistanceM": 3078.551513671875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 836,
+            "min": -22.666481018066406,
+            "max": 7.146925449371338,
+            "mean": -3.6360480416583956,
+            "variance": 57.6702644637303,
+            "positiveRatio": 0.34688995215311,
+            "negativeRatio": 0.65311004784689,
+            "nearZeroRatio": 0.22129186602870812
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 836,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -1.2671686587721538,
+            "variance": 62.2400509320863,
+            "positiveRatio": 0.34688995215311,
+            "negativeRatio": 0.65311004784689,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.6621130778109373,
+            "absPearson": -0.09320922429767127,
+            "confidence": "medium",
+            "reason": "Path Lateral and Track Edge show a moderate paired relationship, which supports more research but not boundary claims."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 185,
+              "pathLateralMin": -2.363034963607788,
+              "pathLateralMax": 2.381033182144165,
+              "trackEdgeMin": -12.468999862670898,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": -0.15816756841298696
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 66,
+              "pathLateralMin": -22.666481018066406,
+              "pathLateralMax": -18.439449310302734,
+              "trackEdgeMin": -5.4830002784729,
+              "trackEdgeMax": -5.375,
+              "trackEdgeMean": -5.421424172141335
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 188,
+              "pathLateralMin": 2.682920455932617,
+              "pathLateralMax": 7.146925449371338,
+              "trackEdgeMin": 4.868000030517578,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 10.107223361096484
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-5",
+          "lapNumber": 5,
+          "maxDistanceM": 3080.63427734375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 672,
+            "min": -9.936018943786621,
+            "max": 9.310623168945312,
+            "mean": -0.9303108499512919,
+            "variance": 19.043654085340204,
+            "positiveRatio": 0.3898809523809524,
+            "negativeRatio": 0.6101190476190477,
+            "nearZeroRatio": 0.125
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 672,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.6667470307577223,
+            "variance": 71.2431094482364,
+            "positiveRatio": 0.3898809523809524,
+            "negativeRatio": 0.6101190476190477,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8809779770579118,
+            "absPearson": 0.35426484667150493,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 84,
+              "pathLateralMin": -1.5267069339752197,
+              "pathLateralMax": 1.4977216720581055,
+              "trackEdgeMin": -12.845999717712402,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": -0.05320235661097935
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 39,
+              "pathLateralMin": -9.936018943786621,
+              "pathLateralMax": -7.21710729598999,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -5.429999828338623,
+              "trackEdgeMean": -8.880897387480124
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 12,
+              "pathLateralMin": 6.865553855895996,
+              "pathLateralMax": 9.310623168945312,
+              "trackEdgeMin": 14.725000381469727,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 16.659083127975464
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-6",
+          "lapNumber": 6,
+          "maxDistanceM": 3079.20068359375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 815,
+            "min": -20.501535415649414,
+            "max": 10.748699188232422,
+            "mean": -1.31558727472792,
+            "variance": 36.60921172590495,
+            "positiveRatio": 0.3815950920245399,
+            "negativeRatio": 0.6184049079754601,
+            "nearZeroRatio": 0.21595092024539878
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 815,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.9003140999495618,
+            "variance": 68.69278823034638,
+            "positiveRatio": 0.3815950920245399,
+            "negativeRatio": 0.6184049079754601,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.7907543710741519,
+            "absPearson": 0.3024672995303784,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 176,
+              "pathLateralMin": -2.459345817565918,
+              "pathLateralMax": 2.465216636657715,
+              "trackEdgeMin": -12.916999816894531,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": -1.564488635821776
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 32,
+              "pathLateralMin": -20.501535415649414,
+              "pathLateralMax": -16.155221939086914,
+              "trackEdgeMin": -8.10099983215332,
+              "trackEdgeMax": -7.01200008392334,
+              "trackEdgeMean": -7.603531166911125
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 66,
+              "pathLateralMin": 6.090228080749512,
+              "pathLateralMax": 10.748699188232422,
+              "trackEdgeMin": 5.3420000076293945,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 14.887742411006581
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-7",
+          "lapNumber": 7,
+          "maxDistanceM": 3078.298095703125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 684,
+            "min": -9.7598295211792,
+            "max": 10.422606468200684,
+            "mean": 0.25840937963561617,
+            "variance": 21.532818588571036,
+            "positiveRatio": 0.4327485380116959,
+            "negativeRatio": 0.5672514619883041,
+            "nearZeroRatio": 0.18128654970760233
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 684,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.1867280710510343,
+            "variance": 71.95070393270005,
+            "positiveRatio": 0.4327485380116959,
+            "negativeRatio": 0.5672514619883041,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9092171437315608,
+            "absPearson": 0.6186167123736833,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 124,
+              "pathLateralMin": -1.6132147312164307,
+              "pathLateralMax": 1.587722659111023,
+              "trackEdgeMin": -12.916999816894531,
+              "trackEdgeMax": 13.071999549865723,
+              "trackEdgeMean": -1.5519435424958505
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 27,
+              "pathLateralMin": -9.7598295211792,
+              "pathLateralMax": -6.826998710632324,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -7.651000022888184,
+              "trackEdgeMean": -11.66051834600943
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 69,
+              "pathLateralMin": 7.395296096801758,
+              "pathLateralMax": 10.422606468200684,
+              "trackEdgeMin": 5.088000297546387,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 13.715681158978006
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-8",
+          "lapNumber": 8,
+          "maxDistanceM": 3076.8056640625,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 661,
+            "min": -10.623132705688477,
+            "max": 9.814231872558594,
+            "mean": -1.0529553689536006,
+            "variance": 22.280983567280426,
+            "positiveRatio": 0.3615733736762481,
+            "negativeRatio": 0.6384266263237519,
+            "nearZeroRatio": 0.13918305597579425
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 661,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -1.0875113454059826,
+            "variance": 71.54749901133192,
+            "positiveRatio": 0.3615733736762481,
+            "negativeRatio": 0.6384266263237519,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9072879326804274,
+            "absPearson": 0.544736519643573,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 92,
+              "pathLateralMin": -1.5480505228042603,
+              "pathLateralMax": 1.6132307052612305,
+              "trackEdgeMin": -12.468999862670898,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": -0.22756519006646198
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 46,
+              "pathLateralMin": -10.623132705688477,
+              "pathLateralMax": -7.583784103393555,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -5.763000011444092,
+              "trackEdgeMean": -10.54710867093957
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 46,
+              "pathLateralMin": 6.770623207092285,
+              "pathLateralMax": 9.814231872558594,
+              "trackEdgeMin": 9.618999481201172,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 14.539543421372123
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-9",
+          "lapNumber": 9,
+          "maxDistanceM": 3080.560791015625,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 659,
+            "min": -9.886314392089844,
+            "max": 8.447843551635742,
+            "mean": -0.792488261689863,
+            "variance": 20.26033456236319,
+            "positiveRatio": 0.40515933232169954,
+            "negativeRatio": 0.5948406676783005,
+            "nearZeroRatio": 0.1244309559939302
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 659,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.5524430991304482,
+            "variance": 72.02820819452378,
+            "positiveRatio": 0.40515933232169954,
+            "negativeRatio": 0.5948406676783005,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.90136547945348,
+            "absPearson": 0.4498510222876542,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 82,
+              "pathLateralMin": -1.4024791717529297,
+              "pathLateralMax": 1.325292944908142,
+              "trackEdgeMin": -11.312999725341797,
+              "trackEdgeMax": 14.541999816894531,
+              "trackEdgeMean": 0.0323170946865547
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 43,
+              "pathLateralMin": -9.886314392089844,
+              "pathLateralMax": -7.193089485168457,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -7.230999946594238,
+              "trackEdgeMean": -10.949279053266658
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 55,
+              "pathLateralMin": 5.726844787597656,
+              "pathLateralMax": 8.447843551635742,
+              "trackEdgeMin": 5.088000297546387,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 10.548581730235707
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-10",
+          "lapNumber": 10,
+          "maxDistanceM": 3080.36083984375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 799,
+            "min": -21.771785736083984,
+            "max": 10.062068939208984,
+            "mean": -2.508181619968438,
+            "variance": 44.592843921016566,
+            "positiveRatio": 0.3429286608260325,
+            "negativeRatio": 0.6570713391739674,
+            "nearZeroRatio": 0.23779724655819776
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 799,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -1.2553466926975752,
+            "variance": 65.9940871949676,
+            "positiveRatio": 0.3429286608260325,
+            "negativeRatio": 0.6570713391739674,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.7039364365210612,
+            "absPearson": 0.038746371711993,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 190,
+              "pathLateralMin": -2.535228967666626,
+              "pathLateralMax": 2.540372848510742,
+              "trackEdgeMin": -12.90999984741211,
+              "trackEdgeMax": 14.541999816894531,
+              "trackEdgeMean": -1.5804736815000835
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 54,
+              "pathLateralMin": -21.771785736083984,
+              "pathLateralMax": -17.088064193725586,
+              "trackEdgeMin": -6.125,
+              "trackEdgeMax": -5.925000190734863,
+              "trackEdgeMean": -6.092592583762275
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 108,
+              "pathLateralMin": 5.32320499420166,
+              "pathLateralMax": 10.062068939208984,
+              "trackEdgeMin": 5.392000198364258,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 11.522703669689319
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-11",
+          "lapNumber": 11,
+          "maxDistanceM": 3077.19970703125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 699,
+            "min": -7.557809352874756,
+            "max": 6.953707695007324,
+            "mean": -1.2647773735864736,
+            "variance": 14.759859243047272,
+            "positiveRatio": 0.32761087267525035,
+            "negativeRatio": 0.6723891273247496,
+            "nearZeroRatio": 0.12589413447782546
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 699,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -1.745576545063177,
+            "variance": 63.55238379119008,
+            "positiveRatio": 0.32761087267525035,
+            "negativeRatio": 0.6723891273247496,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8554032769236489,
+            "absPearson": 0.22995006967616458,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 88,
+              "pathLateralMin": -1.1493628025054932,
+              "pathLateralMax": 1.0816891193389893,
+              "trackEdgeMin": -12.736000061035156,
+              "trackEdgeMax": 17.899999618530273,
+              "trackEdgeMean": 0.08902270143682306
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 70,
+              "pathLateralMin": -7.557809352874756,
+              "pathLateralMax": -5.431456565856934,
+              "trackEdgeMin": -13.25100040435791,
+              "trackEdgeMax": -5.4830002784729,
+              "trackEdgeMean": -9.398500033787318
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 79,
+              "pathLateralMin": 4.842310428619385,
+              "pathLateralMax": 6.953707695007324,
+              "trackEdgeMin": 5.180999755859375,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 10.431822710399386
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-12",
+          "lapNumber": 12,
+          "maxDistanceM": 3075.688232421875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 695,
+            "min": -8.825345039367676,
+            "max": 9.784791946411133,
+            "mean": -0.4582928724506562,
+            "variance": 18.96022526638375,
+            "positiveRatio": 0.3985611510791367,
+            "negativeRatio": 0.6014388489208633,
+            "nearZeroRatio": 0.1410071942446043
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 695,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.16434533167228424,
+            "variance": 73.67753255095764,
+            "positiveRatio": 0.3985611510791367,
+            "negativeRatio": 0.6014388489208633,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8711597129695693,
+            "absPearson": 0.3069207949557818,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 98,
+              "pathLateralMin": -1.4578688144683838,
+              "pathLateralMax": 1.4767571687698364,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": 19.58099937438965,
+              "trackEdgeMean": -1.076469426252404
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 36,
+              "pathLateralMin": -8.825345039367676,
+              "pathLateralMax": -6.0727691650390625,
+              "trackEdgeMin": -12.90999984741211,
+              "trackEdgeMax": -7.230999946594238,
+              "trackEdgeMean": -9.92875009112888
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 35,
+              "pathLateralMin": 7.042101860046387,
+              "pathLateralMax": 9.784791946411133,
+              "trackEdgeMin": 7.251999855041504,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 12.287628487178258
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-13",
+          "lapNumber": 13,
+          "maxDistanceM": 3078.572998046875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 698,
+            "min": -9.819117546081543,
+            "max": 9.837395668029785,
+            "mean": -1.1044853569347315,
+            "variance": 20.119769550491505,
+            "positiveRatio": 0.3524355300859599,
+            "negativeRatio": 0.6475644699140402,
+            "nearZeroRatio": 0.1518624641833811
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 698,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -1.146323787107167,
+            "variance": 69.83092464251459,
+            "positiveRatio": 0.3524355300859599,
+            "negativeRatio": 0.6475644699140402,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8915029405913951,
+            "absPearson": 0.43392115282776,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 106,
+              "pathLateralMin": -1.5693628787994385,
+              "pathLateralMax": 1.5676684379577637,
+              "trackEdgeMin": -12.845999717712402,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": 0.1946037827797656
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 34,
+              "pathLateralMin": -9.819117546081543,
+              "pathLateralMax": -6.947619438171387,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -5.588000297546387,
+              "trackEdgeMean": -9.518146935631247
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 36,
+              "pathLateralMin": 7.1294708251953125,
+              "pathLateralMax": 9.837395668029785,
+              "trackEdgeMin": 9.618999481201172,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 13.412805477778116
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-14",
+          "lapNumber": 14,
+          "maxDistanceM": 3078.352294921875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 694,
+            "min": -9.601922988891602,
+            "max": 9.40255355834961,
+            "mean": 0.0243672814075258,
+            "variance": 17.64141177097929,
+            "positiveRatio": 0.5302593659942363,
+            "negativeRatio": 0.4697406340057637,
+            "nearZeroRatio": 0.19740634005763688
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 694,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": 0.8677031698419313,
+            "variance": 69.344458905572,
+            "positiveRatio": 0.5302593659942363,
+            "negativeRatio": 0.4697406340057637,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.903464598779939,
+            "absPearson": 0.5964505211600294,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 137,
+              "pathLateralMin": -1.443424940109253,
+              "pathLateralMax": 1.516479253768921,
+              "trackEdgeMin": -12.468999862670898,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": 0.9147153318363385
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 44,
+              "pathLateralMin": -9.601922988891602,
+              "pathLateralMax": -6.7543044090271,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -7.01200008392334,
+              "trackEdgeMean": -10.43618182702498
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 34,
+              "pathLateralMin": 6.583449840545654,
+              "pathLateralMax": 9.40255355834961,
+              "trackEdgeMin": 10.893000602722168,
+              "trackEdgeMax": 19.26799964904785,
+              "trackEdgeMean": 15.223353049334358
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-15",
+          "lapNumber": 15,
+          "maxDistanceM": 3076.470458984375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 679,
+            "min": -10.140861511230469,
+            "max": 15.401782989501953,
+            "mean": -0.38155796028816297,
+            "variance": 23.44606209186322,
+            "positiveRatio": 0.3784977908689249,
+            "negativeRatio": 0.6215022091310751,
+            "nearZeroRatio": 0.20618556701030927
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 679,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.5868026518505698,
+            "variance": 71.65492101817556,
+            "positiveRatio": 0.3784977908689249,
+            "negativeRatio": 0.6215022091310751,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8954848180781217,
+            "absPearson": 0.5846467176993153,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 140,
+              "pathLateralMin": -2.0242226123809814,
+              "pathLateralMax": 2.021352529525757,
+              "trackEdgeMin": -10.765999794006348,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": -1.7700142894472395
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 41,
+              "pathLateralMin": -10.140861511230469,
+              "pathLateralMax": -6.335528373718262,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -5.783999919891357,
+              "trackEdgeMean": -10.273170645644026
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 14,
+              "pathLateralMin": 11.77400016784668,
+              "pathLateralMax": 15.401782989501953,
+              "trackEdgeMin": 14.350000381469727,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 16.38099983760289
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-16",
+          "lapNumber": 16,
+          "maxDistanceM": 3078.27880859375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 670,
+            "min": -8.85383415222168,
+            "max": 11.290361404418945,
+            "mean": -0.24385472635613448,
+            "variance": 18.918751791018277,
+            "positiveRatio": 0.4208955223880597,
+            "negativeRatio": 0.5791044776119403,
+            "nearZeroRatio": 0.1925373134328358
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 670,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.09378656664891029,
+            "variance": 70.6448353556294,
+            "positiveRatio": 0.4208955223880597,
+            "negativeRatio": 0.5791044776119403,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8736363821558837,
+            "absPearson": 0.3914895996677498,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 129,
+              "pathLateralMin": -1.6084016561508179,
+              "pathLateralMax": 1.6027835607528687,
+              "trackEdgeMin": -12.736000061035156,
+              "trackEdgeMax": 13.071999549865723,
+              "trackEdgeMean": -2.0126124112180963
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 33,
+              "pathLateralMin": -8.85383415222168,
+              "pathLateralMax": -5.849018096923828,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -5.859000205993652,
+              "trackEdgeMean": -9.928454485806553
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 15,
+              "pathLateralMin": 8.282777786254883,
+              "pathLateralMax": 11.290361404418945,
+              "trackEdgeMin": 14.350000381469727,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 16.216666603088377
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-17",
+          "lapNumber": 17,
+          "maxDistanceM": 3080.866455078125,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 683,
+            "min": -9.651144027709961,
+            "max": 9.010612487792969,
+            "mean": -0.10312462553905533,
+            "variance": 14.235991636679962,
+            "positiveRatio": 0.4480234260614934,
+            "negativeRatio": 0.5519765739385066,
+            "nearZeroRatio": 0.2781844802342606
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 683,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": 0.1540468576886469,
+            "variance": 71.44906185718666,
+            "positiveRatio": 0.4480234260614934,
+            "negativeRatio": 0.5519765739385066,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8378944605005806,
+            "absPearson": 0.3593440734770651,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 190,
+              "pathLateralMin": -1.4907786846160889,
+              "pathLateralMax": 1.488905668258667,
+              "trackEdgeMin": -12.90999984741211,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": -2.4686947483765453
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 20,
+              "pathLateralMin": -9.651144027709961,
+              "pathLateralMax": -6.932240009307861,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -11.977999687194824,
+              "trackEdgeMean": -12.737549781799316
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 14,
+              "pathLateralMin": 6.330490589141846,
+              "pathLateralMax": 9.010612487792969,
+              "trackEdgeMin": 14.100000381469727,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 16.328571251460485
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-18",
+          "lapNumber": 18,
+          "maxDistanceM": 3078.1259765625,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 672,
+            "min": -9.584270477294922,
+            "max": 12.246061325073242,
+            "mean": -0.42221956227218643,
+            "variance": 21.49335778027456,
+            "positiveRatio": 0.3794642857142857,
+            "negativeRatio": 0.6205357142857143,
+            "nearZeroRatio": 0.17261904761904762
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 672,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.46550595334597994,
+            "variance": 72.77948007478844,
+            "positiveRatio": 0.3794642857142857,
+            "negativeRatio": 0.6205357142857143,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.8962548793511057,
+            "absPearson": 0.5179641757007086,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 116,
+              "pathLateralMin": -1.7434970140457153,
+              "pathLateralMax": 1.7077739238739014,
+              "trackEdgeMin": -11.723999977111816,
+              "trackEdgeMax": 14.541999816894531,
+              "trackEdgeMean": -2.600456879056733
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 44,
+              "pathLateralMin": -9.584270477294922,
+              "pathLateralMax": -6.340004920959473,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -4.425000190734863,
+              "trackEdgeMean": -9.2273408499631
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 15,
+              "pathLateralMin": 9.146440505981445,
+              "pathLateralMax": 12.246061325073242,
+              "trackEdgeMin": 14.100000381469727,
+              "trackEdgeMax": 17.924999237060547,
+              "trackEdgeMean": 16.254533322652183
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-4019231c0264dfe2",
+      "fileName": "Sebring International Raceway_Q_2026-05-03T13_23_12Z.duckdb",
+      "trackName": "Sebring International Raceway",
+      "trackLayout": "Sebring School Circuit",
+      "carName": "Heart of Racing Team 2025 #27:LM",
+      "carClass": "GT3",
+      "sessionType": "qualifying",
+      "laps": [
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "maxDistanceM": 3079.489013671875,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 667,
+            "min": -9.08930778503418,
+            "max": 6.394415378570557,
+            "mean": -1.2198759464734141,
+            "variance": 14.92693385186081,
+            "positiveRatio": 0.36431784107946025,
+            "negativeRatio": 0.6356821589205397,
+            "nearZeroRatio": 0.13793103448275862
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 667,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -1.1524632742022467,
+            "variance": 67.8164064949124,
+            "positiveRatio": 0.36431784107946025,
+            "negativeRatio": 0.6356821589205397,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.843506353919734,
+            "absPearson": 0.15626288407460737,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 92,
+              "pathLateralMin": -1.1887871026992798,
+              "pathLateralMax": 1.2260409593582153,
+              "trackEdgeMin": -11.130000114440918,
+              "trackEdgeMax": 17.674999237060547,
+              "trackEdgeMean": 0.7422935029734736
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 28,
+              "pathLateralMin": -9.08930778503418,
+              "pathLateralMax": -6.791011810302734,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -5.783999919891357,
+              "trackEdgeMean": -10.500535726547241
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 96,
+              "pathLateralMin": 4.160303592681885,
+              "pathLateralMax": 6.394415378570557,
+              "trackEdgeMin": 5.088000297546387,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 9.359072869022688
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "maxDistanceM": 3075.822021484375,
+          "pathLateral": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -9.836952209472656,
+            "max": 9.066238403320312,
+            "mean": -0.7665970017173976,
+            "variance": 21.311986959587266,
+            "positiveRatio": 0.3878787878787879,
+            "negativeRatio": 0.6121212121212121,
+            "nearZeroRatio": 0.11969696969696969
+          },
+          "trackEdge": {
+            "exists": true,
+            "sampleCount": 660,
+            "min": -13.586000442504883,
+            "max": 21.43400001525879,
+            "mean": -0.7314787951382724,
+            "variance": 71.99248867517251,
+            "positiveRatio": 0.3878787878787879,
+            "negativeRatio": 0.6121212121212121,
+            "nearZeroRatio": 0.0
+          },
+          "correlation": {
+            "pearson": 0.9078761566790172,
+            "absPearson": 0.4892553890775401,
+            "confidence": "high",
+            "reason": "Path Lateral and Track Edge show a strong paired relationship, but this still does not prove actual boundary semantics."
+          },
+          "bucketAnalysis": {
+            "nearZeroPathLateral": {
+              "sampleCount": 79,
+              "pathLateralMin": -1.5105466842651367,
+              "pathLateralMax": 1.4810657501220703,
+              "trackEdgeMin": -12.468999862670898,
+              "trackEdgeMax": 14.229000091552734,
+              "trackEdgeMean": -0.12445568133004103
+            },
+            "extremeNegativePathLateral": {
+              "sampleCount": 31,
+              "pathLateralMin": -9.836952209472656,
+              "pathLateralMax": -7.008084297180176,
+              "trackEdgeMin": -13.586000442504883,
+              "trackEdgeMax": -10.013999938964844,
+              "trackEdgeMean": -11.88677421692879
+            },
+            "extremePositivePathLateral": {
+              "sampleCount": 49,
+              "pathLateralMin": 6.238100051879883,
+              "pathLateralMax": 9.066238403320312,
+              "trackEdgeMin": 8.236000061035156,
+              "trackEdgeMax": 21.43400001525879,
+              "trackEdgeMean": 14.35995913525017
+            }
+          },
+          "semanticsVerdict": {
+            "verdict": "estimated-corridor-only",
+            "reason": "Path Lateral supports estimated placement, but Track Edge still has unresolved signed semantics and cannot justify actual boundary claims."
+          }
+        }
+      ]
+    },
+    {
+      "sessionId": "lmu-fcb186533529c156",
+      "fileName": "Sebring International Raceway_R_2026-05-03T12_53_28Z.duckdb",
+      "trackName": "Sebring International Raceway",
+      "trackLayout": "Sebring School Circuit",
+      "carName": "Racing Spirit of Léman 2025 #10:LM",
+      "carClass": "GT3",
+      "sessionType": "race",
+      "laps": []
+    }
+  ],
+  "blockers": [],
+  "nextQuestions": [
+    "Does Track Edge encode one-sided distance, signed side preference, or another LMU-specific path-relative signal?",
+    "Is Path Lateral zero tied to track center, reference path, or ideal path?",
+    "Do car/class combinations change Track Edge semantics or only scale?"
+  ]
+}

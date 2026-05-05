@@ -1,0 +1,390 @@
+{
+  "generatedAt": "2026-05-04T11:23:43.968132+00:00",
+  "sourcePath": "E:\\SteamLibrary\\steamapps\\common\\Le Mans Ultimate\\UserData\\Telemetry",
+  "summary": {
+    "filesScanned": 2,
+    "sessionsReady": 2,
+    "sessionsError": 0,
+    "totalLaps": 9,
+    "validLaps": 7,
+    "invalidLaps": 2,
+    "realRacingLineLaps": 7,
+    "distanceGraphOnlyLaps": 0,
+    "missingDistanceLaps": 0,
+    "partialChannelLaps": 0
+  },
+  "sessions": [
+    {
+      "sessionId": "lmu-877d18c4cdf06bcd",
+      "fileName": "Sebring International Raceway_R_2026-05-03T14_09_58Z.duckdb",
+      "status": "ready",
+      "trackName": "Sebring International Raceway",
+      "trackLayout": "Sebring School Circuit",
+      "carName": "Heart of Racing Team 2025 #27:LM",
+      "carClass": "GT3",
+      "sessionType": "race",
+      "lapCount": 8,
+      "validLapCount": 7,
+      "invalidLapCount": 1,
+      "bestLapId": "lap-7",
+      "bestLapTimeMs": 65345,
+      "channels": {
+        "hasGpsLat": true,
+        "hasGpsLon": true,
+        "hasLapDist": true,
+        "hasGroundSpeed": true,
+        "hasBrakePos": true,
+        "hasThrottlePos": true,
+        "hasSteeringPos": true
+      },
+      "laps": [
+        {
+          "lapId": "lap-0",
+          "lapNumber": 0,
+          "lapTimeMs": 0,
+          "isValid": false,
+          "isBest": false,
+          "warnings": [],
+          "distance": {
+            "minM": null,
+            "maxM": 2945.411865234375,
+            "isMonotonic": false,
+            "rawDistanceBacksteps": 0,
+            "repairedDistanceBacksteps": 0,
+            "remainingBacksteps": 0,
+            "distanceRepairStrategy": "none"
+          },
+          "channels": {},
+          "errorCode": "LAP_INVALID"
+        },
+        {
+          "lapId": "lap-1",
+          "lapNumber": 1,
+          "lapTimeMs": 74736,
+          "isValid": true,
+          "isBest": false,
+          "warnings": [],
+          "mode": "real-racing-line",
+          "pointCount": 748,
+          "graphPointCount": 748,
+          "distance": {
+            "minM": 0.0010000000474974513,
+            "maxM": 3080.968994140625,
+            "isMonotonic": true,
+            "rawDistanceBacksteps": 0,
+            "repairedDistanceBacksteps": 0,
+            "remainingBacksteps": 0,
+            "distanceRepairStrategy": "none"
+          },
+          "coordinates": {
+            "source": "gps-lat-lon",
+            "confidence": "high",
+            "minX": -244.65165363326864,
+            "maxX": 886.8530011704576,
+            "minY": -222.645263671875,
+            "maxY": 343.6664581298828,
+            "bboxWidth": 1131.5046548037262,
+            "bboxHeight": 566.3117218017578,
+            "hasNaN": false,
+            "hasConstantCoordinates": false
+          },
+          "channels": {
+            "speedCoverage": 1.0,
+            "brakeCoverage": 1.0,
+            "throttleCoverage": 1.0,
+            "steeringCoverage": 1.0
+          }
+        },
+        {
+          "lapId": "lap-2",
+          "lapNumber": 2,
+          "lapTimeMs": 67054,
+          "isValid": true,
+          "isBest": false,
+          "warnings": [],
+          "mode": "real-racing-line",
+          "pointCount": 670,
+          "graphPointCount": 670,
+          "distance": {
+            "minM": 3.5506253242492676,
+            "maxM": 3077.68994140625,
+            "isMonotonic": true,
+            "rawDistanceBacksteps": 0,
+            "repairedDistanceBacksteps": 0,
+            "remainingBacksteps": 0,
+            "distanceRepairStrategy": "none"
+          },
+          "coordinates": {
+            "source": "gps-lat-lon",
+            "confidence": "high",
+            "minX": -389.1347206547073,
+            "maxX": 744.7289482877533,
+            "minY": -214.63340759277344,
+            "maxY": 350.4132843017578,
+            "bboxWidth": 1133.8636689424607,
+            "bboxHeight": 565.0466918945312,
+            "hasNaN": false,
+            "hasConstantCoordinates": false
+          },
+          "channels": {
+            "speedCoverage": 1.0,
+            "brakeCoverage": 1.0,
+            "throttleCoverage": 1.0,
+            "steeringCoverage": 1.0
+          }
+        },
+        {
+          "lapId": "lap-3",
+          "lapNumber": 3,
+          "lapTimeMs": 67436,
+          "isValid": true,
+          "isBest": false,
+          "warnings": [],
+          "mode": "real-racing-line",
+          "pointCount": 675,
+          "graphPointCount": 675,
+          "distance": {
+            "minM": 0.40652087330818176,
+            "maxM": 3081.555419921875,
+            "isMonotonic": true,
+            "rawDistanceBacksteps": 0,
+            "repairedDistanceBacksteps": 0,
+            "remainingBacksteps": 0,
+            "distanceRepairStrategy": "none"
+          },
+          "coordinates": {
+            "source": "gps-lat-lon",
+            "confidence": "high",
+            "minX": -382.5509249682622,
+            "maxX": 747.0522077205181,
+            "minY": -215.4767608642578,
+            "maxY": 349.14825439453125,
+            "bboxWidth": 1129.6031326887803,
+            "bboxHeight": 564.6250152587891,
+            "hasNaN": false,
+            "hasConstantCoordinates": false
+          },
+          "channels": {
+            "speedCoverage": 1.0,
+            "brakeCoverage": 1.0,
+            "throttleCoverage": 1.0,
+            "steeringCoverage": 1.0
+          }
+        },
+        {
+          "lapId": "lap-4",
+          "lapNumber": 4,
+          "lapTimeMs": 66351,
+          "isValid": true,
+          "isBest": false,
+          "warnings": [],
+          "mode": "real-racing-line",
+          "pointCount": 663,
+          "graphPointCount": 663,
+          "distance": {
+            "minM": 4.242372512817383,
+            "maxM": 3078.510498046875,
+            "isMonotonic": true,
+            "rawDistanceBacksteps": 0,
+            "repairedDistanceBacksteps": 0,
+            "remainingBacksteps": 0,
+            "distanceRepairStrategy": "none"
+          },
+          "coordinates": {
+            "source": "gps-lat-lon",
+            "confidence": "high",
+            "minX": -386.17532679234836,
+            "maxX": 743.8767307770146,
+            "minY": -216.3201141357422,
+            "maxY": 349.14825439453125,
+            "bboxWidth": 1130.052057569363,
+            "bboxHeight": 565.4683685302734,
+            "hasNaN": false,
+            "hasConstantCoordinates": false
+          },
+          "channels": {
+            "speedCoverage": 1.0,
+            "brakeCoverage": 1.0,
+            "throttleCoverage": 1.0,
+            "steeringCoverage": 1.0
+          }
+        },
+        {
+          "lapId": "lap-5",
+          "lapNumber": 5,
+          "lapTimeMs": 66024,
+          "isValid": true,
+          "isBest": false,
+          "warnings": [],
+          "mode": "real-racing-line",
+          "pointCount": 660,
+          "graphPointCount": 660,
+          "distance": {
+            "minM": 1.1497262716293335,
+            "maxM": 3077.06005859375,
+            "isMonotonic": true,
+            "rawDistanceBacksteps": 0,
+            "repairedDistanceBacksteps": 0,
+            "remainingBacksteps": 0,
+            "distanceRepairStrategy": "none"
+          },
+          "coordinates": {
+            "source": "gps-lat-lon",
+            "confidence": "high",
+            "minX": -384.2896173720762,
+            "maxX": 747.4142216767943,
+            "minY": -215.05508422851562,
+            "maxY": 349.9916076660156,
+            "bboxWidth": 1131.7038390488706,
+            "bboxHeight": 565.0466918945312,
+            "hasNaN": false,
+            "hasConstantCoordinates": false
+          },
+          "channels": {
+            "speedCoverage": 1.0,
+            "brakeCoverage": 1.0,
+            "throttleCoverage": 1.0,
+            "steeringCoverage": 1.0
+          }
+        },
+        {
+          "lapId": "lap-6",
+          "lapNumber": 6,
+          "lapTimeMs": 66013,
+          "isValid": true,
+          "isBest": false,
+          "warnings": [],
+          "mode": "real-racing-line",
+          "pointCount": 660,
+          "graphPointCount": 660,
+          "distance": {
+            "minM": 0.0014702382031828165,
+            "maxM": 3076.28076171875,
+            "isMonotonic": true,
+            "rawDistanceBacksteps": 0,
+            "repairedDistanceBacksteps": 0,
+            "remainingBacksteps": 0,
+            "distanceRepairStrategy": "none"
+          },
+          "coordinates": {
+            "source": "gps-lat-lon",
+            "confidence": "high",
+            "minX": -382.5609377318665,
+            "maxX": 747.886044895906,
+            "minY": -216.3201141357422,
+            "maxY": 348.72657775878906,
+            "bboxWidth": 1130.4469826277725,
+            "bboxHeight": 565.0466918945312,
+            "hasNaN": false,
+            "hasConstantCoordinates": false
+          },
+          "channels": {
+            "speedCoverage": 1.0,
+            "brakeCoverage": 1.0,
+            "throttleCoverage": 1.0,
+            "steeringCoverage": 1.0
+          }
+        },
+        {
+          "lapId": "lap-7",
+          "lapNumber": 7,
+          "lapTimeMs": 65345,
+          "isValid": true,
+          "isBest": true,
+          "warnings": [
+            {
+              "code": "LAP_BOUNDARY_AMBIGUOUS",
+              "message": "Lap event boundary is missing or incomplete."
+            }
+          ],
+          "mode": "real-racing-line",
+          "pointCount": 654,
+          "graphPointCount": 654,
+          "distance": {
+            "minM": 0.0014702382031828165,
+            "maxM": 3079.55810546875,
+            "isMonotonic": true,
+            "rawDistanceBacksteps": 0,
+            "repairedDistanceBacksteps": 0,
+            "remainingBacksteps": 0,
+            "distanceRepairStrategy": "none"
+          },
+          "coordinates": {
+            "source": "gps-lat-lon",
+            "confidence": "high",
+            "minX": -384.32258321725095,
+            "maxX": 748.686144877418,
+            "minY": -215.8984375,
+            "maxY": 349.14825439453125,
+            "bboxWidth": 1133.0087280946689,
+            "bboxHeight": 565.0466918945312,
+            "hasNaN": false,
+            "hasConstantCoordinates": false
+          },
+          "channels": {
+            "speedCoverage": 1.0,
+            "brakeCoverage": 1.0,
+            "throttleCoverage": 1.0,
+            "steeringCoverage": 1.0
+          }
+        }
+      ],
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "sessionId": "lmu-09fddefe1dea7412",
+      "fileName": "Sebring International Raceway_R_2026-05-03T14_09_44Z.duckdb",
+      "status": "ready",
+      "trackName": "Sebring International Raceway",
+      "trackLayout": "Sebring School Circuit",
+      "carName": "Heart of Racing Team 2025 #27:LM",
+      "carClass": "GT3",
+      "sessionType": "race",
+      "lapCount": 1,
+      "validLapCount": 0,
+      "invalidLapCount": 1,
+      "bestLapId": null,
+      "bestLapTimeMs": null,
+      "channels": {
+        "hasGpsLat": true,
+        "hasGpsLon": true,
+        "hasLapDist": true,
+        "hasGroundSpeed": true,
+        "hasBrakePos": true,
+        "hasThrottlePos": true,
+        "hasSteeringPos": true
+      },
+      "laps": [
+        {
+          "lapId": "lap-0",
+          "lapNumber": 0,
+          "lapTimeMs": 0,
+          "isValid": false,
+          "isBest": false,
+          "warnings": [
+            {
+              "code": "LAP_BOUNDARY_AMBIGUOUS",
+              "message": "Lap event boundary is missing or incomplete."
+            }
+          ],
+          "distance": {
+            "minM": null,
+            "maxM": 0.0010000000474974513,
+            "isMonotonic": false,
+            "rawDistanceBacksteps": 0,
+            "repairedDistanceBacksteps": 0,
+            "remainingBacksteps": 0,
+            "distanceRepairStrategy": "none"
+          },
+          "channels": {},
+          "errorCode": "LAP_INVALID"
+        }
+      ],
+      "warnings": [],
+      "errors": []
+    }
+  ],
+  "blockers": [],
+  "warnings": []
+}
