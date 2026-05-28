@@ -243,6 +243,23 @@ export type RacingLineViewData = {
   racingLine: RacingLinePoint[]
   graphPoints: TelemetryGraphPoint[]
   warnings: DataWarning[]
+  comparison?: LapComparisonState
+}
+
+export type LapComparisonState = {
+  status: 'available' | 'unavailable'
+  reason?: string
+  bestLap?: ComparisonLapOverlay
+}
+
+export type ComparisonLapOverlay = {
+  lap: NormalizedLapSummary
+  mode: 'real-racing-line' | 'distance-graph-only'
+  coordinateStatus: CoordinateStatus
+  sync: SyncStatus
+  racingLine: RacingLinePoint[]
+  graphPoints: TelemetryGraphPoint[]
+  warnings: DataWarning[]
 }
 
 export type RacingLinePoint = {
@@ -304,6 +321,15 @@ window.brakepointApi = {
   loadLapRacingLine(sessionId: string, lapId: string): Promise<ApiResult<RacingLineViewData>>
 }
 ```
+
+Phase 2 first-slice rule:
+
+- `loadLapRacingLine` remains the active renderer API for `Lap Analysis`
+- best-lap comparison is attached as optional `comparison` data on the same
+  response
+- current-lap-only consumers remain valid when `comparison` is omitted
+- `comparison` must not bundle Ghost, delta timeline, Loss Zone, Coach, replay,
+  or AI fields
 
 ## 9. Game Adapter Contract
 

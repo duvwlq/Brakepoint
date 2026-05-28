@@ -3,6 +3,7 @@
 const api = window.brakepointApi;
 
 const state = {
+  view: "sessions",
   source: { status: "loading" },
   sessions: { status: "loading", items: [] },
   selectedSessionId: null,
@@ -19,12 +20,25 @@ const state = {
     lapListCollapsed: false,
     summaryCollapsed: false,
   },
+  sessionFilters: {
+    status: "all",
+    sessionType: "all",
+  },
+  sessionsScrollTop: 0,
+  comparisonEnabled: false,
   showJson: false,
 };
 
 const els = {
   sourceStatus: document.getElementById("source-status"),
+  navSessions: document.getElementById("nav-sessions"),
+  navAnalysis: document.getElementById("nav-analysis"),
+  sessionsSelectionSummary: document.getElementById("sessions-selection-summary"),
+  sessionsBrowseSummary: document.getElementById("sessions-browse-summary"),
+  sessionFilters: document.getElementById("session-filters"),
   sessionList: document.getElementById("session-list"),
+  sessionsView: document.getElementById("sessions-view"),
+  analysisView: document.getElementById("analysis-view"),
   sessionDetail: document.getElementById("session-detail"),
   lapList: document.getElementById("lap-list"),
   lapPanel: document.querySelector(".lap-panel"),
@@ -39,6 +53,7 @@ const els = {
   jsonDebug: document.getElementById("json-debug"),
   jsonToggle: document.getElementById("json-toggle"),
   refreshButton: document.getElementById("refresh-button"),
+  topbarBack: document.getElementById("topbar-back"),
   sidebarToggle: document.getElementById("sidebar-toggle"),
   lapPanelToggle: document.getElementById("lap-panel-toggle"),
   summaryPanelToggle: document.getElementById("summary-panel-toggle"),
@@ -76,9 +91,16 @@ async function init() {
 
 function bindEvents() {
   els.refreshButton.addEventListener("click", refreshAll);
+  els.navSessions.addEventListener("click", () => setView("sessions"));
+  els.navAnalysis.addEventListener("click", () => setView("lap-analysis"));
+  els.topbarBack.addEventListener("click", () => setView("sessions"));
+  els.sessionsSelectionSummary.addEventListener("click", handleSessionsSummaryClick);
   els.sidebarToggle.addEventListener("click", () => togglePanel("sidebarCollapsed"));
   els.lapPanelToggle.addEventListener("click", () => togglePanel("lapListCollapsed"));
   els.summaryPanelToggle.addEventListener("click", () => togglePanel("summaryCollapsed"));
+  els.sessionFilters.addEventListener("click", handleSessionFilterClick);
+  els.sessionList.addEventListener("scroll", handleSessionListScroll);
+  els.lapSummary.addEventListener("click", handleLapSummaryClick);
   els.jsonToggle.addEventListener("click", () => {
     state.showJson = !state.showJson;
     renderLapTelemetry();
@@ -86,10 +108,12 @@ function bindEvents() {
 }
 
 async function refreshAll() {
+  state.view = "sessions";
   state.selectedSessionId = null;
   state.selectedLapId = null;
   state.detail = { status: "idle" };
   state.lapTelemetry = { status: "idle" };
+  state.comparisonEnabled = false;
   resetInteraction();
   setTopStatus("Loading");
   await Promise.all([loadSourceStatus(), loadSessions()]);
@@ -124,19 +148,17 @@ async function loadSessions() {
 
 async function selectSession(sessionId) {
   state.selectedSessionId = sessionId;
+  state.view = "lap-analysis";
   state.selectedLapId = null;
   state.detail = { status: "loading", sessionId };
   state.lapTelemetry = { status: "idle" };
+  state.comparisonEnabled = false;
   resetInteraction();
   setTopStatus("Loading session");
   render();
   const result = await api.loadSession(sessionId);
   if (result.ok) {
     state.detail = { status: "ready", data: result.data };
-    els.topTitle.textContent = formatSessionTitle(result.data.session);
-    if (els.topKicker) {
-      els.topKicker.textContent = "Phase 1 · Single Lap Viewer";
-    }
     setTopStatus("Session loaded");
   } else {
     state.detail = { status: "error", error: result.error };
@@ -149,6 +171,7 @@ async function selectLap(lap) {
   if (!lap.isValid || !state.selectedSessionId) return;
   state.selectedLapId = lap.lapId;
   state.lapTelemetry = { status: "loading", lapId: lap.lapId };
+  state.comparisonEnabled = false;
   state.showJson = false;
   resetInteraction();
   setTopStatus("Loading lap");
@@ -157,9 +180,6 @@ async function selectLap(lap) {
   const result = await api.loadLapRacingLine(state.selectedSessionId, lap.lapId);
   if (result.ok) {
     state.lapTelemetry = { status: "ready", data: result.data };
-    if (els.topKicker) {
-      els.topKicker.textContent = "Phase 1 · Actual Lap Analysis";
-    }
     setTopStatus("Lap loaded");
   } else {
     state.lapTelemetry = { status: "error", error: result.error };
@@ -169,12 +189,135 @@ async function selectLap(lap) {
 }
 
 function render() {
+  renderViewState();
   renderSourceStatus();
+  renderSessionsSelectionSummary();
+  renderSessionsBrowseSummary();
   renderSessionList();
   renderSessionDetail();
   renderLapList();
   renderLapTelemetry();
   renderPanelStates();
+}
+
+function setView(view) {
+  state.view = view;
+  render();
+}
+
+function renderViewState() {
+  const isSessionsView = state.view === "sessions";
+  els.sessionsView.classList.toggle("hidden", !isSessionsView);
+  els.analysisView.classList.toggle("hidden", isSessionsView);
+  els.navSessions.classList.toggle("active", isSessionsView);
+  els.navAnalysis.classList.toggle("active", !isSessionsView);
+  els.navAnalysis.disabled = !state.selectedSessionId;
+  els.navAnalysis.setAttribute("aria-disabled", String(!state.selectedSessionId));
+  renderTopbar();
+}
+
+function renderTopbar() {
+  if (state.view === "sessions") {
+    els.topKicker.textContent = "Phase 1.2 · Sessions";
+    els.topTitle.textContent = "Browse LMU Sessions";
+    els.topbarBack.classList.add("hidden");
+    if (state.sessions.status === "ready") {
+      setTopStatus(`${state.sessions.items.length} sessions`);
+    } else if (state.sessions.status === "loading") {
+      setTopStatus("Loading");
+    }
+    return;
+  }
+
+  els.topKicker.textContent = "Phase 1.2 · Lap Analysis";
+  els.topbarBack.classList.remove("hidden");
+  if (state.detail.status === "ready") {
+    els.topTitle.textContent = formatSessionTitle(state.detail.data.session);
+  } else if (state.detail.status === "loading") {
+    els.topTitle.textContent = "Loading session...";
+  } else {
+    els.topTitle.textContent = "Lap Analysis";
+  }
+}
+
+function renderSessionsSelectionSummary() {
+  const hasSelection = Boolean(state.selectedSessionId);
+  els.sessionsSelectionSummary.classList.toggle("hidden", !hasSelection);
+  if (!hasSelection) {
+    els.sessionsSelectionSummary.innerHTML = "";
+    return;
+  }
+
+  const selectedSession = state.sessions.items.find((session) => session.sessionId === state.selectedSessionId);
+  const title = selectedSession ? formatSessionTitle(selectedSession) : "Selected session";
+  const statusLabel = selectedSession?.status || "unknown";
+  const detailLabel =
+    state.detail.status === "ready"
+      ? `${state.detail.data.laps.length} laps ready for analysis`
+      : state.detail.status === "loading"
+        ? "Loading selected session..."
+        : "Return to Lap Analysis";
+
+  els.sessionsSelectionSummary.innerHTML = `
+    <div class="sessions-selection-copy">
+      <div class="panel-kicker">Selected Session</div>
+      <strong>${escapeHtml(title)}</strong>
+      <span>${escapeHtml(detailLabel)}</span>
+    </div>
+    <div class="sessions-selection-actions">
+      <span class="badge">${escapeHtml(statusLabel)}</span>
+      <button type="button" class="ghost-button" data-action="open-analysis">Open Analysis</button>
+    </div>
+  `;
+}
+
+function renderSessionsBrowseSummary() {
+  if (state.sessions.status !== "ready" || !state.sessions.items.length) {
+    els.sessionsBrowseSummary.classList.add("hidden");
+    els.sessionsBrowseSummary.innerHTML = "";
+    return;
+  }
+
+  const filteredSessions = applySessionFilters(state.sessions.items);
+  const counts = countSessionStates(filteredSessions);
+  const activeFilters = [];
+  if (state.sessionFilters.status !== "all") {
+    activeFilters.push(`Status: ${formatFilterLabel("status", state.sessionFilters.status)}`);
+  }
+  if (state.sessionFilters.sessionType !== "all") {
+    activeFilters.push(`Session: ${formatFilterLabel("sessionType", state.sessionFilters.sessionType)}`);
+  }
+
+  els.sessionsBrowseSummary.classList.remove("hidden");
+  els.sessionsBrowseSummary.innerHTML = `
+    <div class="sessions-browse-stat">
+      <span class="label">Showing</span>
+      <strong>${filteredSessions.length}</strong>
+    </div>
+    <div class="sessions-browse-stat">
+      <span class="label">Ready</span>
+      <strong>${counts.ready}</strong>
+    </div>
+    <div class="sessions-browse-stat">
+      <span class="label">Partial</span>
+      <strong>${counts.partial}</strong>
+    </div>
+    <div class="sessions-browse-stat">
+      <span class="label">Read issue</span>
+      <strong>${counts.error}</strong>
+    </div>
+    <div class="sessions-browse-hint">
+      ${escapeHtml(activeFilters.length ? activeFilters.join(" · ") : "Track-grouped browsing with lightweight filters")}
+    </div>
+  `;
+}
+
+function handleSessionsSummaryClick(event) {
+  const button = event.target.closest("[data-action='open-analysis']");
+  if (!button || !state.selectedSessionId) {
+    return;
+  }
+  setView("lap-analysis");
 }
 
 function renderSourceStatus() {
@@ -207,6 +350,7 @@ function renderSourceStatus() {
 }
 
 function renderSessionList() {
+  renderSessionFilters();
   if (state.sessions.status === "loading") {
     els.sessionList.innerHTML = '<div class="empty-state">Loading sessions...</div>';
     renderSessionPanelState();
@@ -222,8 +366,24 @@ function renderSessionList() {
     renderSessionPanelState();
     return;
   }
+  const filteredSessions = applySessionFilters(state.sessions.items);
+  if (!filteredSessions.length) {
+    els.sessionList.innerHTML = '<div class="empty-state">No sessions match the current filters.</div>';
+    renderSessionPanelState();
+    return;
+  }
   els.sessionList.innerHTML = "";
-  const groupedSessions = groupSessionsByTrackAndLayout(state.sessions.items);
+  const header = document.createElement("div");
+  header.className = "session-results-header";
+  header.innerHTML = `
+    <span>Session</span>
+    <span>Type</span>
+    <span>Car</span>
+    <span>Recorded</span>
+    <span>State</span>
+  `;
+  els.sessionList.appendChild(header);
+  const groupedSessions = groupSessionsByTrackAndLayout(filteredSessions);
   for (const trackGroup of groupedSessions) {
     const trackSection = document.createElement("section");
     trackSection.className = "session-track-group";
@@ -253,28 +413,148 @@ function renderSessionList() {
     els.sessionList.appendChild(trackSection);
   }
   renderSessionPanelState();
+  restoreSessionsBrowseContext();
+}
+
+function renderSessionFilters() {
+  if (state.sessions.status !== "ready" || !state.sessions.items.length) {
+    els.sessionFilters.innerHTML = "";
+    els.sessionFilters.classList.add("hidden");
+    return;
+  }
+
+  const statusOptions = buildFilterOptions(state.sessions.items, "status", [
+    "ready",
+    "partial",
+    "error",
+    "recording",
+  ]);
+  const sessionTypeOptions = buildFilterOptions(state.sessions.items, "sessionType", [
+    "race",
+    "qualifying",
+    "practice",
+    "test-day",
+    "unknown",
+  ]);
+
+  els.sessionFilters.classList.remove("hidden");
+  els.sessionFilters.innerHTML = `
+    <div class="filter-group">
+      <span class="filter-label">Status</span>
+      <div class="filter-chip-row">
+        ${renderFilterChip("status", "all", "All", state.sessionFilters.status === "all")}
+        ${statusOptions.map((option) => renderFilterChip("status", option.value, option.label, state.sessionFilters.status === option.value)).join("")}
+      </div>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Session</span>
+      <div class="filter-chip-row">
+        ${renderFilterChip("sessionType", "all", "All", state.sessionFilters.sessionType === "all")}
+        ${sessionTypeOptions.map((option) => renderFilterChip("sessionType", option.value, option.label, state.sessionFilters.sessionType === option.value)).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function handleSessionFilterClick(event) {
+  const button = event.target.closest("[data-filter-kind]");
+  if (!button) {
+    return;
+  }
+  const kind = button.dataset.filterKind;
+  const value = button.dataset.filterValue;
+  if (!kind || !value || !(kind in state.sessionFilters)) {
+    return;
+  }
+  state.sessionFilters[kind] = value;
+  renderSessionsBrowseSummary();
+  renderSessionList();
+}
+
+function handleLapSummaryClick(event) {
+  const button = event.target.closest("[data-action='toggle-comparison']");
+  if (!button || state.lapTelemetry.status !== "ready") {
+    return;
+  }
+  const comparison = state.lapTelemetry.data?.comparison;
+  if (!comparison || comparison.status !== "available") {
+    return;
+  }
+  state.comparisonEnabled = !state.comparisonEnabled;
+  renderLapTelemetry();
+}
+
+function handleSessionListScroll() {
+  if (state.view !== "sessions") {
+    return;
+  }
+  state.sessionsScrollTop = els.sessionList.scrollTop;
+}
+
+function restoreSessionsBrowseContext() {
+  if (state.view !== "sessions") {
+    return;
+  }
+  requestAnimationFrame(() => {
+    els.sessionList.scrollTop = state.sessionsScrollTop;
+    const selectedSessionId = state.selectedSessionId || "";
+    if (!selectedSessionId) {
+      return;
+    }
+    const selectedRow = els.sessionList.querySelector(`[data-session-id="${CSS.escape(selectedSessionId)}"]`);
+    if (!selectedRow) {
+      return;
+    }
+    const listRect = els.sessionList.getBoundingClientRect();
+    const rowRect = selectedRow.getBoundingClientRect();
+    const isAbove = rowRect.top < listRect.top;
+    const isBelow = rowRect.bottom > listRect.bottom;
+    if (state.sessionsScrollTop === 0 && (isAbove || isBelow)) {
+      selectedRow.scrollIntoView({ block: "nearest" });
+    }
+  });
+}
+
+function renderFilterChip(kind, value, label, isActive) {
+  return `<button type="button" class="filter-chip ${isActive ? "active" : ""}" data-filter-kind="${escapeHtml(kind)}" data-filter-value="${escapeHtml(value)}">${escapeHtml(label)}</button>`;
 }
 
 function renderSessionCard(session) {
   const button = document.createElement("button");
   const isError = session.status === "error";
-  button.className = `session-card ${session.sessionId === state.selectedSessionId ? "active" : ""} ${isError ? "error" : ""}`;
+  const isSelected = session.sessionId === state.selectedSessionId;
+  button.className = `session-card session-row ${isSelected ? "active" : ""} ${isError ? "error" : ""}`;
   button.type = "button";
-  button.disabled = false;
+  button.dataset.sessionId = session.sessionId;
+  button.disabled = isError;
+  button.setAttribute("aria-disabled", String(isError));
   const sessionStatusLabel = isError ? "Session read issue" : session.status || "unknown";
   const sessionMetaLine = isError
-    ? "This session could not be read fully. Try another recording."
-    : formatCar(session);
+    ? "Cannot open analysis for this recording"
+    : formatLayoutMeta(session);
+  const actionLabel = isError ? "Read issue" : isSelected ? "Selected" : "Open Analysis";
   button.innerHTML = `
-    <div class="session-title">${escapeHtml(formatSessionTitle(session))}</div>
-    <div class="session-meta">${escapeHtml(formatDate(session.modifiedAt))}</div>
-    <div class="session-meta">${escapeHtml(sessionMetaLine)}</div>
-    <div class="session-tags">
-      <span class="badge">${escapeHtml(session.sessionType || "unknown")}</span>
+    <div class="session-row-main">
+      <strong class="session-title">${escapeHtml(formatSessionTitle(session))}</strong>
+      <span class="session-meta">${escapeHtml(sessionMetaLine)}</span>
+    </div>
+    <div class="session-row-cell">
+      <span class="session-row-value">${escapeHtml(session.sessionType || "unknown")}</span>
+    </div>
+    <div class="session-row-cell">
+      <span class="session-row-value">${escapeHtml(formatCar(session))}</span>
+    </div>
+    <div class="session-row-cell">
+      <span class="session-row-value">${escapeHtml(formatDate(session.modifiedAt))}</span>
+    </div>
+    <div class="session-row-state">
       <span class="badge ${isError ? "invalid" : ""}">${escapeHtml(sessionStatusLabel)}</span>
+      <span class="session-row-action">${escapeHtml(actionLabel)}</span>
     </div>
   `;
-  button.addEventListener("click", () => selectSession(session.sessionId));
+  if (!isError) {
+    button.addEventListener("click", () => selectSession(session.sessionId));
+  }
   return button;
 }
 
@@ -299,8 +579,20 @@ function renderSessionDetail() {
   const laps = detail.data.laps;
   const valid = laps.filter((lap) => lap.isValid);
   const best = laps.find((lap) => lap.isBest);
+  const selectedLap = laps.find((lap) => lap.lapId === state.selectedLapId);
   els.sessionDetail.className = "";
   els.sessionDetail.innerHTML = `
+    <div class="analysis-context-banner">
+      <div class="analysis-context-copy">
+        <span class="badge">Opened from Sessions</span>
+        <strong>${escapeHtml(formatSessionTitle(session))}</strong>
+        <span>${escapeHtml(formatDate(session.modifiedAt) || "Recording time unavailable")}</span>
+      </div>
+      <div class="analysis-context-meta">
+        <span>${escapeHtml(selectedLap ? `Lap #${selectedLap.lapNumber}` : "No lap selected")}</span>
+        <span>${escapeHtml(session.status || "unknown")}</span>
+      </div>
+    </div>
     <h2>${escapeHtml(formatSessionTitle(session))}</h2>
     <div class="muted">${escapeHtml(formatCar(session))}</div>
     <div class="metric-grid">
@@ -328,8 +620,13 @@ function renderLapList() {
   for (const lap of detail.data.laps) {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = `lap-row ${lap.lapId === state.selectedLapId ? "active" : ""}`;
-    button.disabled = !lap.isValid;
+    const isInvalid = !lap.isValid;
+    button.className = `lap-row ${lap.lapId === state.selectedLapId ? "active" : ""} ${isInvalid ? "invalid-disabled" : ""}`;
+    button.disabled = false;
+    button.setAttribute("aria-disabled", String(isInvalid));
+    if (isInvalid) {
+      button.title = formatInvalidLapReason(lap);
+    }
     const status = lap.isBest
       ? '<span class="badge best">Best</span>'
       : lap.isValid
@@ -339,8 +636,13 @@ function renderLapList() {
       ? lap.validityReason || lap.lapKind || "Ready to analyse"
       : formatInvalidLapReason(lap);
     button.innerHTML = `
-      <strong>#${lap.lapNumber}</strong>
-      <span>${escapeHtml(formatLapTime(lap.lapTimeMs))}<br><span class="muted">${escapeHtml(lapReason)}</span></span>
+      <div class="lap-index">
+        <strong>#${lap.lapNumber}</strong>
+      </div>
+      <div class="lap-copy">
+        <span class="lap-time">${escapeHtml(formatLapTime(lap.lapTimeMs))}</span>
+        <span class="lap-reason ${isInvalid ? "invalid" : "muted"}">${escapeHtml(lapReason)}</span>
+      </div>
       ${status}
     `;
     button.addEventListener("click", () => selectLap(lap));
@@ -351,6 +653,7 @@ function renderLapList() {
 
 function renderLapTelemetry() {
   const telemetry = state.lapTelemetry;
+  renderTopbar();
   els.jsonToggle.disabled = telemetry.status !== "ready";
   if (telemetry.status === "idle") {
     racingCanvas.setData(null);
@@ -387,9 +690,10 @@ function renderLapTelemetry() {
   }
 
   const data = telemetry.data;
-  racingCanvas.setData(data);
+  const renderData = getRenderableLapTelemetry(data);
+  racingCanvas.setData(renderData);
   racingCanvas.setInteraction(state.interaction);
-  telemetryGraphs.setData(data);
+  telemetryGraphs.setData(renderData);
   telemetryGraphs.setInteraction(state.interaction);
 
   els.lapSummary.className = "";
@@ -405,6 +709,7 @@ function renderLapTelemetry() {
       <span class="badge ${modeTone}">${escapeHtml(formatModeLabel(data))}</span>
       <span class="muted">${escapeHtml(formatCoordinateMeta(data.coordinateStatus))}</span>
     </div>
+    ${renderComparisonSummary(data)}
     ${renderLapWarnings(data)}
     <div class="lap-summary-grid">
       <div class="metric"><label>Coordinates</label><strong>${escapeHtml(data.coordinateStatus.source)}</strong></div>
@@ -530,6 +835,7 @@ function renderActiveTelemetrySummary(data) {
     return;
   }
   const activePoint = state.interaction.activePoint;
+  const comparison = data.comparison;
   if (!activePoint || !Number.isFinite(state.interaction.activeDistanceM)) {
     mount.innerHTML = `
       <div class="active-telemetry-empty">
@@ -548,8 +854,47 @@ function renderActiveTelemetrySummary(data) {
       <div class="metric"><label>Speed</label><strong>${escapeHtml(formatSpeed(activePoint.speedKph))}</strong></div>
       <div class="metric"><label>Brake</label><strong>${escapeHtml(formatPercent(activePoint.brake01))}</strong></div>
       <div class="metric"><label>Throttle</label><strong>${escapeHtml(formatPercent(activePoint.throttle01))}</strong></div>
+      ${Number.isFinite(activePoint.steering01) ? `<div class="metric"><label>Steering</label><strong>${escapeHtml(formatPercent(activePoint.steering01))}</strong></div>` : ""}
       ${Number.isFinite(activePoint.gear) ? `<div class="metric"><label>Gear</label><strong>${escapeHtml(formatGear(activePoint.gear))}</strong></div>` : ""}
       ${Number.isFinite(activePoint.rpm) ? `<div class="metric"><label>RPM</label><strong>${escapeHtml(formatRpm(activePoint.rpm))}</strong></div>` : ""}
+      ${comparison?.status === "available" && state.comparisonEnabled ? `<div class="metric"><label>Best Lap</label><strong>${escapeHtml(`#${comparison.bestLap.lap.lapNumber}`)}</strong></div>` : ""}
+    </div>
+  `;
+}
+
+function getRenderableLapTelemetry(data) {
+  return {
+    ...data,
+    comparisonEnabled: Boolean(state.comparisonEnabled && data?.comparison?.status === "available"),
+  };
+}
+
+function renderComparisonSummary(data) {
+  const comparison = data.comparison;
+  if (!comparison) {
+    return "";
+  }
+  if (comparison.status !== "available" || !comparison.bestLap) {
+    return `
+      <div class="comparison-summary unavailable">
+        <div class="comparison-summary-copy">
+          <span class="badge">Best lap comparison</span>
+          <span class="muted">${escapeHtml(comparison.reason || "Best lap comparison unavailable")}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  const buttonLabel = state.comparisonEnabled ? "Hide Best Lap" : "Show Best Lap";
+  return `
+    <div class="comparison-summary">
+      <div class="comparison-summary-copy">
+        <span class="badge primary">Best lap comparison</span>
+        <span class="muted">${escapeHtml(`Best #${comparison.bestLap.lap.lapNumber} • ${formatLapTime(comparison.bestLap.lap.lapTimeMs)}`)}</span>
+      </div>
+      <button type="button" class="ghost-button comparison-toggle" data-action="toggle-comparison" aria-pressed="${state.comparisonEnabled}">
+        ${escapeHtml(buttonLabel)}
+      </button>
     </div>
   `;
 }
@@ -571,6 +916,7 @@ function resolveActivePoint(data, distanceM) {
       racingPoint?.throttle01,
       racingPoint?.throttle,
     ),
+    steering01: numberOr(point.steering01, point.steering, racingPoint?.steering01, racingPoint?.steering),
     gear: numberOr(point.gear),
     rpm: numberOr(point.rpm),
   };
@@ -667,8 +1013,45 @@ function groupSessionsByTrackAndLayout(sessions) {
   }));
 }
 
+function buildFilterOptions(items, key, orderedValues) {
+  const available = new Set(
+    items
+      .map((item) => normalizeFilterValue(item[key]))
+      .filter((value) => value !== "all"),
+  );
+  return orderedValues
+    .filter((value) => available.has(value))
+    .map((value) => ({ value, label: formatFilterLabel(key, value) }));
+}
+
+function applySessionFilters(items) {
+  return items.filter((session) => {
+    const status = normalizeFilterValue(session.status);
+    const sessionType = normalizeFilterValue(session.sessionType);
+    const statusMatches =
+      state.sessionFilters.status === "all" || status === state.sessionFilters.status;
+    const typeMatches =
+      state.sessionFilters.sessionType === "all" ||
+      sessionType === state.sessionFilters.sessionType;
+    return statusMatches && typeMatches;
+  });
+}
+
 function formatTrackLabel(session) {
   return session.track?.displayName || session.trackName || "Unknown Track";
+}
+
+function countSessionStates(items) {
+  return items.reduce(
+    (counts, session) => {
+      const status = normalizeFilterValue(session.status);
+      if (status in counts) {
+        counts[status] += 1;
+      }
+      return counts;
+    },
+    { ready: 0, partial: 0, error: 0 },
+  );
 }
 
 function formatLayoutLabel(session, trackLabel) {
@@ -683,6 +1066,33 @@ function formatCar(session) {
   const car = session.car?.displayName || "Unknown Car";
   const carClass = session.car?.carClass;
   return carClass ? `${car} - ${carClass}` : car;
+}
+
+function formatLayoutMeta(session) {
+  const layout = session.track?.layoutName || session.trackLayout || "";
+  if (!layout) {
+    return "Layout unavailable";
+  }
+  return layout;
+}
+
+function normalizeFilterValue(value) {
+  const text = String(value || "").trim().toLowerCase();
+  return text || "unknown";
+}
+
+function formatFilterLabel(kind, value) {
+  if (kind === "status") {
+    return value === "error" ? "Read issue" : capitalizeFilterLabel(value);
+  }
+  return value === "test-day" ? "Test day" : capitalizeFilterLabel(value);
+}
+
+function capitalizeFilterLabel(value) {
+  return value
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
 }
 
 function formatLapTime(ms) {
@@ -769,15 +1179,21 @@ function formatWarningMessage(warning) {
 
 function formatInvalidLapReason(lap) {
   if (lap?.lapTimeMs <= 0) {
-    return "This lap is invalid because lap time is missing or zero.";
+    return "Lap time unavailable";
   }
-  return lap?.validityReason || "This lap is invalid and cannot be analysed.";
+  if (lap?.validityReason) {
+    if (lap.validityReason.includes("missing or zero")) {
+      return "Lap time unavailable";
+    }
+    return lap.validityReason;
+  }
+  return "Cannot analyse this lap";
 }
 
 function formatLapLoadError(error) {
   switch (error?.code) {
     case "LAP_INVALID":
-      return "This lap is invalid because lap time is missing or zero.";
+      return "Cannot analyse this lap. Lap time is unavailable.";
     case "MISSING_DISTANCE":
       return "Distance data is missing, so this lap cannot be analysed.";
     default:
@@ -799,6 +1215,8 @@ function formatActiveSource(source) {
       return "Gear";
     case "rpm":
       return "RPM";
+    case "steering":
+      return "Steering";
     default:
       return "Hover";
   }

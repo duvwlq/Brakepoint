@@ -78,6 +78,10 @@ Rules:
 - do not show a track preview when coordinates are unavailable
 - Phase 1.1-B1 may group sessions by track and layout in the renderer
 - grouping must remain metadata-only and must not imply a track preview or map
+- Phase 1.1-B2 may add lite filters for session status and session type
+- B2 filters must stay renderer-local, compact, and non-invasive
+- B2 filters must not expand into search, saved filters, or dashboard-style
+  browsing controls
 
 ### 2.3 Session Detail
 
@@ -88,6 +92,16 @@ Show:
 - valid / invalid status
 - best lap badge when available
 - invalid reason
+
+Invalid lap presentation rules:
+
+- invalid laps remain visible in the lap list
+- invalid laps remain non-selectable
+- invalid laps should show a short reason such as `Lap time unavailable` or
+  `Cannot analyse this lap`
+- invalid styling should be clearly separate from valid or best-lap styling
+- invalid presentation should explain data availability without sounding like a
+  fatal app error
 
 ### 2.4 Lap Analysis
 
@@ -161,6 +175,8 @@ Phase 1.1-D1:
 - Gear stays inside an advanced or collapsible graph area
 - Speed / Brake / Throttle remain the default core graph set
 - missing Gear data must not block lap loading or hide the core graphs
+- when Gear is unavailable for a lap, show a compact non-blocking unavailable
+  state instead of pretending the graph exists
 
 Phase 1.1-D2:
 
@@ -168,6 +184,34 @@ Phase 1.1-D2:
 - RPM stays inside the same advanced or collapsible graph area as Gear
 - Gear behavior must remain unchanged
 - missing RPM data must not block lap loading or hide the core graphs
+- when only some advanced channels are available, the advanced section should
+  keep visible availability messaging without increasing default density
+
+Phase 1.1-D3:
+
+- Steering may be added as the third advanced graph channel
+- Steering stays inside the same advanced or collapsible graph area as Gear and RPM
+- Speed / Brake / Throttle remain the default core graph set
+- missing Steering data must not block lap loading or hide the core graphs
+- Steering should use the same distance X-axis and hover sync rules as the
+  other advanced graphs
+
+Phase 2-A:
+
+- `Current vs Best Minimal Overlay` stays inside the existing `Lap Analysis`
+  screen
+- current lap remains the primary subject
+- best lap is a secondary visual aid only
+- comparison uses the same-session best valid lap only
+- comparison toggle remains compact and non-dominant
+- comparison is off by default if that best preserves actual-lap-first reading
+- best lap overlay must not read as actual track geometry or a replacement
+  racing line
+- distance remains the comparison sync basis
+- comparison unavailable state should read like compact data availability, not a
+  fatal error
+- do not add Ghost, delta timeline, Loss Zone, Coach, replay controls, minimap,
+  corridor UI, or track-geometry UI in this slice
 
 Phase 1 boundary inside onboarding:
 
@@ -262,49 +306,78 @@ Modes:
 
 Warnings should not be overly alarming.
 They should be action-oriented and data-specific.
+They should read like data availability guidance, not fatal failure states.
 
 Examples:
 
-- `No coordinate channels were found. Racing line is unavailable.`
-- `Brake channel is missing. Brake graph is unavailable.`
+- `Coordinate data is unavailable. Showing graphs only.`
+- `Brake data is unavailable for this lap.`
 - `Coordinate confidence is low. Treat this line as approximate.`
 
 ## 7. Design Direction
 
-Brakepoint should feel like a focused dark telemetry analysis tool.
+Brakepoint should feel like a bright and trustworthy analysis app.
 
 Theme:
 
-- dark telemetry dashboard
-- compact but readable
-- racing red / blue / white palette
-- no marketing-style gradient overload
-- no childish colors
+- bright analysis application, not a racing game menu
+- card-first hierarchy with wide spacing
+- soft neutral background with clear white cards
+- strong but limited accent usage
+- telemetry line and graph colors stay semantic
+- no glossy marketing gradients
+- no childish saturation
+- no fake track-surface presentation
+
+Product reading order:
+
+- the user should understand the selected lap in under 5 seconds
+- the current thing to inspect should be visually obvious
+- the Racing Line remains the visual center
+- graphs remain supporting evidence
+- status and warning text should feel calm, explicit, and trustworthy
+
+Reference direction:
+
+- light fintech-style clarity
+- calm system status language
+- rounded controls and cards
+- large readable cards before dense debug detail
+- keep telemetry trust and racing-analysis semantics, not general lifestyle-app styling
 
 ## 8. Color Tokens
 
 ```ts
-background: '#0B0F14'
-panel: '#121821'
-primary: '#E60442'
-brake: '#EB2622'
-throttle: '#447FBC'
-secondaryBlue: '#447FBC'
-darkBlue: '#0A4E99'
-deepIndigo: '#424B78'
-softBlue: '#91B4D4'
-textPrimary: '#F6F7F7'
+background: '#F7F8FA'
+backgroundStrong: '#EEF2F6'
+panel: '#FFFFFF'
+panelStrong: '#FFFFFF'
+panelSoft: '#F9FBFD'
+border: '#E5EAF0'
+primary: '#3182F6'
+racingLine: '#1FC9C2'
+brake: '#E5484D'
+throttle: '#3B82F6'
+secondaryBlue: '#7FA8E8'
+deepIndigo: '#6B7280'
+softBlue: '#8B95A1'
+textPrimary: '#191F28'
+textSecondary: '#8B95A1'
 ```
 
 Semantic usage:
 
-- Red: brake, warning, strong active state
-- Blue: throttle, comparison-adjacent secondary data
-- White: selected current core value
-- Deep Indigo: disabled, muted, background line
-- Primary `#E60442`: selected session, selected lap, active cursor, active
-  badge, app accent
+- Primary `#3182F6`: selected navigation state, active filter, toggle accent,
+  compact CTA
 - Teal or cyan: actual lap racing line only, not general app primary
+- Red: brake and explicit warning emphasis only
+- Blue: throttle and comparison-adjacent secondary data
+- Deep neutral gray: disabled, muted, low-confidence treatment
+- Background should read as soft neutral app canvas, not paper-white and not
+  black
+- Panels should stay clearly separated from the page background through border,
+  spacing, and elevation rather than dark contrast
+- Warning banners should read as guidance cards, not error alarms
 
 ## 9. Future UX References
 

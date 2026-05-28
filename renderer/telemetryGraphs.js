@@ -2,17 +2,20 @@
 
 (function attachTelemetryGraphs(global) {
   const COLORS = {
-    speed: "#91B4D4",
-    brake: "#EB2622",
-    throttle: "#447FBC",
-    gear: "#F6F7F7",
-    rpm: "#D8E06F",
-    grid: "rgba(66, 75, 120, 0.18)",
-    muted: "rgba(246, 247, 247, 0.88)",
-    axis: "rgba(145, 180, 212, 0.3)",
-    cursor: "#E60442",
-    cursorGlow: "rgba(230, 4, 66, 0.24)",
-    cursorCore: "#F6F7F7",
+    speed: "#6D92B8",
+    brake: "#E5484D",
+    throttle: "#3B82F6",
+    gear: "#425466",
+    rpm: "#A2A83A",
+    steering: "#5E7CE2",
+    comparison: "rgba(25, 31, 40, 0.4)",
+    comparisonFill: "rgba(25, 31, 40, 0.04)",
+    grid: "rgba(25, 31, 40, 0.08)",
+    muted: "rgba(107, 114, 128, 0.9)",
+    axis: "rgba(25, 31, 40, 0.12)",
+    cursor: "#3182F6",
+    cursorGlow: "rgba(49, 130, 246, 0.18)",
+    cursorCore: "#FFFFFF",
   };
 
   const CORE_SERIES = [
@@ -24,6 +27,7 @@
   const ADVANCED_SERIES = [
     { key: "gear", id: "gear", label: "Gear", unit: "gear", color: COLORS.gear, fixedRange: null, renderMode: "step" },
     { key: "rpm", id: "rpm", label: "RPM", unit: "rpm", color: COLORS.rpm, fixedRange: null },
+    { key: "steering01", id: "steering", label: "Steering", unit: "0..1", color: COLORS.steering, fixedRange: [0, 1] },
   ];
 
   function createTelemetryGraphs(container, options = {}) {
@@ -49,15 +53,16 @@
     function render() {
       const data = state.data;
       const graphPoints = getGraphPoints(data);
+      const comparisonGraphPoints = getComparisonGraphPoints(data);
       state.pointsBySeries.clear();
-      const advancedSeries = getAvailableAdvancedSeries(graphPoints);
+      const advancedAvailability = getAdvancedAvailability(graphPoints);
 
       container.innerHTML = `
         <div class="graph-layout">
+          ${renderAdvancedSection(advancedAvailability, graphPoints, comparisonGraphPoints, state)}
           <div class="graph-stack">
-            ${CORE_SERIES.map((series) => renderSeriesCard(series, graphPoints, state)).join("")}
+            ${CORE_SERIES.map((series) => renderSeriesCard(series, graphPoints, comparisonGraphPoints, state)).join("")}
           </div>
-          ${renderAdvancedSection(advancedSeries, graphPoints, state)}
         </div>
       `;
       bindGraphEvents(graphPoints);
@@ -67,21 +72,14 @@
     function bindGraphEvents(graphPoints) {
       for (const series of [...CORE_SERIES, ...ADVANCED_SERIES]) {
         const svg = container.querySelector(`svg[data-series="${series.id}"]`);
-        if (!svg) {
-          continue;
-        }
-        const samples = state.pointsBySeries.get(series.id);
-        if (!samples || !samples.length) {
-          continue;
-        }
+        if (!svg) continue;
         svg.addEventListener("mousemove", (event) => {
           const rect = svg.getBoundingClientRect();
           const ratio = clamp((event.clientX - rect.left) / Math.max(rect.width, 1), 0, 1);
           const maxDistance = graphPoints.length ? graphPoints[graphPoints.length - 1].distanceM || 0 : 0;
           const hoveredDistance = ratio * maxDistance;
-          const nearest = findNearestByDistance(samples, hoveredDistance);
-          if (nearest && typeof state.onHoverDistance === "function") {
-            state.onHoverDistance(nearest.distanceM, series.id);
+          if (typeof state.onHoverDistance === "function") {
+            state.onHoverDistance(hoveredDistance, series.id);
           }
         });
         svg.addEventListener("mouseleave", () => {
@@ -94,9 +92,7 @@
 
     function bindAdvancedToggle() {
       const toggle = container.querySelector("[data-advanced-toggle]");
-      if (!toggle) {
-        return;
-      }
+      if (!toggle) return;
       toggle.addEventListener("click", () => {
         state.advancedExpanded = !state.advancedExpanded;
         render();
@@ -112,28 +108,34 @@
     };
   }
 
-  function renderAdvancedSection(advancedSeries, graphPoints, state) {
-    if (!advancedSeries.length) {
+  function renderAdvancedSection(advancedAvailability, graphPoints, comparisonGraphPoints, state) {
+    const { availableSeries, unavailableSeries } = advancedAvailability;
+    if (!availableSeries.length && !unavailableSeries.length) {
       return "";
     }
     const expanded = state.advancedExpanded;
+    const availabilityLabel = `${availableSeries.length} available`;
+    const unavailableLabel = unavailableSeries.length
+      ? `<span class="advanced-graphs-missing">${unavailableSeries.map((series) => `${series.label} unavailable`).join(" • ")}</span>`
+      : "";
     return `
       <section class="advanced-graphs ${expanded ? "expanded" : "collapsed"}">
         <div class="advanced-graphs-header">
-          <div>
+          <div class="advanced-graphs-copy">
             <strong>Advanced Graphs</strong>
-            <span>${advancedSeries.length} channel${advancedSeries.length > 1 ? "s" : ""} available</span>
+            <span>${availabilityLabel}</span>
+            ${unavailableLabel}
           </div>
           <button type="button" class="ghost-button advanced-graphs-toggle" data-advanced-toggle aria-expanded="${expanded}">
             ${expanded ? "Collapse" : "Expand"}
           </button>
         </div>
-        ${expanded ? `<div class="advanced-graphs-stack">${advancedSeries.map((series) => renderSeriesCard(series, graphPoints, state, "advanced")).join("")}</div>` : ""}
+        ${expanded ? `<div class="advanced-graphs-stack">${availableSeries.map((series) => renderSeriesCard(series, graphPoints, comparisonGraphPoints, state, "advanced")).join("")}</div>` : ""}
       </section>
     `;
   }
 
-  function renderSeriesCard(series, graphPoints, state, tone = "core") {
+  function renderSeriesCard(series, graphPoints, comparisonGraphPoints, state, tone = "core") {
     const header = `
       <div class="graph-card-header">
         <div>
@@ -168,12 +170,23 @@
       return `
         <section class="graph-panel ${series.id} ${tone}">
           ${header}
-          <div class="graph-empty">${series.label} data is unavailable. Other telemetry is still shown where possible.</div>
+          <div class="graph-empty">${series.label} unavailable</div>
         </section>
       `;
     }
 
-    const chart = buildChart(series, samples, graphPoints, state.interaction.activeDistanceM);
+    const comparisonSamples = comparisonGraphPoints.filter((point) => Number.isFinite(point[series.key]));
+    const chart = buildChart(
+      series,
+      samples,
+      comparisonSamples,
+      graphPoints,
+      state.interaction.activeDistanceM,
+    );
+    const comparisonLegend = chart.secondaryLinePath
+      ? '<span class="graph-comparison-note">Best lap overlay</span>'
+      : "";
+
     return `
       <section class="graph-panel ${series.id} ${tone}">
         ${header}
@@ -181,9 +194,12 @@
           <span>${escapeText(chart.rangeLabel)}</span>
           <span>${escapeText(chart.distanceLabel)}</span>
         </div>
+        ${comparisonLegend}
         <svg class="telemetry-chart" data-series="${series.id}" viewBox="0 0 640 144" preserveAspectRatio="none" aria-label="${series.label} graph">
           ${renderGrid(chart)}
+          ${chart.secondaryFillPath ? `<path class="graph-line graph-line-secondary-fill" d="${chart.secondaryFillPath}" fill="${COLORS.comparisonFill}"></path>` : ""}
           <path class="graph-fill" d="${chart.fillPath}" fill="${chart.fillColor}"></path>
+          ${chart.secondaryLinePath ? `<path class="graph-line graph-line-secondary" d="${chart.secondaryLinePath}" stroke="${COLORS.comparison}"></path>` : ""}
           <path class="graph-line" d="${chart.linePath}" stroke="${series.color}"></path>
           ${renderCursor(chart)}
           ${renderAxisLabels(chart)}
@@ -192,7 +208,7 @@
     `;
   }
 
-  function buildChart(series, samples, graphPoints, activeDistanceM) {
+  function buildChart(series, samples, comparisonSamples, graphPoints, activeDistanceM) {
     const width = 640;
     const height = 144;
     const padding = { top: 10, right: 12, bottom: 22, left: 12 };
@@ -201,8 +217,9 @@
     const maxDistance = Math.max(...graphPoints.map((point) => point.distanceM || 0), 0);
     const distanceSafe = maxDistance > 0 ? maxDistance : 1;
 
-    let minValue = Math.min(...samples.map((point) => point[series.key]));
-    let maxValue = Math.max(...samples.map((point) => point[series.key]));
+    const domainSamples = comparisonSamples.length ? samples.concat(comparisonSamples) : samples;
+    let minValue = Math.min(...domainSamples.map((point) => point[series.key]));
+    let maxValue = Math.max(...domainSamples.map((point) => point[series.key]));
     if (series.fixedRange) {
       [minValue, maxValue] = series.fixedRange;
     } else if (minValue === maxValue) {
@@ -225,12 +242,27 @@
       x: scaleX(point.distanceM || 0),
       y: scaleY(point[series.key]),
     }));
+    const comparisonPoints = comparisonSamples.map((point) => ({
+      sample: point,
+      x: scaleX(point.distanceM || 0),
+      y: scaleY(point[series.key]),
+    }));
     const linePath = buildPath(points, series.renderMode || "line");
+    const secondaryLinePath = comparisonPoints.length ? buildPath(comparisonPoints, series.renderMode || "line") : "";
     const baselineY = height - padding.bottom;
     const fillPath = `${linePath} L ${points[points.length - 1].x.toFixed(2)} ${baselineY.toFixed(2)} L ${points[0].x.toFixed(2)} ${baselineY.toFixed(2)} Z`;
+    const secondaryFillPath = comparisonPoints.length
+      ? `${secondaryLinePath} L ${comparisonPoints[comparisonPoints.length - 1].x.toFixed(2)} ${baselineY.toFixed(2)} L ${comparisonPoints[0].x.toFixed(2)} ${baselineY.toFixed(2)} Z`
+      : "";
     const activeSample = Number.isFinite(activeDistanceM) ? findNearestByDistance(samples, activeDistanceM) : null;
+    const activeComparisonSample = Number.isFinite(activeDistanceM)
+      ? findNearestByDistance(comparisonSamples, activeDistanceM)
+      : null;
     const activeCursor = activeSample
       ? { x: scaleX(activeSample.distanceM), y: scaleY(activeSample[series.key]), value: activeSample[series.key] }
+      : null;
+    const comparisonCursor = activeComparisonSample
+      ? { x: scaleX(activeComparisonSample.distanceM), y: scaleY(activeComparisonSample[series.key]), value: activeComparisonSample[series.key] }
       : null;
 
     return {
@@ -238,7 +270,9 @@
       height,
       padding,
       linePath,
+      secondaryLinePath,
       fillPath,
+      secondaryFillPath,
       fillColor: `${series.color}22`,
       rangeLabel: `${formatAxisValue(series, minValue)} to ${formatAxisValue(series, maxValue)}`,
       distanceLabel: `0m to ${Math.round(maxDistance)}m`,
@@ -251,10 +285,12 @@
       gridLines: [0.25, 0.5, 0.75].map((ratio) => padding.top + innerHeight * ratio),
       baselineY,
       activeCursor,
+      comparisonCursor,
     };
   }
 
   function buildPath(points, renderMode) {
+    if (!points.length) return "";
     if (renderMode === "step") {
       const commands = [];
       points.forEach((point, index) => {
@@ -288,13 +324,22 @@
 
   function renderCursor(chart) {
     if (!chart.activeCursor) {
-      return "";
+      return chart.comparisonCursor ? renderComparisonCursor(chart.comparisonCursor) : "";
     }
     return `
       <line x1="${chart.activeCursor.x.toFixed(2)}" y1="${chart.padding.top}" x2="${chart.activeCursor.x.toFixed(2)}" y2="${chart.baselineY}" stroke="${COLORS.cursorGlow}" stroke-width="7"></line>
       <line x1="${chart.activeCursor.x.toFixed(2)}" y1="${chart.padding.top}" x2="${chart.activeCursor.x.toFixed(2)}" y2="${chart.baselineY}" stroke="${COLORS.cursor}" stroke-width="2"></line>
       <circle cx="${chart.activeCursor.x.toFixed(2)}" cy="${chart.activeCursor.y.toFixed(2)}" r="6" fill="${COLORS.cursor}"></circle>
       <circle cx="${chart.activeCursor.x.toFixed(2)}" cy="${chart.activeCursor.y.toFixed(2)}" r="2.6" fill="${COLORS.cursorCore}"></circle>
+      ${chart.comparisonCursor ? renderComparisonCursor(chart.comparisonCursor) : ""}
+    `;
+  }
+
+  function renderComparisonCursor(cursor) {
+    return `
+      <circle cx="${cursor.x.toFixed(2)}" cy="${cursor.y.toFixed(2)}" r="4.8" fill="rgba(243, 246, 248, 0.16)"></circle>
+      <circle cx="${cursor.x.toFixed(2)}" cy="${cursor.y.toFixed(2)}" r="2.8" fill="${COLORS.cursorCore}"></circle>
+      <circle cx="${cursor.x.toFixed(2)}" cy="${cursor.y.toFixed(2)}" r="4.8" fill="none" stroke="rgba(243, 246, 248, 0.84)" stroke-width="1.5"></circle>
     `;
   }
 
@@ -313,6 +358,20 @@
       return normalizeGraphPoints(data.graphPoints);
     }
     return buildGraphPointsFromLegacyGraphs(data.graphs);
+  }
+
+  function getComparisonGraphPoints(data) {
+    if (!data?.comparisonEnabled) {
+      return [];
+    }
+    const comparison = data.comparison;
+    if (!comparison || comparison.status !== "available" || !comparison.bestLap) {
+      return [];
+    }
+    if (Array.isArray(comparison.bestLap.graphPoints) && comparison.bestLap.graphPoints.length) {
+      return normalizeGraphPoints(comparison.bestLap.graphPoints);
+    }
+    return [];
   }
 
   function buildGraphPointsFromLegacyGraphs(graphs) {
@@ -344,10 +403,17 @@
       .sort((left, right) => left.distanceM - right.distanceM);
   }
 
-  function getAvailableAdvancedSeries(graphPoints) {
-    return ADVANCED_SERIES.filter((series) =>
-      graphPoints.some((point) => Number.isFinite(point[series.key])),
-    );
+  function getAdvancedAvailability(graphPoints) {
+    const availableSeries = [];
+    const unavailableSeries = [];
+    ADVANCED_SERIES.forEach((series) => {
+      if (graphPoints.some((point) => Number.isFinite(point[series.key]))) {
+        availableSeries.push(series);
+      } else {
+        unavailableSeries.push(series);
+      }
+    });
+    return { availableSeries, unavailableSeries };
   }
 
   function findNearestByDistance(points, distanceM) {

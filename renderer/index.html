@@ -20,76 +20,98 @@
           </div>
           <button id="sidebar-toggle" class="ghost-button panel-toggle-button" aria-expanded="true">Collapse</button>
         </div>
+
         <div id="source-status" class="source-card skeleton">Loading telemetry source...</div>
-        <section class="panel session-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-kicker">LMU Sessions</div>
-              <h2>최근 주행 기록</h2>
-            </div>
-            <div class="panel-actions">
-              <button id="refresh-button" class="ghost-button">새로고침</button>
-            </div>
-          </div>
-          <div id="session-list" class="session-list"></div>
-        </section>
+
+        <nav class="sidebar-nav panel" aria-label="Primary Navigation">
+          <button id="nav-sessions" class="nav-link active" type="button">Sessions</button>
+          <button id="nav-analysis" class="nav-link" type="button">Lap Analysis</button>
+        </nav>
       </aside>
 
       <main class="workspace">
         <header class="topbar">
           <div>
-            <div id="top-kicker" class="brand-kicker">Phase 1 · Single Lap Viewer</div>
-            <h2 id="top-title">세션을 선택하세요</h2>
+            <div id="top-kicker" class="brand-kicker">Phase 1.2 Sessions</div>
+            <h2 id="top-title">Browse LMU Sessions</h2>
           </div>
-          <div id="top-status" class="status-pill">Ready</div>
+          <div class="topbar-actions">
+            <button id="topbar-back" class="ghost-button hidden" type="button">Back to Sessions</button>
+            <div id="top-status" class="status-pill">Ready</div>
+          </div>
         </header>
 
-        <section class="analysis-grid">
-          <section class="panel detail-panel">
-            <div class="panel-kicker">Current Context</div>
-            <div id="session-detail" class="empty-state">왼쪽 세션 카드에서 분석할 세션을 선택하세요.</div>
-          </section>
-
-          <section class="panel lap-panel">
+        <section id="sessions-view" class="workspace-view sessions-view">
+          <section class="panel sessions-workspace-panel">
             <div class="panel-header">
               <div>
-                <div class="panel-kicker">Lap Inspector</div>
-                <h2>랩 목록</h2>
-              </div>
-              <button id="lap-panel-toggle" class="ghost-button panel-toggle-button" aria-expanded="true">Collapse</button>
-            </div>
-            <div id="lap-panel-compact" class="compact-panel-summary hidden"></div>
-            <div id="lap-list" class="lap-list empty-state">세션을 선택하면 랩 목록이 표시됩니다.</div>
-          </section>
-
-          <section class="panel placeholder-panel">
-            <div class="panel-kicker">Racing Line Canvas</div>
-            <div class="placeholder-box">
-              <div class="placeholder-icon">BP</div>
-              <h3>Canvas Placeholder</h3>
-              <p>다음 단계에서 실제 racing line fit-to-view를 구현합니다.</p>
-            </div>
-          </section>
-
-          <section class="panel debug-panel">
-            <div class="panel-header">
-              <div>
-                <div class="panel-kicker">Selected Lap Inspector</div>
-                <h2>랩 데이터 요약</h2>
+                <div class="panel-kicker">LMU Sessions</div>
+                <h2>Sessions</h2>
               </div>
               <div class="panel-actions">
-                <button id="summary-panel-toggle" class="ghost-button panel-toggle-button" aria-expanded="true">Collapse</button>
-                <button id="json-toggle" class="ghost-button" disabled>Dev JSON</button>
+                <button id="refresh-button" class="ghost-button">Refresh</button>
               </div>
             </div>
-            <div id="lap-summary-compact" class="compact-panel-summary hidden"></div>
-            <div id="lap-summary" class="empty-state">유효 랩을 선택하면 데이터 요약이 표시됩니다.</div>
-            <pre id="json-debug" class="json-debug hidden"></pre>
+            <div id="sessions-selection-summary" class="sessions-selection-summary"></div>
+            <div id="sessions-browse-summary" class="sessions-browse-summary"></div>
+            <div id="session-filters" class="session-filters"></div>
+            <div id="session-list" class="session-list sessions-page-list"></div>
           </section>
+        </section>
 
-          <section class="panel graph-placeholder" id="graph-panel">
-            <div class="panel-kicker">Distance Graphs</div>
-            <div class="graph-cards"></div>
+        <section id="analysis-view" class="workspace-view analysis-view hidden">
+          <section class="analysis-grid">
+            <section class="panel detail-panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-kicker">Current Context</div>
+                  <h2>Session Overview</h2>
+                </div>
+              </div>
+              <div id="session-detail" class="empty-state">Select a session to inspect telemetry details.</div>
+            </section>
+
+            <section class="panel lap-panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-kicker">Lap Inspector</div>
+                  <h2>Lap List</h2>
+                </div>
+                <button id="lap-panel-toggle" class="ghost-button panel-toggle-button" aria-expanded="true">Collapse</button>
+              </div>
+              <div id="lap-panel-compact" class="compact-panel-summary hidden"></div>
+              <div id="lap-list" class="lap-list empty-state">Select a session to view laps.</div>
+            </section>
+
+            <section class="panel placeholder-panel">
+              <div class="panel-kicker">Racing Line Canvas</div>
+              <div class="placeholder-box">
+                <div class="placeholder-icon">BP</div>
+                <h3>Canvas Placeholder</h3>
+                <p>The actual racing line fit-to-view stays in Lap Analysis.</p>
+              </div>
+            </section>
+
+            <section class="panel debug-panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-kicker">Selected Lap Inspector</div>
+                  <h2>Lap Data Summary</h2>
+                </div>
+                <div class="panel-actions">
+                  <button id="summary-panel-toggle" class="ghost-button panel-toggle-button" aria-expanded="true">Collapse</button>
+                  <button id="json-toggle" class="ghost-button" disabled>Dev JSON</button>
+                </div>
+              </div>
+              <div id="lap-summary-compact" class="compact-panel-summary hidden"></div>
+              <div id="lap-summary" class="empty-state">Select a valid lap to inspect telemetry details.</div>
+              <pre id="json-debug" class="json-debug hidden"></pre>
+            </section>
+
+            <section class="panel graph-placeholder" id="graph-panel">
+              <div class="panel-kicker">Distance Graphs</div>
+              <div class="graph-cards"></div>
+            </section>
           </section>
         </section>
       </main>

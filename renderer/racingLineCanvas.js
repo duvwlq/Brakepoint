@@ -2,14 +2,14 @@
 
 (function attachRacingLineCanvas(global) {
   const COLORS = {
-    background: "#0B0F14",
-    baseStrong: "#00D7C7",
-    baseGlow: "rgba(0, 215, 199, 0.12)",
-    brake: "#EB2622",
-    primary: "#E60442",
-    lowConfidence: "#424B78",
-    throttle: "rgba(68, 127, 188, 0.38)",
-    subtleGrid: "rgba(145, 180, 212, 0.06)",
+    background: "#F9FBFD",
+    baseStrong: "#1FC9C2",
+    baseGlow: "rgba(31, 201, 194, 0.1)",
+    brake: "#E5484D",
+    primary: "#3182F6",
+    lowConfidence: "#8B95A1",
+    throttle: "rgba(59, 130, 246, 0.22)",
+    subtleGrid: "rgba(25, 31, 40, 0.05)",
   };
 
   function createRacingLineCanvas(container, options = {}) {
@@ -26,6 +26,7 @@
       </div>
       <div class="canvas-legend">
         <span><i class="legend-base"></i>Actual lap line</span>
+        <span class="legend-best hidden"><i class="legend-best-line"></i>Best lap</span>
         <span><i class="legend-brake"></i>Brake tick</span>
         <span><i class="legend-throttle"></i>Throttle marker</span>
         <span><i class="legend-start"></i>Start</span>
@@ -39,10 +40,12 @@
     const context = container.querySelector(".canvas-context");
     const controls = container.querySelector(".canvas-controls");
     const zoomReadout = container.querySelector(".canvas-zoom-readout");
+    const bestLegend = container.querySelector(".legend-best");
     const state = {
       data: null,
       interaction: { activeDistanceM: null, activeSource: null, activePoint: null },
       projectedPoints: [],
+      projectedBestPoints: [],
       bounds: null,
       baseTransform: null,
       initialBaseTransform: null,
@@ -104,6 +107,8 @@
 
       const data = state.data;
       if (!data) {
+        state.projectedBestPoints = [];
+        bestLegend.classList.add("hidden");
         updateControls();
         drawEmpty(ctx, width, height, "Select a valid lap to view the racing line.");
         return;
@@ -111,6 +116,8 @@
 
       if (data.mode !== "real-racing-line" || !Array.isArray(data.racingLine) || data.racingLine.length === 0) {
         resetViewport();
+        state.projectedBestPoints = [];
+        bestLegend.classList.add("hidden");
         updateControls();
         fallback.classList.remove("hidden");
         fallback.innerHTML = `
@@ -123,8 +130,11 @@
       }
 
       const points = normalizePoints(data.racingLine);
-      const bounds = computeBounds(points);
+      const bestPoints = getBestLapPoints(data);
+      const bounds = computeBounds(points.concat(bestPoints));
       if (!bounds) {
+        state.projectedBestPoints = [];
+        bestLegend.classList.add("hidden");
         updateControls();
         drawEmpty(ctx, width, height, "Unable to compute racing line bounds.");
         return;
@@ -139,15 +149,25 @@
         ...point,
         screen: projectPoint(point, state.baseTransform, state.viewport),
       }));
+      state.projectedBestPoints = bestPoints.map((point) => ({
+        ...point,
+        screen: projectPoint(point, state.baseTransform, state.viewport),
+      }));
+      bestLegend.classList.toggle("hidden", !state.projectedBestPoints.length);
 
       updateBadge(modeBadge, data);
       updateContext(context, data, state.projectedPoints);
       updateControls();
       drawDistanceMarkers(ctx, state.projectedPoints);
+      drawBestLapOverlay(ctx, state.projectedBestPoints);
       drawRacingLine(ctx, state.projectedPoints, data.coordinateStatus);
       drawDirectionMarkers(ctx, state.projectedPoints);
       drawStartEndMarkers(ctx, state.projectedPoints);
 
+      const activeBestPoint = findNearestByDistance(state.projectedBestPoints, state.interaction.activeDistanceM);
+      if (activeBestPoint) {
+        drawBestLapHover(ctx, activeBestPoint);
+      }
       const activeRenderedPoint = findNearestByDistance(state.projectedPoints, state.interaction.activeDistanceM);
       if (activeRenderedPoint) {
         drawHover(ctx, activeRenderedPoint);
@@ -403,9 +423,9 @@
 
   function drawBackground(ctx, width, height) {
     const gradient = ctx.createRadialGradient(width * 0.52, height * 0.44, 12, width * 0.52, height * 0.44, width * 0.78);
-    gradient.addColorStop(0, "rgba(0, 215, 199, 0.06)");
-    gradient.addColorStop(0.55, "rgba(68, 127, 188, 0.05)");
-    gradient.addColorStop(1, "rgba(5, 9, 18, 0)");
+    gradient.addColorStop(0, "rgba(31, 201, 194, 0.06)");
+    gradient.addColorStop(0.55, "rgba(49, 130, 246, 0.05)");
+    gradient.addColorStop(1, "rgba(247, 248, 250, 0)");
     ctx.fillStyle = COLORS.background;
     ctx.fillRect(0, 0, width, height);
     ctx.fillStyle = gradient;
@@ -429,7 +449,7 @@
 
   function drawEmpty(ctx, width, height, message) {
     ctx.save();
-    ctx.fillStyle = "rgba(145, 180, 212, 0.72)";
+    ctx.fillStyle = "rgba(107, 114, 128, 0.72)";
     ctx.font = "14px Segoe UI, sans-serif";
     ctx.textAlign = "center";
     ctx.fillText(message, width / 2, height / 2);
@@ -451,7 +471,7 @@
       for (let i = 1; i < points.length; i += 1) {
         ctx.lineTo(points[i].screen.x, points[i].screen.y);
       }
-      ctx.strokeStyle = "rgba(66, 75, 120, 0.94)";
+      ctx.strokeStyle = "rgba(139, 149, 161, 0.94)";
       ctx.lineWidth = 2.6;
       ctx.stroke();
       ctx.restore();
@@ -466,7 +486,7 @@
       ctx.beginPath();
       ctx.moveTo(previous.screen.x, previous.screen.y);
       ctx.lineTo(current.screen.x, current.screen.y);
-      ctx.strokeStyle = `rgba(68, 127, 188, ${Math.min(0.06 + throttle * 0.12, 0.16)})`;
+      ctx.strokeStyle = `rgba(59, 130, 246, ${Math.min(0.06 + throttle * 0.12, 0.16)})`;
       ctx.lineWidth = 2.8 + throttle * 1.1;
       ctx.stroke();
     }
@@ -502,6 +522,31 @@
     ctx.restore();
   }
 
+  function drawBestLapOverlay(ctx, points) {
+    if (points.length < 2) return;
+    ctx.save();
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.setLineDash([5, 7]);
+    ctx.beginPath();
+    ctx.moveTo(points[0].screen.x, points[0].screen.y);
+    for (let i = 1; i < points.length; i += 1) {
+      ctx.lineTo(points[i].screen.x, points[i].screen.y);
+    }
+    ctx.strokeStyle = "rgba(25, 31, 40, 0.36)";
+    ctx.lineWidth = 2.1;
+    ctx.stroke();
+    ctx.setLineDash([]);
+    for (let i = 0; i < points.length; i += Math.max(10, Math.floor(points.length / 42))) {
+      const point = points[i];
+      ctx.beginPath();
+      ctx.arc(point.screen.x, point.screen.y, 1.75, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(25, 31, 40, 0.4)";
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+
   function drawBrakeTick(ctx, a, b, intensity) {
     const dx = b.screen.x - a.screen.x;
     const dy = b.screen.y - a.screen.y;
@@ -515,7 +560,7 @@
     ctx.beginPath();
     ctx.moveTo(midX - nx * tick * 0.5, midY - ny * tick * 0.5);
     ctx.lineTo(midX + nx * tick, midY + ny * tick);
-    ctx.strokeStyle = `rgba(235, 38, 34, ${Math.min(0.45 + intensity * 0.45, 0.92)})`;
+    ctx.strokeStyle = `rgba(229, 72, 77, ${Math.min(0.45 + intensity * 0.45, 0.92)})`;
     ctx.lineWidth = 1.5 + intensity * 1.2;
     ctx.stroke();
   }
@@ -530,21 +575,21 @@
     ctx.fillStyle = COLORS.baseStrong;
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = "rgba(5, 9, 18, 0.92)";
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.92)";
     ctx.stroke();
 
-    ctx.fillStyle = "rgba(246, 247, 247, 0.92)";
+    ctx.fillStyle = "rgba(25, 31, 40, 0.82)";
     ctx.font = "11px Segoe UI, sans-serif";
     ctx.textAlign = "left";
     ctx.fillText("START", start.screen.x + 10, start.screen.y - 10);
 
     ctx.beginPath();
     ctx.arc(end.screen.x, end.screen.y, 4.2, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(246, 247, 247, 0.88)";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.92)";
     ctx.fill();
     ctx.beginPath();
     ctx.arc(end.screen.x, end.screen.y, 8.5, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(246, 247, 247, 0.26)";
+    ctx.strokeStyle = "rgba(25, 31, 40, 0.16)";
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.restore();
@@ -582,7 +627,7 @@
     ctx.lineTo(leftX, leftY);
     ctx.lineTo(rightX, rightY);
     ctx.closePath();
-    ctx.fillStyle = "rgba(246, 247, 247, 0.66)";
+      ctx.fillStyle = "rgba(139, 149, 161, 0.8)";
     ctx.fill();
   }
 
@@ -603,9 +648,9 @@
       }
       ctx.beginPath();
       ctx.arc(point.screen.x, point.screen.y, 2.2, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(145, 180, 212, 0.68)";
+      ctx.fillStyle = "rgba(107, 114, 128, 0.5)";
       ctx.fill();
-      ctx.fillStyle = "rgba(246, 247, 247, 0.82)";
+      ctx.fillStyle = "rgba(25, 31, 40, 0.72)";
       ctx.font = "10px Segoe UI, sans-serif";
       ctx.textAlign = "center";
       ctx.fillText(`${Math.round(nextMark)}m`, point.screen.x, point.screen.y - 10);
@@ -650,14 +695,43 @@
     ctx.save();
     ctx.beginPath();
     ctx.arc(point.screen.x, point.screen.y, 8.5, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(246, 247, 247, 0.96)";
-    ctx.shadowColor = "rgba(230, 4, 66, 0.36)";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.98)";
+    ctx.shadowColor = "rgba(49, 130, 246, 0.22)";
     ctx.shadowBlur = 18;
     ctx.fill();
     ctx.lineWidth = 3;
     ctx.strokeStyle = COLORS.primary;
     ctx.stroke();
     ctx.restore();
+  }
+
+  function drawBestLapHover(ctx, point) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(point.screen.x, point.screen.y, 5.2, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(49, 130, 246, 0.1)";
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "rgba(25, 31, 40, 0.38)";
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function getBestLapPoints(data) {
+    if (!data?.comparisonEnabled) {
+      return [];
+    }
+    const comparison = data.comparison;
+    if (!comparison || comparison.status !== "available" || !comparison.bestLap) {
+      return [];
+    }
+    if (comparison.bestLap.mode !== "real-racing-line") {
+      return [];
+    }
+    if (!Array.isArray(comparison.bestLap.racingLine)) {
+      return [];
+    }
+    return normalizePoints(comparison.bestLap.racingLine);
   }
 
   function positionTooltip(tooltip, screenPoint, telemetryPoint, width, height) {

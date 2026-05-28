@@ -1439,7 +1439,67 @@ class LmuDuckDbAdapter:
             session=session_detail["session"],
             lap=lap,
         )
+        telemetry["comparison"] = self.build_best_lap_comparison(
+            file_path=file_path,
+            session=session_detail["session"],
+            laps=session_detail["laps"],
+            selected_lap=lap,
+        )
         return telemetry
+
+    def build_best_lap_comparison(
+        self,
+        file_path: Path,
+        session: dict[str, Any],
+        laps: list[dict[str, Any]],
+        selected_lap: dict[str, Any],
+    ) -> dict[str, Any]:
+        if not selected_lap.get("isValid"):
+            return {
+                "status": "unavailable",
+                "reason": "Comparison requires a valid lap.",
+            }
+
+        best_lap = next(
+            (lap for lap in laps if lap.get("isBest") and lap.get("isValid")),
+            None,
+        )
+        if best_lap is None:
+            return {
+                "status": "unavailable",
+                "reason": "Best lap data is unavailable for this session.",
+            }
+
+        if best_lap.get("lapId") == selected_lap.get("lapId"):
+            return {
+                "status": "unavailable",
+                "reason": "Selected lap is already the best lap.",
+            }
+
+        try:
+            best_view = self.build_racing_line_view_data(
+                file_path=file_path,
+                session=session,
+                lap=best_lap,
+            )
+        except LmuDuckDbError:
+            return {
+                "status": "unavailable",
+                "reason": "Best lap comparison data is unavailable.",
+            }
+
+        return {
+            "status": "available",
+            "bestLap": {
+                "lap": best_view["lap"],
+                "mode": best_view["mode"],
+                "coordinateStatus": best_view["coordinateStatus"],
+                "sync": best_view["sync"],
+                "racingLine": best_view["racingLine"],
+                "graphPoints": best_view["graphPoints"],
+                "warnings": best_view["warnings"],
+            },
+        }
 
     def session_id_for_path(self, file_path: Path) -> str:
         try:
@@ -1892,6 +1952,13 @@ class LmuDuckDbAdapter:
 
         start_time_ms = safe_float(lap.get("startTimeMs"))
         end_time_ms = safe_float(lap.get("endTimeMs"))
+        lap_time_ms = safe_float(lap.get("lapTimeMs"))
+
+        if start_time_ms is None and end_time_ms is not None and lap_time_ms is not None:
+            start_time_ms = end_time_ms - lap_time_ms
+        if end_time_ms is None and start_time_ms is not None and lap_time_ms is not None:
+            end_time_ms = start_time_ms + lap_time_ms
+
         if start_time_ms is None or end_time_ms is None or end_time_ms <= start_time_ms:
             return []
 
