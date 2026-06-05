@@ -233,3 +233,28 @@ into a broad feature rewrite.
 - `reports/brakepoint_2_0_ia.md`
 - `reports/brakepoint_design_system.md`
 - `reports/lap_analysis_figma_brief.md`
+
+## Implementation Note: Lap Analysis Visual Slice
+
+The first implementation slice after the design-system documentation should
+stay visual-only.
+
+Approved shape:
+
+- keep the existing `Lap Analysis` behavior
+- keep Racing Line Canvas as the center of the page
+- keep Speed / Brake / Throttle as the core graph row
+- keep Gear / RPM / Steering inside the advanced graph section
+- place advanced graphs after the core graph row so they remain secondary
+- use brighter card surfaces, softer shadows, and calmer spacing
+
+Not approved in this slice:
+
+- new telemetry channels
+- new comparison analysis
+- Graph Analysis page implementation
+- Dashboard implementation
+- minimap
+- corridor UI
+- actual track boundary, gray surface, or track width UI
+- Ghost, Coach, Delta, Heatmap, or AI

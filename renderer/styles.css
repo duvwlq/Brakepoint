@@ -24,6 +24,9 @@
   --surface-overlay-strong: rgba(255, 255, 255, 1);
   --surface-overlay-soft: rgba(249, 251, 253, 0.96);
   --shadow: rgba(25, 31, 40, 0.08);
+  --shadow-soft: rgba(25, 31, 40, 0.06);
+  --radius-card: 22px;
+  --radius-section: 16px;
 }
 
 * {
@@ -105,7 +108,7 @@ button {
 }
 
 .workspace {
-  padding: 28px 32px;
+  padding: 26px 32px 28px;
   overflow: auto;
 }
 
@@ -242,11 +245,11 @@ h2 {
 
 .topbar {
   margin-bottom: 18px;
-  padding: 16px 18px;
+  padding: 18px 20px;
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: var(--radius-card);
   background: var(--surface-overlay);
-  box-shadow: 0 14px 32px var(--shadow);
+  box-shadow: 0 16px 36px var(--shadow-soft);
 }
 
 .status-pill,
@@ -287,9 +290,9 @@ h2 {
 .source-card,
 .panel {
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: var(--radius-card);
   background: var(--surface-overlay);
-  box-shadow: 0 24px 50px var(--shadow);
+  box-shadow: 0 18px 42px var(--shadow-soft);
 }
 
 .source-card {
@@ -556,8 +559,8 @@ h2 {
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(680px, 1fr) 360px;
-  grid-template-rows: 184px minmax(420px, 1fr) 292px;
-  gap: 16px;
+  grid-template-rows: 174px minmax(420px, 1fr) minmax(248px, 0.44fr);
+  gap: 18px;
   height: calc(100vh - 114px);
 }
 
@@ -569,6 +572,13 @@ h2 {
   padding: 18px;
   min-height: 0;
   overflow: hidden;
+}
+
+.detail-panel,
+.lap-panel,
+.debug-panel,
+.graph-placeholder {
+  background: var(--surface-overlay-strong);
 }
 
 .detail-panel {
@@ -610,6 +620,7 @@ h2 {
 .graph-placeholder {
   grid-column: 1 / span 2;
   grid-row: 3;
+  padding: 16px;
 }
 
 .empty-state {
@@ -632,7 +643,7 @@ h2 {
   margin-bottom: 14px;
   padding: 12px 14px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-section);
   background: rgba(247, 248, 250, 0.92);
 }
 
@@ -665,9 +676,9 @@ h2 {
 }
 
 .metric {
-  padding: 14px;
+  padding: 13px 14px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-section);
   background: rgba(249, 251, 253, 0.96);
 }
 
@@ -1121,7 +1132,7 @@ h2 {
 }
 
 .graph-cards {
-  height: calc(100% - 20px);
+  height: calc(100% - 22px);
   margin-top: 12px;
   min-height: 0;
   overflow-y: auto;
@@ -1131,7 +1142,7 @@ h2 {
 
 .graph-layout {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   min-height: 100%;
   align-content: start;
 }
@@ -1139,7 +1150,7 @@ h2 {
 .graph-stack {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
   min-height: 0;
 }
 
@@ -1148,9 +1159,9 @@ h2 {
   grid-template-rows: auto auto 1fr;
   gap: 6px;
   min-height: 0;
-  padding: 12px;
+  padding: 13px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-section);
   background: rgba(255, 255, 255, 0.98);
 }
 
@@ -1268,13 +1279,12 @@ h2 {
   gap: 8px;
   padding: 10px 12px;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-section);
+  background: rgba(249, 251, 253, 0.9);
 }
 
 .advanced-graphs.collapsed {
-  position: sticky;
-  top: 0;
+  position: static;
   z-index: 2;
 }
 

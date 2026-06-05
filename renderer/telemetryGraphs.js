@@ -59,10 +59,10 @@
 
       container.innerHTML = `
         <div class="graph-layout">
-          ${renderAdvancedSection(advancedAvailability, graphPoints, comparisonGraphPoints, state)}
           <div class="graph-stack">
             ${CORE_SERIES.map((series) => renderSeriesCard(series, graphPoints, comparisonGraphPoints, state)).join("")}
           </div>
+          ${renderAdvancedSection(advancedAvailability, graphPoints, comparisonGraphPoints, state)}
         </div>
       `;
       bindGraphEvents(graphPoints);
