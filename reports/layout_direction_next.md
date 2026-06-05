@@ -285,3 +285,27 @@ Not approved in this slice:
 - session quality scoring
 - Best Lap comparison expansion
 - Ghost, Coach, Delta, Heatmap, or AI
+
+## Implementation Note: App Shell Visual Slice
+
+The app shell may be visually polished only as support for the already split
+`Sessions` and `Lap Analysis` surfaces.
+
+Approved shape:
+
+- keep the existing two-page navigation behavior
+- keep source status visible in the left shell
+- keep sidebar collapse behavior unchanged
+- make the brand, source card, nav links, and topbar feel like one bright
+  product shell
+- use `brandAccent` for identity and `actionPrimary` for navigation state
+
+Not approved in this slice:
+
+- adding Dashboard as an implemented page
+- adding Graph Analysis as an implemented page
+- adding Settings as an implemented page
+- new navigation destinations without a separate scope decision
+- changing source detection behavior
+- hiding critical source missing states behind collapsed UI
+- comparison, coach, replay, minimap, corridor, or track geometry features
