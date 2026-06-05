@@ -227,3 +227,9 @@ If this direction is reopened for implementation, the safest first slice is:
 
 This keeps the IA change narrow and reduces the chance that layout work turns
 into a broad feature rewrite.
+
+## Related References
+
+- `reports/brakepoint_2_0_ia.md`
+- `reports/brakepoint_design_system.md`
+- `reports/lap_analysis_figma_brief.md`

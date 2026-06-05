@@ -354,10 +354,12 @@ panel: '#FFFFFF'
 panelStrong: '#FFFFFF'
 panelSoft: '#F9FBFD'
 border: '#E5EAF0'
-primary: '#3182F6'
-racingLine: '#1FC9C2'
-brake: '#E5484D'
-throttle: '#3B82F6'
+brandAccent: '#E60442'
+actionPrimary: '#3182F6'
+racingLine: '#19C7C0'
+bestLapOverlay: '#8FB6FF'
+brake: '#EB2622'
+throttle: '#447FBC'
 secondaryBlue: '#7FA8E8'
 deepIndigo: '#6B7280'
 softBlue: '#8B95A1'
@@ -367,11 +369,14 @@ textSecondary: '#8B95A1'
 
 Semantic usage:
 
-- Primary `#3182F6`: selected navigation state, active filter, toggle accent,
-  compact CTA
+- Brand accent `#E60442`: logo, best-lap emphasis, and limited product
+  signature moments
+- Action primary `#3182F6`: selected navigation state, active filter, toggle
+  accent, compact CTA
 - Teal or cyan: actual lap racing line only, not general app primary
-- Red: brake and explicit warning emphasis only
-- Blue: throttle and comparison-adjacent secondary data
+- Brake red: brake telemetry only
+- Throttle blue: throttle telemetry only
+- Best-lap overlay blue: secondary comparison guide only
 - Deep neutral gray: disabled, muted, low-confidence treatment
 - Background should read as soft neutral app canvas, not paper-white and not
   black

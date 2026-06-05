@@ -9,12 +9,21 @@ const powershellExe =
   process.env.SystemRoot &&
   path.join(process.env.SystemRoot, "System32", "WindowsPowerShell", "v1.0", "powershell.exe");
 
+function psSingleQuoted(value) {
+  return `'${value.replace(/'/g, "''")}'`;
+}
+
+const exePathLiteral = psSingleQuoted(exePath);
+const exeDirLiteral = psSingleQuoted(path.dirname(exePath));
+
 const script = [
-  `if (-not (Test-Path '${exePath}')) { Write-Error 'Packaged exe not found.'; exit 1 }`,
-  `$p = Start-Process -FilePath '${exePath}' -WorkingDirectory '${path.dirname(exePath)}' -PassThru`,
+  `$exePath = ${exePathLiteral}`,
+  `if (-not (Test-Path -LiteralPath $exePath)) { Write-Error 'Packaged exe not found.'; exit 1 }`,
+  `Start-Process -FilePath $exePath -WorkingDirectory ${exeDirLiteral} | Out-Null`,
   "Start-Sleep -Seconds 5",
-  "if (Get-Process -Id $p.Id -ErrorAction SilentlyContinue) {",
-  "  Stop-Process -Id $p.Id -Force",
+  "$processes = @(Get-Process -Name Brakepoint -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq $exePath })",
+  "if ($processes.Count -gt 0) {",
+  "  $processes | ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue }",
   `  Write-Output 'Packaged app launch verified: ${exePath}'`,
   "  exit 0",
   "}",
