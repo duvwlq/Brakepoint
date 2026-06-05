@@ -126,6 +126,8 @@ button {
   grid-template-rows: auto auto auto 1fr;
   gap: 0;
   height: 100%;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(249, 251, 253, 0.96));
 }
 
 .sessions-page-list {
@@ -138,11 +140,12 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 14px;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--surface-overlay-soft);
+  margin-top: 16px;
+  padding: 16px 18px;
+  border: 1px solid rgba(49, 130, 246, 0.16);
+  border-radius: var(--radius-section);
+  background:
+    linear-gradient(135deg, rgba(49, 130, 246, 0.08), rgba(255, 255, 255, 0.98) 58%);
 }
 
 .sessions-selection-copy {
@@ -168,19 +171,29 @@ button {
 .sessions-browse-summary {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, auto)) minmax(0, 1fr);
-  gap: 10px;
+  gap: 12px;
   align-items: center;
-  margin-top: 12px;
-  padding: 12px 14px;
+  margin-top: 14px;
+  padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--surface-overlay-soft);
+  border-radius: var(--radius-section);
+  background: rgba(255, 255, 255, 0.98);
 }
 
 .sessions-browse-stat,
 .sessions-browse-hint {
   display: grid;
   gap: 3px;
+}
+
+.sessions-browse-stat {
+  min-width: 74px;
+  padding-right: 12px;
+  border-right: 1px solid rgba(25, 31, 40, 0.07);
+}
+
+.sessions-browse-stat:nth-of-type(4) {
+  border-right: 0;
 }
 
 .sessions-browse-stat .label,
@@ -350,20 +363,25 @@ h2 {
 
 .session-list {
   height: calc(100% - 124px);
-  margin-top: 14px;
+  margin-top: 16px;
   overflow-y: auto;
-  padding-right: 6px;
+  padding: 0 8px 4px 0;
 }
 
 .session-filters {
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
   margin-top: 14px;
 }
 
 .filter-group {
   display: grid;
-  gap: 6px;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid rgba(25, 31, 40, 0.07);
+  border-radius: var(--radius-section);
+  background: rgba(249, 251, 253, 0.82);
 }
 
 .filter-label {
@@ -382,9 +400,9 @@ h2 {
 .filter-chip {
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 6px 10px;
+  padding: 7px 11px;
   color: var(--muted);
-  background: rgba(247, 248, 250, 0.98);
+  background: rgba(255, 255, 255, 0.98);
   font-size: 11px;
   cursor: pointer;
 }
@@ -397,6 +415,10 @@ h2 {
 
 .session-track-group {
   margin-bottom: 18px;
+  padding: 14px;
+  border: 1px solid rgba(25, 31, 40, 0.06);
+  border-radius: 18px;
+  background: rgba(249, 251, 253, 0.58);
 }
 
 .session-results-header {
@@ -406,10 +428,10 @@ h2 {
   display: grid;
   grid-template-columns: minmax(260px, 1.8fr) minmax(90px, 0.7fr) minmax(190px, 1.2fr) minmax(160px, 1fr) minmax(150px, 0.9fr);
   gap: 12px;
-  margin-bottom: 12px;
-  padding: 10px 14px;
+  margin-bottom: 14px;
+  padding: 11px 16px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.98);
   color: var(--muted);
   font-size: 11px;
@@ -422,13 +444,14 @@ h2 {
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 10px;
-  padding: 0 4px;
+  margin-bottom: 12px;
+  padding: 0 2px 10px;
+  border-bottom: 1px solid rgba(25, 31, 40, 0.06);
 }
 
 .session-track-header strong {
   color: var(--text);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -442,21 +465,23 @@ h2 {
 }
 
 .session-layout-label {
-  margin: 6px 4px 8px;
+  margin: 10px 4px 9px;
 }
 
 .session-card {
   width: 100%;
-  margin-bottom: 12px;
-  padding: 14px;
+  margin-bottom: 10px;
+  padding: 0;
   color: var(--text);
   text-align: left;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-section);
   background: rgba(255, 255, 255, 0.98);
   cursor: pointer;
+  box-shadow: 0 8px 20px rgba(25, 31, 40, 0.035);
   transition:
     border-color 140ms ease,
+    box-shadow 140ms ease,
     transform 140ms ease,
     background 140ms ease;
 }
@@ -474,12 +499,15 @@ h2 {
   transform: translateY(-1px);
   border-color: rgba(49, 130, 246, 0.24);
   background: rgba(247, 248, 250, 1);
+  box-shadow: 0 12px 26px rgba(25, 31, 40, 0.06);
 }
 
 .session-card.active {
   border-color: var(--primary);
   background: rgba(49, 130, 246, 0.06);
-  box-shadow: 0 0 0 1px rgba(49, 130, 246, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(49, 130, 246, 0.18),
+    0 14px 30px rgba(49, 130, 246, 0.1);
 }
 
 .session-card.error {
@@ -492,7 +520,7 @@ h2 {
   grid-template-columns: minmax(260px, 1.8fr) minmax(90px, 0.7fr) minmax(190px, 1.2fr) minmax(160px, 1fr) minmax(150px, 0.9fr);
   align-items: center;
   gap: 12px;
-  padding: 14px;
+  padding: 15px 16px;
 }
 
 .session-row-main,

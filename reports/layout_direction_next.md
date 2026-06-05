@@ -258,3 +258,30 @@ Not approved in this slice:
 - corridor UI
 - actual track boundary, gray surface, or track width UI
 - Ghost, Coach, Delta, Heatmap, or AI
+
+## Implementation Note: Sessions Visual Slice
+
+The next implementation slice may improve the existing `Sessions` page visual
+hierarchy without changing browsing behavior.
+
+Approved shape:
+
+- keep existing session discovery and grouping behavior
+- keep existing lightweight filters only
+- make the summary, filters, track groups, and rows read as one browsing
+  workspace
+- use brighter cards, subtle grouping containers, and clearer selected-row
+  emphasis
+- keep the path into `Lap Analysis` unchanged
+
+Not approved in this slice:
+
+- search
+- saved filters
+- new sort modes
+- pagination
+- Dashboard implementation
+- Graph Analysis implementation
+- session quality scoring
+- Best Lap comparison expansion
+- Ghost, Coach, Delta, Heatmap, or AI
