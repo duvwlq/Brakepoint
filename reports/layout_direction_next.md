@@ -309,3 +309,30 @@ Not approved in this slice:
 - changing source detection behavior
 - hiding critical source missing states behind collapsed UI
 - comparison, coach, replay, minimap, corridor, or track geometry features
+
+## Implementation Note: Empty / Fallback / Warning Tone Slice
+
+The empty, fallback, and warning states may be polished so the bright UI reads
+as a product surface instead of a system failure screen.
+
+Approved shape:
+
+- keep invalid laps visible but non-selectable
+- keep source missing and source unavailable states visible
+- keep no-coordinate laps in `distance-graph-only` mode
+- present missing coordinates, missing channels, invalid laps, and unavailable
+  advanced channels as data availability states
+- use calm amber/neutral surfaces for guidance states
+- keep fatal-looking red treatment only for truly destructive or blocking
+  product states
+
+Not approved in this slice:
+
+- making invalid laps analysable
+- fake graph or racing-line fallback data
+- changing telemetry generation, adapter behavior, API contracts, or data
+  contracts
+- minimap
+- corridor UI
+- actual track boundary, gray surface, or track width UI
+- Ghost, Coach, Delta, Heatmap, AI, or new graph channels

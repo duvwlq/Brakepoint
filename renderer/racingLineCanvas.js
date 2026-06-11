@@ -121,8 +121,8 @@
         updateControls();
         fallback.classList.remove("hidden");
         fallback.innerHTML = `
-          <strong>Coordinate Data Missing</strong>
-          <span>Coordinate data is missing. Showing distance-based graphs only.</span>
+          <strong>Coordinate data unavailable</strong>
+          <span>Showing distance-based graphs only.</span>
           <span>Brakepoint does not draw a fake track surface when coordinates are unavailable.</span>
         `;
         drawEmpty(ctx, width, height, "No racing line coordinates");

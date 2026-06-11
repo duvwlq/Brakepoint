@@ -329,14 +329,14 @@ function renderSourceStatus() {
   }
   if (source.status === "error") {
     els.sourceStatus.classList.add("critical");
-    els.sourceStatus.innerHTML = `<strong>Telemetry source error</strong><span class="error-text">${escapeHtml(source.error.message)}</span>`;
+    els.sourceStatus.innerHTML = `<strong>Telemetry source unavailable</strong><span class="error-text">${escapeHtml(source.error.message)}</span>`;
     return;
   }
   const data = source.data;
   if (source.status === "missing") {
     els.sourceStatus.classList.add("critical");
     els.sourceStatus.innerHTML = `
-      <strong>Telemetry folder not found</strong>
+      <strong>Telemetry folder unavailable</strong>
       <div>${escapeHtml(data.path || "-")}</div>
       <div>Check your LMU telemetry recording settings.</div>
     `;
@@ -357,12 +357,12 @@ function renderSessionList() {
     return;
   }
   if (state.sessions.status === "error") {
-    els.sessionList.innerHTML = `<div class="empty-state error-text">${escapeHtml(state.sessions.error.message)}</div>`;
+    els.sessionList.innerHTML = `<div class="empty-state error-text">Session list unavailable. ${escapeHtml(state.sessions.error.message)}</div>`;
     renderSessionPanelState();
     return;
   }
   if (!state.sessions.items.length) {
-    els.sessionList.innerHTML = '<div class="empty-state">No LMU telemetry sessions found. Drive a session in LMU with telemetry recording enabled.</div>';
+    els.sessionList.innerHTML = '<div class="empty-state">No telemetry sessions found. Drive in LMU with telemetry recording enabled.</div>';
     renderSessionPanelState();
     return;
   }
@@ -530,7 +530,7 @@ function renderSessionCard(session) {
   button.setAttribute("aria-disabled", String(isError));
   const sessionStatusLabel = isError ? "Session read issue" : session.status || "unknown";
   const sessionMetaLine = isError
-    ? "Cannot open analysis for this recording"
+    ? "Analysis unavailable for this recording"
     : formatLayoutMeta(session);
   const actionLabel = isError ? "Read issue" : isSelected ? "Selected" : "Open Analysis";
   button.innerHTML = `
@@ -572,7 +572,7 @@ function renderSessionDetail() {
   }
   if (detail.status === "error") {
     els.sessionDetail.className = "empty-state error-text";
-    els.sessionDetail.textContent = `Session data could not be loaded. ${detail.error.message}`;
+    els.sessionDetail.textContent = `Session details unavailable. ${detail.error.message}`;
     return;
   }
   const session = detail.data.session;
@@ -699,9 +699,9 @@ function renderLapTelemetry() {
   els.lapSummary.className = "";
   const modeTone =
     data.mode === "distance-graph-only"
-      ? "invalid"
+      ? "warning"
       : String(data.coordinateStatus?.confidence || "").toLowerCase() === "low"
-        ? "invalid"
+        ? "warning"
         : "primary";
   const graphPoints = getGraphPoints(data);
   els.lapSummary.innerHTML = `
@@ -1148,7 +1148,7 @@ function renderLapWarnings(data) {
   const warnings = Array.isArray(data.warnings) ? data.warnings : [];
   const items = [];
   if (data.mode === "distance-graph-only") {
-    items.push("Coordinate data is missing. Showing distance-based graphs only.");
+    items.push("Coordinate data is unavailable. Showing distance-based graphs only.");
   }
   for (const warning of warnings) {
     items.push(formatWarningMessage(warning));
@@ -1167,11 +1167,13 @@ function formatWarningMessage(warning) {
   const code = warning?.code || "";
   switch (code) {
     case "NO_COORDINATES":
-      return "Coordinate data is missing. Showing distance-based graphs only.";
+      return "Coordinate data is unavailable. Showing distance-based graphs only.";
     case "PARTIAL_CHANNELS":
       return "Some telemetry channels are missing. Available data is still shown.";
     case "LOW_CONFIDENCE_COORDINATES":
       return "Coordinate confidence is low. Treat this racing line as approximate.";
+    case "LAP_BOUNDARY_AMBIGUOUS":
+      return "Lap boundary is incomplete. Available session data is still shown.";
     default:
       return warning?.message || "Some telemetry data is incomplete. Available data is still shown.";
   }
@@ -1193,11 +1195,11 @@ function formatInvalidLapReason(lap) {
 function formatLapLoadError(error) {
   switch (error?.code) {
     case "LAP_INVALID":
-      return "Cannot analyse this lap. Lap time is unavailable.";
+      return "Lap analysis unavailable. Lap time is missing.";
     case "MISSING_DISTANCE":
-      return "Distance data is missing, so this lap cannot be analysed.";
+      return "Lap analysis unavailable. Distance data is missing.";
     default:
-      return error?.message || "Lap analysis could not be loaded.";
+      return error?.message || "Lap analysis unavailable.";
   }
 }
 
