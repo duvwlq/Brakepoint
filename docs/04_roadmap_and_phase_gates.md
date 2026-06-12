@@ -183,6 +183,41 @@ Entry Gate:
 - raw field를 UI에 직접 노출
 - cross-game comparison 기본 제공
 
+## 10.5. Harness Engineering Track
+
+Purpose:
+
+- keep the current Brakepoint baseline repeatedly verifiable before new product
+  features resume
+- cover normal, invalid, fallback, fixture, and packaged-app paths with cheap
+  smoke checks
+
+This is not a feature phase.
+
+Allowed:
+
+- fixture smoke matrix
+- bridge/API smoke checks
+- Electron launch probes
+- packaged app verification
+- human spot-check checklists
+- guardrail checks for forbidden UI drift
+
+Not allowed through this track:
+
+- new telemetry features
+- new graph channels
+- Best Lap expansion
+- Ghost, Coach, Delta, Heatmap, or AI
+- minimap
+- corridor UI
+- actual track boundary, gray surface, or track width UI
+- fake telemetry or fake track geometry
+
+Reference:
+
+- `reports/harness_engineering_transition.md`
+
 ## 11. Idea/Data Alignment Matrix
 
 모든 아이디어는 아래 항목을 통과해야 한다.

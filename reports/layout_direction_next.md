@@ -233,6 +233,7 @@ into a broad feature rewrite.
 - `reports/brakepoint_2_0_ia.md`
 - `reports/brakepoint_design_system.md`
 - `reports/lap_analysis_figma_brief.md`
+- `reports/harness_engineering_transition.md`
 
 ## Implementation Note: Lap Analysis Visual Slice
 
@@ -336,3 +337,22 @@ Not approved in this slice:
 - corridor UI
 - actual track boundary, gray surface, or track width UI
 - Ghost, Coach, Delta, Heatmap, AI, or new graph channels
+
+## Transition Note: Harness Engineering
+
+After the visual slices above, the next stable direction is harness
+engineering, not more feature work.
+
+Reason:
+
+- the current product surface has enough behavior to require repeatable
+  verification
+- normal, invalid, fallback, and packaged paths need cheap smoke coverage
+- future product work should start from a green harness baseline
+
+Next approved planning reference:
+
+- `reports/harness_engineering_transition.md`
+
+Do not open another product feature slice until the first harness slice is
+defined or implemented.
